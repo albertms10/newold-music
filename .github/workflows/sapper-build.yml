@@ -9,6 +9,8 @@ jobs:
       - uses: actions/checkout@master
       - name: Build Sapper
         uses: truewebartisans/actions-sapper@1.1.0
+        with:
+          args: "--basepath newold-music --legacy"
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
