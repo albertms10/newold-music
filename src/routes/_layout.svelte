@@ -5,12 +5,6 @@
   export let segment;
 </script>
 
-<svelte:head>
-  <link
-    rel="stylesheet"
-    href="https://unpkg.com/carbon-components/css/carbon-components.min.css" />
-</svelte:head>
-
 <Nav {segment} />
 
 <Content>
