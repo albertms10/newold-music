@@ -6,19 +6,22 @@
     HeaderNavMenu,
   } from "carbon-components-svelte";
 
+  $: getAriaCurrent = (href?: string) =>
+    segment === href ? "page" : undefined;
+
   export let segment;
 </script>
 
 <Header platformName="Newold Music">
   <HeaderNav>
+    <HeaderNavItem href="." text="Home" aria-current={getAriaCurrent()} />
     <HeaderNavItem
-      href="."
-      text="Home"
-      aria-current={segment === undefined ? 'page' : undefined} />
-
+      href="projects"
+      text="Projects"
+      aria-current={getAriaCurrent('projects')} />
     <HeaderNavItem
-      href="about"
-      text="About"
-      aria-current={segment === 'about' ? 'page' : undefined} />
+      href="shop"
+      text="Shop"
+      aria-current={getAriaCurrent('shop')} />
   </HeaderNav>
 </Header>
