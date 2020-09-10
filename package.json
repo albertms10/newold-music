@@ -1,6 +1,10 @@
 {
   "name": "newold-music",
   "description": "Newold Music project",
+  "author": {
+    "name": "Albert Mañosa",
+    "email": "albertmasa2@gmail.com"
+  },
   "version": "0.0.1",
   "license": "MIT",
   "homepage": "https://albertms10.github.io/newold-music/",
