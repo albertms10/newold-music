@@ -2,6 +2,12 @@
   "name": "newold-music",
   "description": "Newold Music project",
   "version": "0.0.1",
+  "license": "MIT",
+  "homepage": "https://albertms10.github.io/newold-music/",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/albertms10/newold-music.git"
+  },
   "scripts": {
     "dev": "sapper dev",
     "build": "sapper build --legacy",
