@@ -1,3 +1,5 @@
+import type { ServerResponse } from "http";
+import type { Next, Request } from "polka";
 import {
   getLocaleFromNavigator,
   init,
@@ -19,8 +21,8 @@ let currentLocale = null;
 register("ca", () => import("../public/lang/ca.json"));
 register("en", () => import("../public/lang/en.json"));
 
-$locale.subscribe((value) => {
-  if (value == null) return;
+$locale.subscribe((value: string) => {
+  if (!value) return;
 
   currentLocale = value;
 
@@ -34,12 +36,12 @@ export const startClient = () => {
   });
 };
 
-export function i18nMiddleware() {
+export const i18nMiddleware = () => {
   const DOCUMENT_REGEX = /^([^.?#@]+)?([?#](.+)?)?$/;
 
   init(INIT_OPTIONS);
 
-  return (req, res, next) => {
+  return (req: Request, res: ServerResponse, next: Next) => {
     const isDocument = DOCUMENT_REGEX.test(req.originalUrl);
 
     if (!isDocument) {
@@ -63,4 +65,4 @@ export function i18nMiddleware() {
 
     next();
   };
-}
+};
