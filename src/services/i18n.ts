@@ -16,7 +16,7 @@ const INIT_OPTIONS = {
   warnOnMissingMessages: true,
 };
 
-let currentLocale = null;
+let currentLocale: string = null;
 
 register("ca", () => import("../public/lang/ca.json"));
 register("en", () => import("../public/lang/en.json"));
@@ -44,10 +44,7 @@ export const i18nMiddleware = () => {
   return (req: Request, res: ServerResponse, next: Next) => {
     const isDocument = DOCUMENT_REGEX.test(req.originalUrl);
 
-    if (!isDocument) {
-      next();
-      return;
-    }
+    if (!isDocument) return next();
 
     let locale = getCookie("locale", req.headers.cookie);
 
@@ -59,9 +56,9 @@ export const i18nMiddleware = () => {
       } else {
         locale = INIT_OPTIONS.initialLocale || INIT_OPTIONS.fallbackLocale;
       }
+    } else if (locale !== currentLocale) {
+      $locale.set(locale);
     }
-
-    if (locale && locale !== currentLocale) $locale.set(locale);
 
     next();
   };
