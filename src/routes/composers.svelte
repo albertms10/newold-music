@@ -3,7 +3,7 @@
 </script>
 
 <svelte:head>
-  <title>{$_('routes.projects')} — Newold Music</title>
+  <title>{$_('routes.composers')} — Newold Music</title>
 </svelte:head>
 
-<h1>{$_('routes.projects')}</h1>
+<h1>{$_('routes.composers')}</h1>

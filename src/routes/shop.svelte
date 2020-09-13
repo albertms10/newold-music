@@ -1,5 +1,9 @@
+<script lang="ts">
+  import { _ } from "svelte-i18n";
+</script>
+
 <svelte:head>
-  <title>Shop — Newold Music</title>
+  <title>{$_('routes.shop')} — Newold Music</title>
 </svelte:head>
 
-<h1>Shop</h1>
+<h1>{$_('routes.shop')}</h1>
