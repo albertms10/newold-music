@@ -7,30 +7,25 @@
 
     %sapper.base%
 
-    <link rel="manifest" href="manifest.json" crossorigin="use-credentials" />
-    <link rel="icon" type="image/png" href="favicon.png" />
+    <link
+      rel="manifest"
+      id="manifest"
+      href="manifest-light.json"
+      crossorigin="use-credentials"
+    />
+    <link rel="icon" id="favicon" type="image/png" href="favicon-light.png" />
     <link
       rel="stylesheet"
       href="https://unpkg.com/carbon-components/css/carbon-components.min.css"
     />
 
-    <!-- Sapper creates a <script> tag containing `src/client.js`
-	     and anything else it needs to hydrate the app and
-	     initialise the router -->
     %sapper.scripts%
 
-    <!-- Sapper generates a <style> tag containing critical CSS
-	     for the current page. CSS for the rest of the app is
-	     lazily loaded when it precaches secondary pages -->
     %sapper.styles%
-
-    <!-- This contains the contents of the <svelte:head> component, if
-	     the current page has one -->
+    
     %sapper.head%
   </head>
   <body>
-    <!-- The application will be rendered inside this element,
-	     because `src/client.js` references it -->
     <div id="sapper">%sapper.html%</div>
   </body>
 </html>
