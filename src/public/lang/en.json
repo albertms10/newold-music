@@ -1,0 +1,11 @@
+{
+  "routes": {
+    "home": "Home",
+    "campaigns": "Campaings",
+    "mission": "Mission",
+    "composers": "Composers",
+    "shop": "Shop",
+    "feedback": "Feedback",
+    "contact": "Contact"
+  }
+}

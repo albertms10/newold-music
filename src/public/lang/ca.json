@@ -1,0 +1,11 @@
+{
+  "routes": {
+    "home": "Inici",
+    "campaigns": "Campanyes",
+    "mission": "Missió",
+    "composers": "Compositors",
+    "shop": "Botiga",
+    "feedback": "Suggeriments",
+    "contact": "Contacte"
+  }
+}
