@@ -6,7 +6,7 @@ import replace from "@rollup/plugin-replace";
 import svelte from "rollup-plugin-svelte";
 import { terser } from "rollup-plugin-terser";
 import typescript from "rollup-plugin-typescript2";
-import config from "sapper/config/rollup.js";
+import config from "sapper/config/rollup";
 import autoPreprocess from "svelte-preprocess";
 import pkg from "./package.json";
 
@@ -18,6 +18,7 @@ const onwarn = (warning, onwarn) =>
   (warning.code === "MISSING_EXPORT" && /'preload'/.test(warning.message)) ||
   (warning.code === "CIRCULAR_DEPENDENCY" &&
     /[/\\]@sapper[/\\]/.test(warning.message)) ||
+  warning.code === "THIS_IS_UNDEFINED" ||
   onwarn(warning);
 
 export default {
