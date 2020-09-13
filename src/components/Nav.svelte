@@ -1,6 +1,8 @@
 <script lang="ts">
   import { Header, HeaderNav, HeaderNavItem } from "carbon-components-svelte";
   import { _ } from "svelte-i18n";
+  import { setCookie } from "../modules/cookie";
+  import LocaleSwitcher from "./LocaleSwitcher.svelte";
 
   $: getAriaCurrent = (href?: string) =>
     segment === href ? "page" : undefined;
@@ -45,4 +47,9 @@
         aria-current={getAriaCurrent(route)} />
     {/each}
   </HeaderNav>
+
+  <div>
+    <LocaleSwitcher
+      on:locale-changed={(e) => setCookie('locale', e.detail.id)} />
+  </div>
 </Header>
