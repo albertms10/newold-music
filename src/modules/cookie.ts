@@ -24,7 +24,7 @@ export const setCookie = (
   if (options.expires instanceof Date)
     options.expires = options.expires.toUTCString();
 
-  let updatedCookie = {
+  const updatedCookie = {
     [encodeURIComponent(name)]: encodeURIComponent(value),
     sameSite: "strict",
     ...options,
