@@ -3,6 +3,7 @@
   import { _ } from "svelte-i18n";
   import { setCookie } from "../modules/cookie";
   import LocaleSwitcher from "./LocaleSwitcher.svelte";
+  import Social from "./Social.svelte";
 
   $: getAriaCurrent = (href?: string) =>
     segment === href ? "page" : undefined;
@@ -20,26 +21,31 @@
 </script>
 
 <style>
-  .logo {
-    height: 100%;
-    padding-top: 0.5rem;
-    padding-bottom: 0.5rem;
-    margin-right: 2rem;
+  .actions {
+    width: 100%;
+    padding-right: 1rem;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
   }
 
-  :global(.bx--header) {
-    height: 4rem;
+  .social {
+    margin-right: 1rem;
+  }
+
+  .locale-switcher {
+    width: 7rem;
+  }
+
+  :global(.bx--header__name) {
+    margin-left: 1rem;
+    padding-right: 0 !important;
+    width: 18rem;
   }
 </style>
 
-<Header platformName="">
-  <img class="logo" src="logo-dark-192.png" alt="Logo" />
+<Header platformName="Newold Music" href="." uiShellAriaLabel="Main">
   <HeaderNav>
-    <HeaderNavItem
-      href="."
-      text={$_('routes.home')}
-      aria-current={getAriaCurrent()} />
-
     {#each routes as route}
       <HeaderNavItem
         href={route}
@@ -48,8 +54,13 @@
     {/each}
   </HeaderNav>
 
-  <div>
-    <LocaleSwitcher
-      on:locale-changed={(e) => setCookie('locale', e.detail.id)} />
+  <div class="actions">
+    <div class="social">
+      <Social />
+    </div>
+    <div class="locale-switcher">
+      <LocaleSwitcher
+        on:locale-changed={(e) => setCookie('locale', e.detail.id)} />
+    </div>
   </div>
 </Header>
