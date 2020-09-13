@@ -42,7 +42,9 @@ export default {
       }),
       commonjs(),
       json(),
-      typescript(),
+      typescript({
+        objectHashIgnoreUnknownHack: true,
+      }),
 
       legacy &&
         babel({
@@ -97,7 +99,9 @@ export default {
       }),
       commonjs(),
       json(),
-      typescript(),
+      typescript({
+        objectHashIgnoreUnknownHack: true,
+      }),
     ],
     external: Object.keys(pkg.dependencies).concat(
       require("module").builtinModules
