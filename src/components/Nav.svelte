@@ -1,5 +1,12 @@
 <script lang="ts">
-  import { Header, HeaderNav, HeaderNavItem } from "carbon-components-svelte";
+  import {
+    Header,
+    HeaderNav,
+    HeaderNavItem,
+    SideNav,
+    SideNavItems,
+    SideNavLink,
+  } from "carbon-components-svelte";
   import { _ } from "svelte-i18n";
   import { setCookie } from "../modules/cookie";
   import LocaleSwitcher from "./LocaleSwitcher.svelte";
@@ -9,6 +16,8 @@
     segment === href ? "page" : undefined;
 
   export let segment: string;
+
+  let isSideNavOpen: boolean;
 
   const routes = [
     "campaigns",
@@ -44,7 +53,22 @@
   }
 </style>
 
-<Header platformName="Newold Music" href="." uiShellAriaLabel="Main">
+<Header
+  platformName="Newold Music"
+  href="."
+  uiShellAriaLabel="Main"
+  expandedByDefault={false}
+  bind:isSideNavOpen>
+  <SideNav fixed bind:isOpen={isSideNavOpen}>
+    <SideNavItems>
+      {#each routes as route}
+        <SideNavLink
+          href={route}
+          text={$_(`routes.${route}`)}
+          aria-current={getAriaCurrent(route)} />
+      {/each}
+    </SideNavItems>
+  </SideNav>
   <HeaderNav>
     {#each routes as route}
       <HeaderNavItem
