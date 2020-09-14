@@ -5,13 +5,13 @@
   import LogoInstagram16 from "carbon-icons-svelte/lib/LogoInstagram16";
   import LogoTwitter16 from "carbon-icons-svelte/lib/LogoTwitter16";
 
-  interface Icon {
+  interface SocialButton {
     icon: typeof CarbonIcon;
     iconDescription: string;
     href: string;
   }
 
-  const icons: Icon[] = [
+  const buttons: SocialButton[] = [
     {
       icon: LogoFacebook16,
       iconDescription: "Facebook",
@@ -31,7 +31,7 @@
 </script>
 
 <div>
-  {#each icons as { icon, iconDescription, href }}
+  {#each buttons as { icon, iconDescription, href }}
     <Button
       kind="secondary"
       size="small"
