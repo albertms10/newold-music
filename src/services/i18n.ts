@@ -18,15 +18,15 @@ const INIT_OPTIONS = {
 
 let currentLocale: string = null;
 
-register("ca-ES", () => import("../public/lang/ca-ES.json"));
+register("ca", () => import("../public/lang/ca.json"));
 register("en", () => import("../public/lang/en.json"));
 
-$locale.subscribe((value: string) => {
-  if (!value) return;
+$locale.subscribe((locale: string) => {
+  if (!locale) return;
 
-  currentLocale = value;
+  currentLocale = locale;
 
-  if (typeof window !== "undefined") setCookie("locale", value);
+  if (typeof window !== "undefined") setCookie("locale", locale);
 });
 
 export const startClient = () => {

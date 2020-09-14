@@ -10,13 +10,13 @@
   }
 
   const langs: Lang[] = [
-    { id: "ca-ES", text: "Català" },
+    { id: "ca", text: "Català" },
     { id: "en", text: "English" },
   ];
 
   export let locale: Lang["id"] = getCookie("locale");
 
-  $: selectedIndex = langs.findIndex((l) => l.id === locale);
+  $: selectedIndex = langs.findIndex((l) => l.id === locale.split("-")[0]);
 
   const dispatch = createEventDispatcher();
 

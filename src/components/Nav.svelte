@@ -34,7 +34,7 @@
   }
 
   .locale-switcher {
-    width: 7rem;
+    width: 8rem;
   }
 
   :global(.bx--header__name) {
