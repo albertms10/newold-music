@@ -16,22 +16,17 @@
   onMount(() => {
     const usesDarkMode =
       window.matchMedia("(prefers-color-scheme: dark)").matches || false;
-    const favicon = document.getElementById("favicon");
-    const manifest = document.getElementById("manifest");
+    const favicon = document.getElementById("favicon") as HTMLBaseElement;
+    const manifest = document.getElementById("manifest") as HTMLBaseElement;
 
     const switchIcon = (usesDarkMode: boolean) => {
-      if (usesDarkMode) {
-        favicon.href = "favicon-dark.png";
-        manifest.href = "manifest-dark.json";
-      } else {
-        favicon.href = "favicon-light.png";
-        manifest.href = "manifest-light.json";
-      }
+      favicon.href = `favicon-${usesDarkMode ? "dark" : "light"}.png`;
+      manifest.href = `manifest-${usesDarkMode ? "dark" : "light"}.json`;
     };
 
     window
       .matchMedia("(prefers-color-scheme: dark)")
-      .addEventListener("change", (e: Event) => switchIcon(e.matches));
+      .addEventListener("change", (e) => switchIcon(e.matches));
 
     switchIcon(usesDarkMode);
   });
