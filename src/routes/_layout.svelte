@@ -8,7 +8,8 @@
 
 <script lang="ts">
   import { onMount } from "svelte";
-  import { Content } from "carbon-components-svelte";
+  import { Content, Loading } from "carbon-components-svelte";
+  import { isLoading } from "svelte-i18n";
   import Nav from "../components/Nav.svelte";
 
   export let segment: string;
@@ -16,6 +17,7 @@
   onMount(() => {
     const usesDarkMode =
       window.matchMedia("(prefers-color-scheme: dark)").matches || false;
+
     const favicon = document.getElementById("favicon") as HTMLBaseElement;
     const manifest = document.getElementById("manifest") as HTMLBaseElement;
 
@@ -32,8 +34,12 @@
   });
 </script>
 
-<Nav {segment} />
+{#if $isLoading}
+  <Loading />
+{:else}
+  <Nav {segment} />
 
-<Content>
-  <slot />
-</Content>
+  <Content>
+    <slot />
+  </Content>
+{/if}
