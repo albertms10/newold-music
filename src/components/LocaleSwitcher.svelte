@@ -18,7 +18,7 @@
     { id: "it", text: "Italiano" },
   ];
 
-  export let locale: Lang["id"] = getCookie("locale");
+  export let locale: Lang["id"] = getCookie("locale") || langs[0].id;
 
   $: selectedIndex = langs.findIndex((l) => l.id === locale.split("-")[0]);
 
