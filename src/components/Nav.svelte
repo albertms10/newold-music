@@ -69,6 +69,7 @@
       {/each}
     </SideNavItems>
   </SideNav>
+
   <HeaderNav>
     {#each routes as route}
       <HeaderNavItem
