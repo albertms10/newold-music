@@ -11,7 +11,11 @@
 
   const langs: Lang[] = [
     { id: "ca", text: "Català" },
+    { id: "de", text: "Deutsch" },
     { id: "en", text: "English" },
+    { id: "es", text: "Español" },
+    { id: "fr", text: "Français" },
+    { id: "it", text: "Italiano" },
   ];
 
   export let locale: Lang["id"] = getCookie("locale");

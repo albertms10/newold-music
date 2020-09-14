@@ -19,7 +19,11 @@ const INIT_OPTIONS = {
 let currentLocale: string = null;
 
 register("ca", () => import("../public/lang/ca.json"));
+register("de", () => import("../public/lang/de.json"));
 register("en", () => import("../public/lang/en.json"));
+register("es", () => import("../public/lang/es.json"));
+register("fr", () => import("../public/lang/fr.json"));
+register("it", () => import("../public/lang/it.json"));
 
 $locale.subscribe((locale: string) => {
   if (!locale) return;

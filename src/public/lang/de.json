@@ -1,0 +1,11 @@
+{
+  "routes": {
+    "home": "Anfang",
+    "campaigns": "Glocken",
+    "mission": "Mission",
+    "composers": "Komponisten",
+    "shop": "Geschäft",
+    "feedback": "Vorschläge",
+    "contact": "Kontakt"
+  }
+}

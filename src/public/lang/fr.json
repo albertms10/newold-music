@@ -1,0 +1,11 @@
+{
+  "routes": {
+    "home": "Début",
+    "campaigns": "Cloches",
+    "mission": "Mission",
+    "composers": "Compositeurs",
+    "shop": "Boutique",
+    "feedback": "Suggestions",
+    "contact": "Contact"
+  }
+}
