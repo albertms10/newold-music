@@ -59,7 +59,7 @@
   uiShellAriaLabel="Main"
   expandedByDefault={false}
   bind:isSideNavOpen>
-  <SideNav fixed bind:isOpen={isSideNavOpen}>
+  <SideNav fixed bind:isOpen={isSideNavOpen} ariaLabel="Main">
     <SideNavItems>
       {#each routes as route}
         <SideNavLink
@@ -70,7 +70,7 @@
     </SideNavItems>
   </SideNav>
 
-  <HeaderNav>
+  <HeaderNav ariaLabel="Main">
     {#each routes as route}
       <HeaderNavItem
         href={route}
