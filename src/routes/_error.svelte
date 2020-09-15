@@ -1,4 +1,7 @@
 <script lang="ts">
+  import { Button } from "carbon-components-svelte";
+  import { _ } from "svelte-i18n";
+
   export let status: string;
   export let error: { message: string; stack: string };
 
@@ -16,3 +19,5 @@
 {#if dev && error.stack}
   <pre>{error.stack}</pre>
 {/if}
+
+<Button href="/newold-music">{$_('actions.go back home')}</Button>

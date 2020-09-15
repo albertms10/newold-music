@@ -7,5 +7,8 @@
     "shop": "Tienda",
     "feedback": "Sugerencias",
     "contact": "Contacto"
+  },
+  "actions": {
+    "go back home": "Volver al inicio"
   }
 }
