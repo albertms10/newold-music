@@ -34,12 +34,10 @@
   });
 </script>
 
-{#if $isLoading}
-  <Loading />
-{:else}
-  <Nav {segment} />
+<Loading small bind:active={$isLoading} />
 
-  <Content>
-    <slot />
-  </Content>
-{/if}
+<Nav {segment} />
+
+<Content>
+  <slot />
+</Content>
