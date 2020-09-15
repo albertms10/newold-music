@@ -1,12 +1,17 @@
 {
   "routes": {
     "home": "Accueil",
-    "campaigns": "Cloches",
+    "campaigns": "Campagne",
     "mission": "Mission",
     "composers": "Compositeurs",
     "shop": "Boutique",
     "feedback": "Suggestions",
     "contact": "Contact"
+  },
+  "numerable": {
+    "campaigns": "{n, plural, =0 {Sans campagnes} one {# campagne} other {# campagnes}}",
+    "composers": "{n, plural, =0 {Sans compositeurs} one {# compositeur} other {# compositeurs}}",
+    "works": "{n, plural, =0 {Sans œuvres} one {# œuvre} other {# œuvres}}"
   },
   "actions": {
     "go back home": "Retour à la page d’accueil"

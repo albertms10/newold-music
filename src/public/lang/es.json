@@ -8,6 +8,11 @@
     "feedback": "Sugerencias",
     "contact": "Contacto"
   },
+  "numerable": {
+    "campaigns": "{n, plural, =0 {Sin campañas} one {# campaña} other {# campañas}}",
+    "composers": "{n, plural, =0 {Sin compositores} one {# compositor} other {# compositores}}",
+    "works": "{n, plural, =0 {Sin obras} one {# obra} other {# obras}}"
+  },
   "actions": {
     "go back home": "Volver al inicio"
   }
