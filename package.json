@@ -22,10 +22,7 @@
     "test": "run-p --race dev cy:run"
   },
   "dependencies": {
-    "@polka/send-type": "^0.5.2",
-    "body-parser": "^1.19.0",
     "compression": "^1.7.4",
-    "graphql": "^15.3.0",
     "polka": "next",
     "sirv": "^1.0.6"
   },
