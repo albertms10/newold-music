@@ -20,6 +20,7 @@
   <Loading small />
 {:then { data }}
   <GridView
+    numerableName="composers"
     items={data.composer.map(({ id, name, surname }) => ({
       id,
       title: `${name} ${surname}`,
