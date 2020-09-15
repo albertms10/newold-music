@@ -18,6 +18,12 @@
   export let composerCache: ApolloQueryResult<Composer>;
 </script>
 
+<style>
+  h1 {
+    margin-bottom: 2rem;
+  }
+</style>
+
 <svelte:head>
   <title>{$_('routes.composers')} — Newold Music</title>
 </svelte:head>

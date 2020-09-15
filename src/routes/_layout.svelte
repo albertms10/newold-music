@@ -34,6 +34,14 @@
   });
 </script>
 
+<style>
+  :global(hr) {
+    border: 0;
+    height: 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+  }
+</style>
+
 <Loading small bind:active={$isLoading} />
 
 <Nav {segment} />
