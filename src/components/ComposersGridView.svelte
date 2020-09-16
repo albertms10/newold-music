@@ -1,7 +1,6 @@
 <script lang="ts">
   import type { ApolloQueryResult } from "apollo-boost";
   import { Loading } from "carbon-components-svelte";
-  import type { count } from "console";
   import { query, restore } from "svelte-apollo";
   import { _ } from "svelte-i18n";
   import GridView from "../components/GridView.svelte";
