@@ -2,6 +2,7 @@
   import type { ApolloQueryResult } from "apollo-boost";
   import { Loading } from "carbon-components-svelte";
   import { query, restore } from "svelte-apollo";
+  import { _ } from "svelte-i18n";
   import GridView from "../components/GridView.svelte";
   import { client } from "../database/apollo";
   import type { ComposerListQuery } from "../database/generated/operations";
@@ -22,8 +23,17 @@
 {:then { data }}
   <GridView
     numerableName="composers"
-    items={data.composer.map(({ id, name, surname }) => ({
+    items={data.composer.map(({ id, name, surname, roled_composers }) => ({
       id,
       title: `${name} ${surname}`,
+      meta: $_('numerable.works', {
+        values: {
+          n: roled_composers.reduce(
+            (prev, curr) =>
+              (prev || 0) + curr.work_roled_composers_aggregate.aggregate.count,
+            0
+          ),
+        },
+      }),
     }))} />
 {/await}
