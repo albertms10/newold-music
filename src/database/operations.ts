@@ -6,6 +6,13 @@ export const COMPOSER_LIST = gql`
       id
       name
       surname
+      roled_composers {
+        work_roled_composers_aggregate {
+          aggregate {
+            count(columns: work_id)
+          }
+        }
+      }
     }
   }
 `;
