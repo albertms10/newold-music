@@ -8,16 +8,24 @@
   const dev = process.env.NODE_ENV === "development";
 </script>
 
+<style>
+  .details {
+    margin-bottom: 1rem;
+  }
+</style>
+
 <svelte:head>
   <title>Error {status}</title>
 </svelte:head>
 
 <h1>{status}</h1>
 
-<p>{error.message}</p>
+<div class="details">
+  <p>{error.message}</p>
 
-{#if dev && error.stack}
-  <pre>{error.stack}</pre>
-{/if}
+  {#if dev && error.stack}
+    <pre>{error.stack}</pre>
+  {/if}
+</div>
 
 <Button href="/newold-music">{$_('actions.go back home')}</Button>
