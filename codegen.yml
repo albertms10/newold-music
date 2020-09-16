@@ -1,0 +1,12 @@
+overwrite: true
+schema: "https://premium-turtle-50.hasura.app/v1/graphql"
+documents: "src/**/*.graphql"
+generates:
+  src/database/generated/types.d.ts:
+    plugins:
+      - typescript
+  src/database/generated/operations.d.ts:
+    presetConfig:
+      baseTypesPath: src/database/generated/types.d.ts
+    plugins:
+      - typescript-operations
