@@ -1,18 +1,10 @@
 <script lang="ts">
   import { _ } from "svelte-i18n";
-  import GridViewTile from "./GridViewTile.svelte";
 
-  interface GridViewItem {
-    id: number | string;
-    title: string;
-    meta?: string;
-  }
-
-  export let items: GridViewItem[];
   export let numerableName: string;
-  export let count: number = undefined;
+  export let count: number = 0;
 
-  const n = count || items.length;
+  $: n = count;
 </script>
 
 <style>
@@ -45,8 +37,6 @@
   </p>
   <hr />
   <div class="items">
-    {#each items as { id, title, meta } (id)}
-      <GridViewTile {title} {meta} href={`composers/${id}`} />
-    {/each}
+    <slot>{$_('numerable.no items')}</slot>
   </div>
 </section>

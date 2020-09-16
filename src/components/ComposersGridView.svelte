@@ -1,6 +1,7 @@
 <script lang="ts">
   import type { ApolloQueryResult } from "apollo-boost";
   import { Loading } from "carbon-components-svelte";
+  import type { count } from "console";
   import { query, restore } from "svelte-apollo";
   import { _ } from "svelte-i18n";
   import GridView from "../components/GridView.svelte";
@@ -8,6 +9,7 @@
   import type { ComposerListQuery } from "../database/generated/operations";
   import type { Composer } from "../database/generated/types";
   import { COMPOSER_LIST } from "../database/operations";
+  import GridViewTile from "./GridViewTile.svelte";
 
   export let composerCache: ApolloQueryResult<Composer>;
 
@@ -16,24 +18,31 @@
   const composers = query<ComposerListQuery>(client, {
     query: COMPOSER_LIST,
   });
+
+  const numerableName = "composers";
 </script>
 
 {#await $composers}
   <Loading small />
-{:then { data }}
-  <GridView
-    numerableName="composers"
-    items={data.composer.map(({ id, name, surname, roled_composers }) => ({
-      id,
-      title: `${name} ${surname}`,
-      meta: $_('numerable.works', {
-        values: {
-          n: roled_composers.reduce(
-            (prev, curr) =>
-              (prev || 0) + curr.work_roled_composers_aggregate.aggregate.count,
-            0
-          ),
-        },
-      }),
-    }))} />
+{:then result}
+  {#if result && result.data && result.data.composer.length > 0}
+    <GridView {numerableName} count={result.data.composer.length}>
+      {#each result.data.composer as { id, name, surname, roled_composers } (id)}
+        <GridViewTile
+          title={`${name} ${surname}`}
+          meta={$_('numerable.works', {
+            values: {
+              n: roled_composers.reduce(
+                (prev, curr) =>
+                  prev + curr.work_roled_composers_aggregate.aggregate.count,
+                0
+              ),
+            },
+          })}
+          href={`composers/${id}`} />
+      {/each}
+    </GridView>
+  {:else}
+    <GridView {numerableName} />
+  {/if}
 {/await}
