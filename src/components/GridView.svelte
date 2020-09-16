@@ -9,8 +9,8 @@
   }
 
   export let items: GridViewItem[];
-  export let count: number;
   export let numerableName: string;
+  export let count: number = undefined;
 
   const n = count || items.length;
 </script>
