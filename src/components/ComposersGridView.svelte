@@ -4,14 +4,15 @@
   import { query, restore } from "svelte-apollo";
   import GridView from "../components/GridView.svelte";
   import { client } from "../database/apollo";
-  import type { Composer } from "../database/model";
-  import { COMPOSER_LIST } from "../database/queries";
+  import type { ComposerListQuery } from "../database/generated/operations";
+  import type { Composer } from "../database/generated/types";
+  import { COMPOSER_LIST } from "../database/operations";
 
   export let composerCache: ApolloQueryResult<Composer>;
 
   restore(client, COMPOSER_LIST, composerCache.data);
 
-  const composers = query<{ composer: Composer[] }>(client, {
+  const composers = query<ComposerListQuery>(client, {
     query: COMPOSER_LIST,
   });
 </script>
