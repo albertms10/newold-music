@@ -9,6 +9,7 @@
     "contact": "Kontakt"
   },
   "numerable": {
+    "no items": "Keine elemente",
     "campaigns": "{n, plural, =0 {Ohne Kampagnen} one {# Kampagne} other {# Kampagnen}}",
     "composers": "{n, plural, =0 {Ohne Komponisten} one {# Komponiste} other {# Komponisten}}",
     "works": "{n, plural, =0 {Ohne Werke} one {# Werk} other {# Werke}}"
