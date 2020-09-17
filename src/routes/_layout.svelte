@@ -7,10 +7,18 @@
 </script>
 
 <script lang="ts">
+  import { stores } from "@sapper/app";
   import { Content, Loading } from "carbon-components-svelte";
   import Nav from "components/Nav.svelte";
   import { onMount } from "svelte";
-  import { isLoading } from "svelte-i18n";
+  import { isLoading as isLoadingLocale } from "svelte-i18n";
+  import { derived } from "svelte/store";
+
+  const { preloading } = stores();
+
+  const delayedPreloading = derived(preloading, (currentPreloading, set) => {
+    setTimeout(() => set(currentPreloading), 250);
+  });
 
   export let segment: string;
 
@@ -47,7 +55,9 @@
   }
 </style>
 
-<Loading small bind:active={$isLoading} />
+{#if $isLoadingLocale || ($preloading && $delayedPreloading)}
+  <Loading small />
+{/if}
 
 <Nav {segment} />
 
