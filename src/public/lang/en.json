@@ -9,7 +9,7 @@
     "contact": "Contact"
   },
   "numerable": {
-    "no items": "No items",
+    "items": "{n, plural, =0 {No items} one {# item} other {# items}}",
     "campaigns": "{n, plural, =0 {No campaigns} one {# campaign} other {# campaigns}}",
     "composers": "{n, plural, =0 {No composers} one {# composer} other {# composers}}",
     "works": "{n, plural, =0 {No works} one {# work} other {# works}}"

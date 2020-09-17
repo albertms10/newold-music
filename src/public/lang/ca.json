@@ -9,7 +9,7 @@
     "contact": "Contacte"
   },
   "numerable": {
-    "no items": "Sense ítems",
+    "items": "{n, plural, =0 {Sense items} one {# ítem} other {# items}}",
     "campaigns": "{n, plural, =0 {Sense campanyes} one {# campanya} other {# campanyes}}",
     "composers": "{n, plural, =0 {Sense compositors} one {# compositor} other {# compositors}}",
     "works": "{n, plural, =0 {Sense obres} one {# obra} other {# obres}}"
