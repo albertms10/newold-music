@@ -11,9 +11,9 @@
 
 <script lang="ts">
   import type { ApolloQueryResult } from "apollo-boost";
-  import { _ } from "svelte-i18n";
   import ComposersGridView from "components/ComposersGridView.svelte";
   import type { Composer } from "database/generated/types";
+  import { _ } from "svelte-i18n";
 
   export let composerCache: ApolloQueryResult<Composer>;
 </script>
