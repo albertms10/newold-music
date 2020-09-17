@@ -1,8 +1,10 @@
+import alias from "@rollup/plugin-alias";
 import babel from "@rollup/plugin-babel";
 import commonjs from "@rollup/plugin-commonjs";
 import json from "@rollup/plugin-json";
 import resolve from "@rollup/plugin-node-resolve";
 import replace from "@rollup/plugin-replace";
+import path from "path";
 import svelte from "rollup-plugin-svelte";
 import { terser } from "rollup-plugin-terser";
 import typescript from "rollup-plugin-typescript2";
@@ -21,6 +23,18 @@ const onwarn = (warning, onwarn) =>
   warning.code === "THIS_IS_UNDEFINED" ||
   onwarn(warning);
 
+const aliases = alias({
+  resolve: [".svelte", ".ts"],
+  entries: {
+    components: path.resolve(__dirname, "src/components"),
+    database: path.resolve(__dirname, "src/database"),
+    modules: path.resolve(__dirname, "src/modules"),
+    public: path.resolve(__dirname, "src/public"),
+    routes: path.resolve(__dirname, "src/routes"),
+    services: path.resolve(__dirname, "src/services"),
+  },
+});
+
 export default {
   client: {
     input: config.client.input().replace(/\.js$/, ".ts"),
@@ -36,6 +50,7 @@ export default {
         preprocess: autoPreprocess(),
         dev,
       }),
+      aliases,
       resolve({
         browser: true,
         dedupe: ["svelte"],
@@ -70,10 +85,7 @@ export default {
           ],
         }),
 
-      !dev &&
-        terser({
-          module: true,
-        }),
+      !dev && terser({ module: true }),
     ],
 
     preserveEntrySignatures: false,
@@ -94,6 +106,7 @@ export default {
         preprocess: autoPreprocess(),
         dev,
       }),
+      aliases,
       resolve({
         dedupe: ["svelte"],
       }),
@@ -125,6 +138,7 @@ export default {
         objectHashIgnoreUnknownHack: true,
       }),
       !dev && terser(),
+      aliases,
     ],
 
     preserveEntrySignatures: false,
