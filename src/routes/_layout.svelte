@@ -31,6 +31,11 @@
       .addEventListener("change", (e) => switchIcon(e.matches));
 
     switchIcon(usesDarkMode);
+
+    window.onunhandledrejection = (e: PromiseRejectionEvent) => {
+      console.log("Unhandled rejection", e);
+      window.location.href = "/oi-oi-oi";
+    };
   });
 </script>
 
