@@ -8,6 +8,14 @@
       "webworker"
     ],
     "resolveJsonModule": true,
+    "baseUrl": "./",
+    "paths": {
+      "components/*": ["src/components/*"],
+      "database/*": ["src/database/*"],
+      "modules/*": ["src/modules/*"],
+      "public/*": ["src/public/*"],
+      "routes/*": ["src/routes/*"]
+    },
     "types": [
       "svelte",
       "node",
