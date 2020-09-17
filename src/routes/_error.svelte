@@ -2,8 +2,9 @@
   import { Button } from "carbon-components-svelte";
   import { _ } from "svelte-i18n";
 
-  export let status: string;
+  export let status: number;
   export let error: { message: string; stack: string };
+  export let baseUrl: string = "/newold-music";
 
   const dev = process.env.NODE_ENV === "development";
 </script>
@@ -15,7 +16,7 @@
 </style>
 
 <svelte:head>
-  <title>Error {status}</title>
+  <title>{status} — Newold Music</title>
 </svelte:head>
 
 <h1>{status}</h1>
@@ -28,4 +29,4 @@
   {/if}
 </div>
 
-<Button href="/newold-music">{$_('actions.go back home')}</Button>
+<Button href={baseUrl}>{$_('actions.go back home')}</Button>
