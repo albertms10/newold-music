@@ -29,7 +29,7 @@
       {#each result.data.composer as { id, name, surname, roled_composers } (id)}
         <GridViewTile
           title={`${name} ${surname}`}
-          meta={$_('numerable.works', {
+          detail={$_('numerable.works', {
             values: {
               n: roled_composers.reduce(
                 (prev, curr) =>
