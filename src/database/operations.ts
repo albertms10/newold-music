@@ -32,3 +32,26 @@ export const COMPOSERS_LIST = gql`
     }
   }
 `;
+
+export const COMPOSER_INFO = gql`
+  query ComposerInfo($id: Int!) {
+    composers_by_pk(id: $id) {
+      id
+      name
+      surname
+      roled_composers {
+        composer_role {
+          id
+          role
+        }
+        work_roled_composers {
+          work {
+            id
+            duration
+            title
+          }
+        }
+      }
+    }
+  }
+`;

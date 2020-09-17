@@ -16,6 +16,32 @@ export type CampaignsListQuery = (
   )> }
 );
 
+export type ComposerInfoQueryVariables = Exact<{
+  id: Scalars['Int'];
+}>;
+
+
+export type ComposerInfoQuery = (
+  { __typename?: 'query_root' }
+  & { composers_by_pk?: Maybe<(
+    { __typename?: 'composers' }
+    & Pick<Composers, 'id' | 'name' | 'surname'>
+    & { roled_composers: Array<(
+      { __typename?: 'roled_composers' }
+      & { composer_role: (
+        { __typename?: 'composers_roles' }
+        & Pick<Composers_Roles, 'id' | 'role'>
+      ), work_roled_composers: Array<(
+        { __typename?: 'works_roled_composers' }
+        & { work: (
+          { __typename?: 'works' }
+          & Pick<Works, 'id' | 'duration' | 'title'>
+        ) }
+      )> }
+    )> }
+  )> }
+);
+
 export type ComposersListQueryVariables = Exact<{ [key: string]: never; }>;
 
 
