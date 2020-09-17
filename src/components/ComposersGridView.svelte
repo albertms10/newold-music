@@ -1,14 +1,14 @@
 <script lang="ts">
   import type { ApolloQueryResult } from "apollo-boost";
   import { Loading } from "carbon-components-svelte";
+  import GridView from "components/GridView.svelte";
+  import GridViewTile from "components/GridViewTile.svelte";
+  import { client } from "database/apollo";
+  import type { ComposerListQuery } from "database/generated/operations";
+  import type { Composer } from "database/generated/types";
+  import { COMPOSER_LIST } from "database/operations";
   import { query, restore } from "svelte-apollo";
   import { _ } from "svelte-i18n";
-  import GridView from "../components/GridView.svelte";
-  import { client } from "../database/apollo";
-  import type { ComposerListQuery } from "../database/generated/operations";
-  import type { Composer } from "../database/generated/types";
-  import { COMPOSER_LIST } from "../database/operations";
-  import GridViewTile from "./GridViewTile.svelte";
 
   export let composerCache: ApolloQueryResult<Composer>;
 

@@ -7,15 +7,15 @@
     SideNavItems,
     SideNavLink,
   } from "carbon-components-svelte";
+  import { setCookie } from "modules/cookie";
   import { _ } from "svelte-i18n";
-  import { setCookie } from "../modules/cookie";
   import LocaleSwitcher from "./LocaleSwitcher.svelte";
   import Social from "./Social.svelte";
 
+  export let segment: string;
+
   $: getAriaCurrent = (href?: string) =>
     segment === href ? "page" : undefined;
-
-  export let segment: string;
 
   let isSideNavOpen: boolean;
 

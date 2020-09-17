@@ -7,10 +7,10 @@
 </script>
 
 <script lang="ts">
-  import { onMount } from "svelte";
   import { Content, Loading } from "carbon-components-svelte";
+  import Nav from "components/Nav.svelte";
+  import { onMount } from "svelte";
   import { isLoading } from "svelte-i18n";
-  import Nav from "../components/Nav.svelte";
 
   export let segment: string;
 

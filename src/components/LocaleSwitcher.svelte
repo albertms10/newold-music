@@ -1,8 +1,8 @@
 <script lang="ts">
-  import { createEventDispatcher } from "svelte";
   import { Dropdown } from "carbon-components-svelte";
-  import { getCookie } from "../modules/cookie";
-  import { startClient } from "../services/i18n";
+  import { getCookie } from "modules/cookie";
+  import { startClient } from "services/i18n";
+  import { createEventDispatcher } from "svelte";
 
   interface Lang {
     id: string;
