@@ -1,3 +1,17 @@
+query CampaignList {
+  campaign {
+    id
+    title
+    description
+    created_at
+    campaign_contributors_aggregate {
+      aggregate {
+        count
+      }
+    }
+  }
+}
+
 query ComposerList {
   composer(order_by: [{ surname: asc, name: asc }]) {
     id
@@ -6,7 +20,7 @@ query ComposerList {
     roled_composers {
       work_roled_composers_aggregate {
         aggregate {
-          count(columns: work_id)
+          count
         }
       }
     }

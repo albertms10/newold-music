@@ -1,3 +1,21 @@
+export type CampaignListQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type CampaignListQuery = (
+  { __typename?: 'query_root' }
+  & { campaign: Array<(
+    { __typename?: 'campaign' }
+    & Pick<Campaign, 'id' | 'title' | 'description' | 'created_at'>
+    & { campaign_contributors_aggregate: (
+      { __typename?: 'campaign_contributor_aggregate' }
+      & { aggregate?: Maybe<(
+        { __typename?: 'campaign_contributor_aggregate_fields' }
+        & Pick<Campaign_Contributor_Aggregate_Fields, 'count'>
+      )> }
+    ) }
+  )> }
+);
+
 export type ComposerListQueryVariables = Exact<{ [key: string]: never; }>;
 
 
