@@ -65,7 +65,8 @@
         <SideNavLink
           href={route}
           text={$_(`routes.${route}`)}
-          aria-current={getAriaCurrent(route)} />
+          aria-current={getAriaCurrent(route)}
+          on:click={() => (isSideNavOpen = !isSideNavOpen)} />
       {/each}
     </SideNavItems>
   </SideNav>
