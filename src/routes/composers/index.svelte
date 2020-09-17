@@ -1,6 +1,6 @@
 <script context="module">
-  import { client } from "../database/apollo";
-  import { COMPOSER_LIST } from "../database/operations";
+  import { client } from "database/apollo";
+  import { COMPOSER_LIST } from "database/operations";
 
   export async function preload() {
     return {
@@ -12,8 +12,8 @@
 <script lang="ts">
   import type { ApolloQueryResult } from "apollo-boost";
   import { _ } from "svelte-i18n";
-  import ComposersGridView from "../components/ComposersGridView.svelte";
-  import type { Composer } from "../database/generated/types";
+  import ComposersGridView from "components/ComposersGridView.svelte";
+  import type { Composer } from "database/generated/types";
 
   export let composerCache: ApolloQueryResult<Composer>;
 </script>
