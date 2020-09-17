@@ -1,10 +1,10 @@
 <script context="module">
   import { client } from "database/apollo";
-  import { COMPOSER_LIST } from "database/operations";
+  import { COMPOSERS_LIST } from "database/operations";
 
   export async function preload() {
     return {
-      composerCache: await client.query({ query: COMPOSER_LIST }),
+      composersCache: await client.query({ query: COMPOSERS_LIST }),
     };
   }
 </script>
@@ -12,10 +12,10 @@
 <script lang="ts">
   import type { ApolloQueryResult } from "apollo-boost";
   import ComposersGridView from "components/ComposersGridView.svelte";
-  import type { Composer } from "database/generated/types";
+  import type { Composers } from "database/generated/types";
   import { _ } from "svelte-i18n";
 
-  export let composerCache: ApolloQueryResult<Composer>;
+  export let composersCache: ApolloQueryResult<Composers>;
 </script>
 
 <style>
@@ -30,4 +30,4 @@
 
 <h1>{$_('routes.composers')}</h1>
 
-<ComposersGridView bind:composerCache />
+<ComposersGridView bind:composersCache />

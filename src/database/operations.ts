@@ -1,8 +1,8 @@
 import gql from "graphql-tag";
 
-export const CAMPAIGN_LIST = gql`
-  query CampaignList {
-    campaign {
+export const CAMPAIGNS_LIST = gql`
+  query CampaignsList {
+    campaigns {
       id
       title
       description
@@ -16,9 +16,9 @@ export const CAMPAIGN_LIST = gql`
   }
 `;
 
-export const COMPOSER_LIST = gql`
-  query ComposerList {
-    composer(order_by: [{ surname: asc, name: asc }]) {
+export const COMPOSERS_LIST = gql`
+  query ComposersList {
+    composers(order_by: [{ surname: asc, name: asc }]) {
       id
       name
       surname

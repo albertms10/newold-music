@@ -4,18 +4,18 @@
   import GridView from "components/GridView.svelte";
   import GridViewTile from "components/GridViewTile.svelte";
   import { client } from "database/apollo";
-  import type { ComposerListQuery } from "database/generated/operations";
-  import type { Composer } from "database/generated/types";
-  import { COMPOSER_LIST } from "database/operations";
+  import type { ComposersListQuery } from "database/generated/operations";
+  import type { Composers } from "database/generated/types";
+  import { COMPOSERS_LIST } from "database/operations";
   import { query, restore } from "svelte-apollo";
   import { _ } from "svelte-i18n";
 
-  export let composerCache: ApolloQueryResult<Composer>;
+  export let composersCache: ApolloQueryResult<Composers>;
 
-  restore(client, COMPOSER_LIST, composerCache.data);
+  restore(client, COMPOSERS_LIST, composersCache.data);
 
-  const composers = query<ComposerListQuery>(client, {
-    query: COMPOSER_LIST,
+  const composers = query<ComposersListQuery>(client, {
+    query: COMPOSERS_LIST,
   });
 
   const numerableName = "composers";
@@ -24,9 +24,9 @@
 {#await $composers}
   <Loading small />
 {:then result}
-  {#if result && result.data && result.data.composer.length > 0}
-    <GridView {numerableName} count={result.data.composer.length}>
-      {#each result.data.composer as { id, name, surname, roled_composers } (id)}
+  {#if result && result.data && result.data.composers.length > 0}
+    <GridView {numerableName} count={result.data.composers.length}>
+      {#each result.data.composers as { id, name, surname, roled_composers } (id)}
         <GridViewTile
           title={`${name} ${surname}`}
           detail={$_('numerable.works', {

@@ -1,0 +1,13 @@
+query CampaignsList {
+  campaigns {
+    id
+    title
+    description
+    created_at
+    campaign_contributors_aggregate {
+      aggregate {
+        count
+      }
+    }
+  }
+}
