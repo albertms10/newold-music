@@ -32,6 +32,7 @@ const aliases = alias({
     public: path.resolve(__dirname, "src/public"),
     routes: path.resolve(__dirname, "src/routes"),
     services: path.resolve(__dirname, "src/services"),
+    utils: path.resolve(__dirname, "src/utils"),
   },
 });
 

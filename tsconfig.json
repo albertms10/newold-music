@@ -15,7 +15,8 @@
       "modules/*": ["src/modules/*"],
       "public/*": ["src/public/*"],
       "routes/*": ["src/routes/*"],
-      "services/*": ["src/services/*"]
+      "services/*": ["src/services/*"],
+      "utils/*": ["src/utils/*"]
     },
     "types": [
       "svelte",
