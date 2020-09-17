@@ -35,7 +35,7 @@
 
 <svelte:options immutable />
 
-<Column sm={1} md={2} lg={4} xlg={5}>
+<Column sm={4} md={4} lg={4}>
   <article>
     <ClickableTile {href}>
       <div class="content">
