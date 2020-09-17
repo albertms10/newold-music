@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { Grid, Row } from "carbon-components-svelte";
   import DataTable32 from "carbon-icons-svelte/lib/DataTable32";
   import { _ } from "svelte-i18n";
 
@@ -24,11 +25,6 @@
     color: #777;
   }
 
-  .items {
-    display: flex;
-    flex-flow: wrap;
-  }
-
   .no-items {
     text-align: center;
     width: 100%;
@@ -41,12 +37,14 @@
     <p class="count">{countText}</p>
   {/if}
   <hr />
-  <div class="items">
-    <slot>
-      <div class="no-items">
-        <DataTable32 />
-        <h5>{countText}</h5>
-      </div>
-    </slot>
-  </div>
+  <Grid>
+    <Row>
+      <slot>
+        <div class="no-items">
+          <DataTable32 />
+          <h5>{countText}</h5>
+        </div>
+      </slot>
+    </Row>
+  </Grid>
 </section>
