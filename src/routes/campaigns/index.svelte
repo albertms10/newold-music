@@ -12,10 +12,10 @@
 <script lang="ts">
   import type { ApolloQueryResult } from "apollo-boost";
   import CampaignsGridView from "components/CampaignsGridView.svelte";
-  import type { Campaigns } from "database/generated/types";
+  import type { CampaignsListQuery } from "database/generated/operations";
   import { _ } from "svelte-i18n";
 
-  export let campaignsCache: ApolloQueryResult<Campaigns>;
+  export let campaignsCache: ApolloQueryResult<CampaignsListQuery>;
 </script>
 
 <style>

@@ -5,13 +5,12 @@
   import GridViewTile from "components/GridViewTile.svelte";
   import { client } from "database/apollo";
   import type { CampaignsListQuery } from "database/generated/operations";
-  import type { Campaigns } from "database/generated/types";
   import { CAMPAIGNS_LIST } from "database/operations";
   import { query, restore } from "svelte-apollo";
   import { _ } from "svelte-i18n";
   import { truncateString } from "utils/strings";
 
-  export let campaignsCache: ApolloQueryResult<Campaigns>;
+  export let campaignsCache: ApolloQueryResult<CampaignsListQuery>;
 
   restore(client, CAMPAIGNS_LIST, campaignsCache.data);
 

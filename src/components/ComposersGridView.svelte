@@ -5,12 +5,11 @@
   import GridViewTile from "components/GridViewTile.svelte";
   import { client } from "database/apollo";
   import type { ComposersListQuery } from "database/generated/operations";
-  import type { Composers } from "database/generated/types";
   import { COMPOSERS_LIST } from "database/operations";
   import { query, restore } from "svelte-apollo";
   import { _ } from "svelte-i18n";
 
-  export let composersCache: ApolloQueryResult<Composers>;
+  export let composersCache: ApolloQueryResult<ComposersListQuery>;
 
   restore(client, COMPOSERS_LIST, composersCache.data);
 

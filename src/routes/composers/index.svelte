@@ -12,10 +12,10 @@
 <script lang="ts">
   import type { ApolloQueryResult } from "apollo-boost";
   import ComposersGridView from "components/ComposersGridView.svelte";
-  import type { Composers } from "database/generated/types";
+  import type { ComposersListQuery } from "database/generated/operations";
   import { _ } from "svelte-i18n";
 
-  export let composersCache: ApolloQueryResult<Composers>;
+  export let composersCache: ApolloQueryResult<ComposersListQuery>;
 </script>
 
 <style>
