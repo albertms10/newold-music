@@ -2,9 +2,9 @@
   import type { ApolloQueryResult } from "apollo-boost";
   import { Loading } from "carbon-components-svelte";
   import Product20 from "carbon-icons-svelte/lib/Product20";
-  import GridView from "components/GridView.svelte";
-  import GridViewTile from "components/GridViewTile.svelte";
-  import GridViewTileDetail from "components/GridViewTileDetail.svelte";
+  import GridView from "components/GridView/GridView.svelte";
+  import GridViewTile from "components/GridView/GridViewTile.svelte";
+  import GridViewTileDetail from "components/GridView/GridViewTileDetail.svelte";
   import { client } from "database/apollo";
   import type { ComposersListQuery } from "database/generated/operations";
   import { COMPOSERS_LIST } from "database/operations";

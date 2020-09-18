@@ -9,7 +9,7 @@
 <script lang="ts">
   import { stores } from "@sapper/app";
   import { Content, Loading } from "carbon-components-svelte";
-  import Nav from "components/Nav.svelte";
+  import Nav from "components/Layout/Nav.svelte";
   import { onMount } from "svelte";
   import { isLoading as isLoadingLocale } from "svelte-i18n";
   import { derived } from "svelte/store";

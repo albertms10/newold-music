@@ -22,9 +22,9 @@
     Loading,
   } from "carbon-components-svelte";
   import Timer20 from "carbon-icons-svelte/lib/Timer20";
-  import GridView from "components/GridView.svelte";
-  import GridViewTile from "components/GridViewTile.svelte";
-  import GridViewTileDetail from "components/GridViewTileDetail.svelte";
+  import GridView from "components/GridView/GridView.svelte";
+  import GridViewTile from "components/GridView/GridViewTile.svelte";
+  import GridViewTileDetail from "components/GridView/GridViewTileDetail.svelte";
   import type { ComposerInfoQuery } from "database/generated/operations";
   import { query, restore } from "svelte-apollo";
   import { _ } from "svelte-i18n";
