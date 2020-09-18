@@ -33,7 +33,11 @@
           detail={$_('numerable.collaborators', {
             values: { n: campaign_contributors_aggregate.aggregate.count },
           })}
-          href={`campaigns/${id}`} />
+          href={`campaigns/${id}`}
+          aspectRatio="16x9"
+          sm={4}
+          md={8}
+          lg={8} />
       {/each}
     </GridView>
   {:else}
