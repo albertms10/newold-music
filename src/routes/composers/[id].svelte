@@ -55,7 +55,7 @@
       <BreadcrumbItem let:props>
         <a {...props} href="composers">{$_('routes.composers')}</a>
       </BreadcrumbItem>
-      <BreadcrumbItem href="#" aria-current="page">
+      <BreadcrumbItem aria-current="page">
         {result.data.composers_by_pk.name}
         {result.data.composers_by_pk.surname}
       </BreadcrumbItem>
@@ -72,7 +72,8 @@
           {#each work_roled_composers as { work } (work.id)}
             <GridViewTile
               title={work.title}
-              detail={timeDuration(work.duration)} />
+              detail={timeDuration(work.duration)}
+              href={`shop/${work.id}`} />
           {/each}
         </GridView>
       {:else}
