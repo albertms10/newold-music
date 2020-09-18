@@ -21,14 +21,11 @@
     BreadcrumbItem,
     Loading,
   } from "carbon-components-svelte";
-  import Timer20 from "carbon-icons-svelte/lib/Timer20";
   import GridView from "components/GridView/GridView.svelte";
-  import GridViewTile from "components/GridView/GridViewTile.svelte";
-  import GridViewTileDetail from "components/GridView/GridViewTileDetail.svelte";
+  import WorkGridViewTile from "components/WorkGridViewTile.svelte";
   import type { ComposerInfoQuery } from "database/generated/operations";
   import { query, restore } from "svelte-apollo";
   import { _ } from "svelte-i18n";
-  import { timeDuration } from "utils/datetime";
 
   export let composerCache: ApolloQueryResult<ComposerInfoQuery>;
 
@@ -71,15 +68,8 @@
     {#each result.data.composers_by_pk.roled_composers as { id, work_roled_composers } (id)}
       {#if work_roled_composers.length > 0}
         <GridView numerableName="works" count={work_roled_composers.length}>
-          {#each work_roled_composers as { work } (work.id)}
-            <GridViewTile href={`shop/${work.id}`}>
-              <span slot="title">{work.title}</span>
-              <div slot="details">
-                <GridViewTileDetail
-                  icon={Timer20}
-                  label={timeDuration(work.duration)} />
-              </div>
-            </GridViewTile>
+          {#each work_roled_composers as { work: { id, title, duration } } (id)}
+            <WorkGridViewTile {id} {title} {duration} />
           {/each}
         </GridView>
       {:else}

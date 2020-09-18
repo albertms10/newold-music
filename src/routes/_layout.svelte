@@ -42,7 +42,7 @@
 
     window.onunhandledrejection = (e: PromiseRejectionEvent) => {
       console.log("Unhandled rejection", e);
-      window.location.href = "/oi-oi-oi";
+      window.location.href = "/newold-music/oi-oi-oi";
     };
   });
 </script>
