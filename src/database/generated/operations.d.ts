@@ -1,3 +1,33 @@
+export type CampaignInfoQueryVariables = Exact<{
+  id: Scalars['Int'];
+}>;
+
+
+export type CampaignInfoQuery = (
+  { __typename?: 'query_root' }
+  & { campaigns_by_pk?: Maybe<(
+    { __typename?: 'campaigns' }
+    & Pick<Campaigns, 'id' | 'title' | 'description' | 'created_at'>
+    & { work?: Maybe<(
+      { __typename?: 'works' }
+      & Pick<Works, 'id' | 'duration' | 'title'>
+      & { work_roled_composers: Array<(
+        { __typename?: 'works_roled_composers' }
+        & { roled_composer: (
+          { __typename?: 'roled_composers' }
+          & { composer: (
+            { __typename?: 'composers' }
+            & Pick<Composers, 'name' | 'surname' | 'id'>
+          ), composer_role: (
+            { __typename?: 'composers_roles' }
+            & Pick<Composers_Roles, 'role'>
+          ) }
+        ) }
+      )> }
+    )> }
+  )> }
+);
+
 export type CampaignsListQueryVariables = Exact<{ [key: string]: never; }>;
 
 
@@ -58,6 +88,59 @@ export type ComposersListQuery = (
           { __typename?: 'works_roled_composers_aggregate_fields' }
           & Pick<Works_Roled_Composers_Aggregate_Fields, 'count'>
         )> }
+      ) }
+    )> }
+  )> }
+);
+
+export type WorkInfoQueryVariables = Exact<{
+  id: Scalars['Int'];
+}>;
+
+
+export type WorkInfoQuery = (
+  { __typename?: 'query_root' }
+  & { works_by_pk?: Maybe<(
+    { __typename?: 'works' }
+    & Pick<Works, 'id' | 'title' | 'duration'>
+    & { work_roled_composers: Array<(
+      { __typename?: 'works_roled_composers' }
+      & { roled_composer: (
+        { __typename?: 'roled_composers' }
+        & { composer: (
+          { __typename?: 'composers' }
+          & Pick<Composers, 'id' | 'name' | 'surname'>
+        ), composer_role: (
+          { __typename?: 'composers_roles' }
+          & Pick<Composers_Roles, 'role'>
+        ) }
+      ) }
+    )>, campaign?: Maybe<(
+      { __typename?: 'campaigns' }
+      & Pick<Campaigns, 'id' | 'title' | 'description'>
+    )> }
+  )> }
+);
+
+export type WorksListQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type WorksListQuery = (
+  { __typename?: 'query_root' }
+  & { works: Array<(
+    { __typename?: 'works' }
+    & Pick<Works, 'id' | 'title' | 'duration'>
+    & { work_roled_composers: Array<(
+      { __typename?: 'works_roled_composers' }
+      & { roled_composer: (
+        { __typename?: 'roled_composers' }
+        & { composer: (
+          { __typename?: 'composers' }
+          & Pick<Composers, 'id' | 'name' | 'surname'>
+        ), composer_role: (
+          { __typename?: 'composers_roles' }
+          & Pick<Composers_Roles, 'role'>
+        ) }
       ) }
     )> }
   )> }

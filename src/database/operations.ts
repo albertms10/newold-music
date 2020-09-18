@@ -16,6 +16,34 @@ export const CAMPAIGNS_LIST = gql`
   }
 `;
 
+export const CAMPAIGN_INFO = gql`
+  query CampaignInfo($id: Int!) {
+    campaigns_by_pk(id: $id) {
+      id
+      title
+      description
+      created_at
+      work {
+        id
+        duration
+        title
+        work_roled_composers {
+          roled_composer {
+            composer {
+              name
+              surname
+              id
+            }
+            composer_role {
+              role
+            }
+          }
+        }
+      }
+    }
+  }
+`;
+
 export const COMPOSERS_LIST = gql`
   query ComposersList {
     composers(order_by: [{ surname: asc, name: asc }]) {
@@ -51,6 +79,55 @@ export const COMPOSER_INFO = gql`
             title
           }
         }
+      }
+    }
+  }
+`;
+
+export const WORKS_LIST = gql`
+  query WorksList {
+    works {
+      id
+      title
+      duration
+      work_roled_composers {
+        roled_composer {
+          composer {
+            id
+            name
+            surname
+          }
+          composer_role {
+            role
+          }
+        }
+      }
+    }
+  }
+`;
+
+export const WORK_INFO = gql`
+  query WorkInfo($id: Int!) {
+    works_by_pk(id: $id) {
+      id
+      title
+      duration
+      work_roled_composers {
+        roled_composer {
+          composer {
+            id
+            name
+            surname
+          }
+          composer_role {
+            role
+          }
+        }
+      }
+      campaign {
+        id
+        title
+        description
       }
     }
   }

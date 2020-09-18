@@ -163,7 +163,9 @@ export type Campaigns_Bool_Exp = {
 /** unique or primary key constraints on table "campaigns" */
 export enum Campaigns_Constraint {
   /** unique or primary key constraint */
-  CampaignPkey = 'campaign_pkey'
+  CampaignPkey = 'campaign_pkey',
+  /** unique or primary key constraint */
+  CampaignsWorkIdKey = 'campaigns_work_id_key'
 }
 
 /** columns and relationships of "campaigns_contributors" */
@@ -172,8 +174,10 @@ export type Campaigns_Contributors = {
   /** An object relationship */
   campaign: Campaigns;
   campaign_id: Scalars['Int'];
+  created_at?: Maybe<Scalars['timestamptz']>;
   id: Scalars['Int'];
   quantity: Scalars['numeric'];
+  updated_at?: Maybe<Scalars['timestamptz']>;
   /** An object relationship */
   user: Users;
   user_id: Scalars['Int'];
@@ -254,8 +258,10 @@ export type Campaigns_Contributors_Bool_Exp = {
   _or?: Maybe<Array<Maybe<Campaigns_Contributors_Bool_Exp>>>;
   campaign?: Maybe<Campaigns_Bool_Exp>;
   campaign_id?: Maybe<Int_Comparison_Exp>;
+  created_at?: Maybe<Timestamptz_Comparison_Exp>;
   id?: Maybe<Int_Comparison_Exp>;
   quantity?: Maybe<Numeric_Comparison_Exp>;
+  updated_at?: Maybe<Timestamptz_Comparison_Exp>;
   user?: Maybe<Users_Bool_Exp>;
   user_id?: Maybe<Int_Comparison_Exp>;
 };
@@ -280,8 +286,10 @@ export type Campaigns_Contributors_Inc_Input = {
 export type Campaigns_Contributors_Insert_Input = {
   campaign?: Maybe<Campaigns_Obj_Rel_Insert_Input>;
   campaign_id?: Maybe<Scalars['Int']>;
+  created_at?: Maybe<Scalars['timestamptz']>;
   id?: Maybe<Scalars['Int']>;
   quantity?: Maybe<Scalars['numeric']>;
+  updated_at?: Maybe<Scalars['timestamptz']>;
   user?: Maybe<Users_Obj_Rel_Insert_Input>;
   user_id?: Maybe<Scalars['Int']>;
 };
@@ -290,16 +298,20 @@ export type Campaigns_Contributors_Insert_Input = {
 export type Campaigns_Contributors_Max_Fields = {
   __typename?: 'campaigns_contributors_max_fields';
   campaign_id?: Maybe<Scalars['Int']>;
+  created_at?: Maybe<Scalars['timestamptz']>;
   id?: Maybe<Scalars['Int']>;
   quantity?: Maybe<Scalars['numeric']>;
+  updated_at?: Maybe<Scalars['timestamptz']>;
   user_id?: Maybe<Scalars['Int']>;
 };
 
 /** order by max() on columns of table "campaigns_contributors" */
 export type Campaigns_Contributors_Max_Order_By = {
   campaign_id?: Maybe<Order_By>;
+  created_at?: Maybe<Order_By>;
   id?: Maybe<Order_By>;
   quantity?: Maybe<Order_By>;
+  updated_at?: Maybe<Order_By>;
   user_id?: Maybe<Order_By>;
 };
 
@@ -307,16 +319,20 @@ export type Campaigns_Contributors_Max_Order_By = {
 export type Campaigns_Contributors_Min_Fields = {
   __typename?: 'campaigns_contributors_min_fields';
   campaign_id?: Maybe<Scalars['Int']>;
+  created_at?: Maybe<Scalars['timestamptz']>;
   id?: Maybe<Scalars['Int']>;
   quantity?: Maybe<Scalars['numeric']>;
+  updated_at?: Maybe<Scalars['timestamptz']>;
   user_id?: Maybe<Scalars['Int']>;
 };
 
 /** order by min() on columns of table "campaigns_contributors" */
 export type Campaigns_Contributors_Min_Order_By = {
   campaign_id?: Maybe<Order_By>;
+  created_at?: Maybe<Order_By>;
   id?: Maybe<Order_By>;
   quantity?: Maybe<Order_By>;
+  updated_at?: Maybe<Order_By>;
   user_id?: Maybe<Order_By>;
 };
 
@@ -346,8 +362,10 @@ export type Campaigns_Contributors_On_Conflict = {
 export type Campaigns_Contributors_Order_By = {
   campaign?: Maybe<Campaigns_Order_By>;
   campaign_id?: Maybe<Order_By>;
+  created_at?: Maybe<Order_By>;
   id?: Maybe<Order_By>;
   quantity?: Maybe<Order_By>;
+  updated_at?: Maybe<Order_By>;
   user?: Maybe<Users_Order_By>;
   user_id?: Maybe<Order_By>;
 };
@@ -362,9 +380,13 @@ export enum Campaigns_Contributors_Select_Column {
   /** column name */
   CampaignId = 'campaign_id',
   /** column name */
+  CreatedAt = 'created_at',
+  /** column name */
   Id = 'id',
   /** column name */
   Quantity = 'quantity',
+  /** column name */
+  UpdatedAt = 'updated_at',
   /** column name */
   UserId = 'user_id'
 }
@@ -372,8 +394,10 @@ export enum Campaigns_Contributors_Select_Column {
 /** input type for updating data in table "campaigns_contributors" */
 export type Campaigns_Contributors_Set_Input = {
   campaign_id?: Maybe<Scalars['Int']>;
+  created_at?: Maybe<Scalars['timestamptz']>;
   id?: Maybe<Scalars['Int']>;
   quantity?: Maybe<Scalars['numeric']>;
+  updated_at?: Maybe<Scalars['timestamptz']>;
   user_id?: Maybe<Scalars['Int']>;
 };
 
@@ -450,9 +474,13 @@ export enum Campaigns_Contributors_Update_Column {
   /** column name */
   CampaignId = 'campaign_id',
   /** column name */
+  CreatedAt = 'created_at',
+  /** column name */
   Id = 'id',
   /** column name */
   Quantity = 'quantity',
+  /** column name */
+  UpdatedAt = 'updated_at',
   /** column name */
   UserId = 'user_id'
 }
@@ -3830,10 +3858,8 @@ export type Users_Variance_Order_By = {
 /** columns and relationships of "works" */
 export type Works = {
   __typename?: 'works';
-  /** An array relationship */
-  campaigns: Array<Campaigns>;
-  /** An aggregated array relationship */
-  campaigns_aggregate: Campaigns_Aggregate;
+  /** An object relationship */
+  campaign?: Maybe<Campaigns>;
   duration?: Maybe<Scalars['timetz']>;
   id: Scalars['Int'];
   title: Scalars['String'];
@@ -3841,26 +3867,6 @@ export type Works = {
   work_roled_composers: Array<Works_Roled_Composers>;
   /** An aggregated array relationship */
   work_roled_composers_aggregate: Works_Roled_Composers_Aggregate;
-};
-
-
-/** columns and relationships of "works" */
-export type WorksCampaignsArgs = {
-  distinct_on?: Maybe<Array<Campaigns_Select_Column>>;
-  limit?: Maybe<Scalars['Int']>;
-  offset?: Maybe<Scalars['Int']>;
-  order_by?: Maybe<Array<Campaigns_Order_By>>;
-  where?: Maybe<Campaigns_Bool_Exp>;
-};
-
-
-/** columns and relationships of "works" */
-export type WorksCampaigns_AggregateArgs = {
-  distinct_on?: Maybe<Array<Campaigns_Select_Column>>;
-  limit?: Maybe<Scalars['Int']>;
-  offset?: Maybe<Scalars['Int']>;
-  order_by?: Maybe<Array<Campaigns_Order_By>>;
-  where?: Maybe<Campaigns_Bool_Exp>;
 };
 
 
@@ -3950,7 +3956,7 @@ export type Works_Bool_Exp = {
   _and?: Maybe<Array<Maybe<Works_Bool_Exp>>>;
   _not?: Maybe<Works_Bool_Exp>;
   _or?: Maybe<Array<Maybe<Works_Bool_Exp>>>;
-  campaigns?: Maybe<Campaigns_Bool_Exp>;
+  campaign?: Maybe<Campaigns_Bool_Exp>;
   duration?: Maybe<Timetz_Comparison_Exp>;
   id?: Maybe<Int_Comparison_Exp>;
   title?: Maybe<String_Comparison_Exp>;
@@ -3970,7 +3976,7 @@ export type Works_Inc_Input = {
 
 /** input type for inserting data into table "works" */
 export type Works_Insert_Input = {
-  campaigns?: Maybe<Campaigns_Arr_Rel_Insert_Input>;
+  campaign?: Maybe<Campaigns_Obj_Rel_Insert_Input>;
   duration?: Maybe<Scalars['timetz']>;
   id?: Maybe<Scalars['Int']>;
   title?: Maybe<Scalars['String']>;
@@ -4031,7 +4037,7 @@ export type Works_On_Conflict = {
 
 /** ordering options when selecting data from "works" */
 export type Works_Order_By = {
-  campaigns_aggregate?: Maybe<Campaigns_Aggregate_Order_By>;
+  campaign?: Maybe<Campaigns_Order_By>;
   duration?: Maybe<Order_By>;
   id?: Maybe<Order_By>;
   title?: Maybe<Order_By>;
