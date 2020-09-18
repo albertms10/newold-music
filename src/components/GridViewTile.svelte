@@ -28,10 +28,13 @@
 
   .avatar {
     width: calc(100% + 2rem);
+    min-height: 6rem;
     margin: -1rem -1rem 1rem;
     overflow: hidden;
     background-position: center;
     background-position-y: 30%;
+    background-repeat: no-repeat;
+    background-size: cover;
     flex: 1;
   }
 
