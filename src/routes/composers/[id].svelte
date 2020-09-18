@@ -21,8 +21,10 @@
     BreadcrumbItem,
     Loading,
   } from "carbon-components-svelte";
+  import Timer20 from "carbon-icons-svelte/lib/Timer20";
   import GridView from "components/GridView.svelte";
   import GridViewTile from "components/GridViewTile.svelte";
+  import GridViewTileDetail from "components/GridViewTileDetail.svelte";
   import type { ComposerInfoQuery } from "database/generated/operations";
   import { query, restore } from "svelte-apollo";
   import { _ } from "svelte-i18n";
@@ -70,10 +72,14 @@
       {#if work_roled_composers.length > 0}
         <GridView numerableName="works" count={work_roled_composers.length}>
           {#each work_roled_composers as { work } (work.id)}
-            <GridViewTile
-              title={work.title}
-              detail={timeDuration(work.duration)}
-              href={`shop/${work.id}`} />
+            <GridViewTile href={`shop/${work.id}`}>
+              <span slot="title">{work.title}</span>
+              <div slot="details">
+                <GridViewTileDetail
+                  icon={Timer20}
+                  label={timeDuration(work.duration)} />
+              </div>
+            </GridViewTile>
           {/each}
         </GridView>
       {:else}

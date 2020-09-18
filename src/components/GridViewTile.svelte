@@ -1,12 +1,9 @@
 <script lang="ts">
   import { ClickableTile, Column } from "carbon-components-svelte";
 
-  export let title: string;
-  export let meta: string = undefined;
-  export let detail: string = undefined;
   export let href: string = undefined;
   export let avatarUrl =
-    "https://pixabay.com/get/52e1d44b4f5aa414f1dc8460da29317e153bdce75b5076_640.jpg";
+    "https://cdn.pixabay.com/photo/2016/10/02/00/36/clarinet-1708715_1280.jpg";
 
   export let aspectRatio:
     | "2x1"
@@ -28,7 +25,7 @@
 
   .avatar {
     width: calc(100% + 2rem);
-    min-height: 6rem;
+    min-height: 8rem;
     margin: -1rem -1rem 1rem;
     overflow: hidden;
     background-position: center;
@@ -49,7 +46,7 @@
     flex: 0;
   }
 
-  .detail {
+  .details {
     color: #777;
     flex: 0;
   }
@@ -72,15 +69,21 @@
       <div class="content">
         <div class="avatar" style={`background-image: url(${avatarUrl})`} />
         <div class="header">
-          <h3>{title}</h3>
-          {#if meta}
-            <p>{meta}</p>
+          {#if $$slots.title}
+            <h3>
+              <slot name="title" />
+            </h3>
+          {/if}
+          {#if $$slots.meta}
+            <p>
+              <slot name="meta" />
+            </p>
           {/if}
         </div>
-        {#if detail}
-          <div class="detail">
+        {#if $$slots.details}
+          <div class="details">
             <hr />
-            <p>{detail}</p>
+            <slot name="details" />
           </div>
         {/if}
       </div>

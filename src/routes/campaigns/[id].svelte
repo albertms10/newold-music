@@ -21,7 +21,9 @@
     BreadcrumbItem,
     Loading,
   } from "carbon-components-svelte";
+  import Timer20 from "carbon-icons-svelte/lib/Timer20";
   import GridViewTile from "components/GridViewTile.svelte";
+  import GridViewTileDetail from "components/GridViewTileDetail.svelte";
   import type { CampaignInfoQuery } from "database/generated/operations";
   import { query, restore } from "svelte-apollo";
   import { _ } from "svelte-i18n";
@@ -61,17 +63,21 @@
 
     <h1>{result.data.campaigns_by_pk.title}</h1>
 
-    <h3>{$_('work')}</h3>
-
-    <GridViewTile
-      title={result.data.campaigns_by_pk.work.title}
-      meta={result.data.campaigns_by_pk.work.work_roled_composers
-        .map(
-          ({ roled_composer }) =>
-            `${roled_composer.composer.name} ${roled_composer.composer.surname}`
-        )
-        .join(', ')}
-      detail={timeDuration(result.data.campaigns_by_pk.work.duration)}
-      href={`shop/${result.data.campaigns_by_pk.work.id}`} />
+    <GridViewTile href={`shop/${result.data.campaigns_by_pk.work.id}`}>
+      <span slot="title">{result.data.campaigns_by_pk.work.title}</span>
+      <span slot="meta">
+        {result.data.campaigns_by_pk.work.work_roled_composers
+          .map(
+            ({ roled_composer }) =>
+              `${roled_composer.composer.name} ${roled_composer.composer.surname}`
+          )
+          .join(', ')}
+      </span>
+      <div slot="details">
+        <GridViewTileDetail
+          icon={Timer20}
+          label={timeDuration(result.data.campaigns_by_pk.work.duration)} />
+      </div>
+    </GridViewTile>
   {/if}
 {/await}
