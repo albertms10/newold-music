@@ -22,6 +22,8 @@
 
   export let segment: string;
 
+  const dev = process.env.NODE_ENV === "development";
+
   onMount(() => {
     const usesDarkMode =
       window.matchMedia("(prefers-color-scheme: dark)").matches || false;
@@ -40,10 +42,11 @@
 
     switchIcon(usesDarkMode);
 
-    window.onunhandledrejection = (e: PromiseRejectionEvent) => {
-      console.log("Unhandled rejection", e);
-      window.location.href = "/newold-music/oi-oi-oi";
-    };
+    if (!dev)
+      window.onunhandledrejection = (e: PromiseRejectionEvent) => {
+        console.log("Unhandled rejection", e);
+        window.location.href = "/newold-music/oops";
+      };
   });
 </script>
 
