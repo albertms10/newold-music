@@ -7,7 +7,6 @@
     SideNavItems,
     SideNavLink,
   } from "carbon-components-svelte";
-  import { setCookie } from "modules/cookie";
   import { _ } from "svelte-i18n";
   import LocaleSwitcher from "./LocaleSwitcher.svelte";
   import Social from "./Social.svelte";
@@ -85,8 +84,7 @@
       <Social />
     </div>
     <div class="locale-switcher">
-      <LocaleSwitcher
-        on:locale-changed={(e) => setCookie('locale', e.detail.id)} />
+      <LocaleSwitcher />
     </div>
   </div>
 </Header>

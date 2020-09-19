@@ -1,8 +1,6 @@
 <script lang="ts">
   import { Dropdown } from "carbon-components-svelte";
-  import { getCookie } from "modules/cookie";
-  import { startClient } from "services/i18n";
-  import { createEventDispatcher } from "svelte";
+  import { locale } from "svelte-i18n";
 
   interface Lang {
     id: string;
@@ -18,16 +16,9 @@
     { id: "it", text: "Italiano" },
   ];
 
-  export let locale: Lang["id"] = getCookie("locale") || langs[0].id;
+  $: selectedIndex = langs.findIndex((l) => l.id === $locale.split("-")[0]);
 
-  $: selectedIndex = langs.findIndex((l) => l.id === locale.split("-")[0]);
-
-  const dispatch = createEventDispatcher();
-
-  $: {
-    dispatch("locale-changed", langs[selectedIndex]);
-    startClient();
-  }
+  $: locale.set(langs[selectedIndex].id);
 </script>
 
 <Dropdown items={langs} bind:selectedIndex size="sm" />
