@@ -13,7 +13,11 @@ const INIT_OPTIONS: ConfigureOptions = {
   fallbackLocale: "en",
   initialLocale: null,
   loadingDelay: 200,
-  formats: {},
+  formats: {
+    number: {
+      EUR: { style: "currency", currency: "EUR" },
+    },
+  },
   warnOnMissingMessages: true,
 };
 
