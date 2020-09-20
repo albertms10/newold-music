@@ -6,9 +6,10 @@ import {
   locale as $locale,
   register,
 } from "svelte-i18n";
+import type { ConfigureOptions } from "svelte-i18n/types/runtime/types";
 import { getCookie, setCookie } from "../modules/cookie.js";
 
-const INIT_OPTIONS = {
+const INIT_OPTIONS: ConfigureOptions = {
   fallbackLocale: "en",
   initialLocale: null,
   loadingDelay: 200,
