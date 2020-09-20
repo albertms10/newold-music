@@ -3,7 +3,7 @@
   import { Loading } from "carbon-components-svelte";
   import CampaignGridViewTile from "components/CampaignGridViewTile.svelte";
   import GridView from "components/GridView/GridView.svelte";
-  import { client } from "database/apollo";
+  import client from "database/apollo";
   import type { CampaignsListQuery } from "database/generated/operations";
   import { CAMPAIGNS_LIST } from "database/operations";
   import { query, restore } from "svelte-apollo";

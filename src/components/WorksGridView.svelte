@@ -3,7 +3,7 @@
   import { Loading } from "carbon-components-svelte";
   import GridView from "components/GridView/GridView.svelte";
   import WorkGridViewTile from "components/WorkGridViewTile.svelte";
-  import { client } from "database/apollo";
+  import client from "database/apollo";
   import type { WorksListQuery } from "database/generated/operations";
   import { WORKS_LIST } from "database/operations";
   import { query, restore } from "svelte-apollo";

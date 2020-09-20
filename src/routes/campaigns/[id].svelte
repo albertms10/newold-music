@@ -1,5 +1,5 @@
 <script context="module">
-  import { client } from "database/apollo";
+  import client from "database/apollo";
   import { CAMPAIGN_INFO } from "database/operations";
 
   export async function preload({ params }) {

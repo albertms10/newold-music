@@ -3,7 +3,7 @@
   import { Loading } from "carbon-components-svelte";
   import ComposerGridViewTile from "components/ComposerGridViewTile.svelte";
   import GridView from "components/GridView/GridView.svelte";
-  import { client } from "database/apollo";
+  import client from "database/apollo";
   import type { ComposersListQuery } from "database/generated/operations";
   import { COMPOSERS_LIST } from "database/operations";
   import { query, restore } from "svelte-apollo";
