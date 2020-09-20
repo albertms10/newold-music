@@ -44,6 +44,22 @@ export const CAMPAIGN_INFO = gql`
   }
 `;
 
+export const CAMPAIGN_CONTRIBUTORS_LIST = gql`
+  query CampaignContributorsList($id: Int!) {
+    campaigns_contributors(where: { campaign_id: { _eq: $id } }) {
+      id
+      quantity
+      created_at
+      updated_at
+      user {
+        id
+        name
+        surname
+      }
+    }
+  }
+`;
+
 export const COMPOSERS_LIST = gql`
   query ComposersList {
     composers(order_by: [{ surname: asc, name: asc }]) {

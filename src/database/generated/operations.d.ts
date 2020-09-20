@@ -1,3 +1,20 @@
+export type CampaignContributorsListQueryVariables = Exact<{
+  id: Scalars['Int'];
+}>;
+
+
+export type CampaignContributorsListQuery = (
+  { __typename?: 'query_root' }
+  & { campaigns_contributors: Array<(
+    { __typename?: 'campaigns_contributors' }
+    & Pick<Campaigns_Contributors, 'id' | 'quantity' | 'created_at' | 'updated_at'>
+    & { user: (
+      { __typename?: 'users' }
+      & Pick<Users, 'id' | 'name' | 'surname'>
+    ) }
+  )> }
+);
+
 export type CampaignInfoQueryVariables = Exact<{
   id: Scalars['Int'];
 }>;

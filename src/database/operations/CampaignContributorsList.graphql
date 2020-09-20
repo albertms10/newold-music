@@ -1,0 +1,13 @@
+query CampaignContributorsList($id: Int!) {
+  campaigns_contributors(where: { campaign_id: { _eq: $id } }) {
+    id
+    quantity
+    created_at
+    updated_at
+    user {
+      id
+      name
+      surname
+    }
+  }
+}
