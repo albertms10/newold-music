@@ -9,9 +9,9 @@
     "contact": "Contacte"
   },
   "numerable": {
-    "items": "{n, plural, =0 {Sense items} one {# ítem} other {# items}}",
+    "items": "{n, plural, =0 {Sense ítems} one {# ítem} other {# ítems}}",
     "campaigns": "{n, plural, =0 {Sense campanyes} one {# campanya} other {# campanyes}}",
-    "collaborators": "{n, plural, =0 {Sense col·laboradors} one {# col·laborador} other {# col·laboradors}}",
+    "contributors": "{n, plural, =0 {Sense col·laboradors} one {# col·laborador} other {# col·laboradors}}",
     "composers": "{n, plural, =0 {Sense compositors} one {# compositor} other {# compositors}}",
     "works": "{n, plural, =0 {Sense obres} one {# obra} other {# obres}}"
   },

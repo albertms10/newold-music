@@ -11,7 +11,7 @@
   "numerable": {
     "items": "{n, plural, =0 {Sans élements} one {# élement} other {# élements}}",
     "campaigns": "{n, plural, =0 {Sans campagnes} one {# campagne} other {# campagnes}}",
-    "collaborators": "{n, plural, =0 {Sans collaborateurs} one {# collaborateur} other {# collaborateurs}}",
+    "contributors": "{n, plural, =0 {Sans collaborateurs} one {# collaborateur} other {# collaborateurs}}",
     "composers": "{n, plural, =0 {Sans compositeurs} one {# compositeur} other {# compositeurs}}",
     "works": "{n, plural, =0 {Sans œuvres} one {# œuvre} other {# œuvres}}"
   },

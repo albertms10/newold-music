@@ -17,7 +17,7 @@
   <div slot="details">
     <GridViewTileDetail
       icon={Collaborate20}
-      label={$_('numerable.collaborators', {
+      label={$_('numerable.contributors', {
         values: { n: contributorsCount },
       })} />
   </div>
