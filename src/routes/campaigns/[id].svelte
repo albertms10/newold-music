@@ -10,6 +10,7 @@
         query: CAMPAIGN_INFO,
         variables: { id },
       }),
+      id: parseInt(id),
     };
   }
 </script>
@@ -22,11 +23,13 @@
     Loading,
   } from "carbon-components-svelte";
   import WorkGridViewTile from "components/WorkGridViewTile.svelte";
+  import ContributorsDataTable from "components/ContributorsDataTable.svelte";
   import type { CampaignInfoQuery } from "database/generated/operations";
   import { query, restore } from "svelte-apollo";
   import { _ } from "svelte-i18n";
 
   export let campaignCache: ApolloQueryResult<CampaignInfoQuery>;
+  export let id: number;
 
   restore(client, CAMPAIGN_INFO, campaignCache.data);
 
@@ -65,5 +68,7 @@
       title={result.data.campaigns_by_pk.work.title}
       composers={result.data.campaigns_by_pk.work.work_roled_composers.map(({ roled_composer }) => `${roled_composer.composer.name} ${roled_composer.composer.surname}`)}
       duration={result.data.campaigns_by_pk.work.duration} />
+
+    <ContributorsDataTable campaignId={id} />
   {/if}
 {/await}
