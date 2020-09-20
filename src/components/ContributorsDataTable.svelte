@@ -3,9 +3,13 @@
   import client from "database/apollo";
   import type { CampaignContributorsListQuery } from "database/generated/operations";
   import { CAMPAIGN_CONTRIBUTORS_LIST } from "database/operations";
+  import dayjs from "dayjs";
+  import relativeTime from "dayjs/plugin/relativeTime";
   import { query } from "svelte-apollo";
-  import { _, number } from "svelte-i18n";
+  import { number, _ } from "svelte-i18n";
   import { title } from "utils/strings";
+
+  dayjs.extend(relativeTime);
 
   export let campaignId: number;
 
@@ -15,23 +19,33 @@
     pollInterval: 10000,
   });
 
-  const headers = ["name", "quantity", "date"];
+  const headersList = ["name", "quantity", "date"] as const;
+
+  const headers = headersList.map((header: string) => ({
+    key: header,
+    value: $_(`fields.${header}`),
+  }));
+
+  type DataTableRows = {
+    [P in typeof headersList[number]]?: unknown;
+  };
+
+  $: mapContributorRow = ({ user, quantity, created_at }): DataTableRows => ({
+    name: `${user.name} ${user.surname}`,
+    quantity: $number(quantity, { format: "EUR" }),
+    date: dayjs(created_at).fromNow(),
+  });
 </script>
 
 {#await $contributors}
-  <DataTableSkeleton  />
+  <DataTableSkeleton zebra />
 {:then result}
   <DataTable
     title={title($_('terms.contributors', { values: { n: 0 } }))}
-    rows={result.data.campaigns_contributors.map(
-      ({ user, quantity, created_at }) => ({
-        name: `${user.name} ${user.surname}`,
-        quantity: $number(quantity),
-        date: created_at,
-      })
-    )}
-    headers={headers.map((header) => ({
-      key: header,
-      value: $_(`fields.${header}`),
-    }))} />
+    description="Llista d’usuaris que han participat en la campanya"
+    {headers}
+    rows={result.data.campaigns_contributors.map(mapContributorRow)}
+    sortable
+    stickyHeader
+    zebra />
 {/await}
