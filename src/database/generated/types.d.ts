@@ -44,6 +44,313 @@ export type String_Comparison_Exp = {
   _similar?: Maybe<Scalars['String']>;
 };
 
+/** columns and relationships of "campaign_progress_stops" */
+export type Campaign_Progress_Stops = {
+  __typename?: 'campaign_progress_stops';
+  /** An object relationship */
+  campaign: Campaigns;
+  campaign_id: Scalars['Int'];
+  id: Scalars['Int'];
+  stop: Scalars['numeric'];
+};
+
+/** aggregated selection of "campaign_progress_stops" */
+export type Campaign_Progress_Stops_Aggregate = {
+  __typename?: 'campaign_progress_stops_aggregate';
+  aggregate?: Maybe<Campaign_Progress_Stops_Aggregate_Fields>;
+  nodes: Array<Campaign_Progress_Stops>;
+};
+
+/** aggregate fields of "campaign_progress_stops" */
+export type Campaign_Progress_Stops_Aggregate_Fields = {
+  __typename?: 'campaign_progress_stops_aggregate_fields';
+  avg?: Maybe<Campaign_Progress_Stops_Avg_Fields>;
+  count?: Maybe<Scalars['Int']>;
+  max?: Maybe<Campaign_Progress_Stops_Max_Fields>;
+  min?: Maybe<Campaign_Progress_Stops_Min_Fields>;
+  stddev?: Maybe<Campaign_Progress_Stops_Stddev_Fields>;
+  stddev_pop?: Maybe<Campaign_Progress_Stops_Stddev_Pop_Fields>;
+  stddev_samp?: Maybe<Campaign_Progress_Stops_Stddev_Samp_Fields>;
+  sum?: Maybe<Campaign_Progress_Stops_Sum_Fields>;
+  var_pop?: Maybe<Campaign_Progress_Stops_Var_Pop_Fields>;
+  var_samp?: Maybe<Campaign_Progress_Stops_Var_Samp_Fields>;
+  variance?: Maybe<Campaign_Progress_Stops_Variance_Fields>;
+};
+
+
+/** aggregate fields of "campaign_progress_stops" */
+export type Campaign_Progress_Stops_Aggregate_FieldsCountArgs = {
+  columns?: Maybe<Array<Campaign_Progress_Stops_Select_Column>>;
+  distinct?: Maybe<Scalars['Boolean']>;
+};
+
+/** order by aggregate values of table "campaign_progress_stops" */
+export type Campaign_Progress_Stops_Aggregate_Order_By = {
+  avg?: Maybe<Campaign_Progress_Stops_Avg_Order_By>;
+  count?: Maybe<Order_By>;
+  max?: Maybe<Campaign_Progress_Stops_Max_Order_By>;
+  min?: Maybe<Campaign_Progress_Stops_Min_Order_By>;
+  stddev?: Maybe<Campaign_Progress_Stops_Stddev_Order_By>;
+  stddev_pop?: Maybe<Campaign_Progress_Stops_Stddev_Pop_Order_By>;
+  stddev_samp?: Maybe<Campaign_Progress_Stops_Stddev_Samp_Order_By>;
+  sum?: Maybe<Campaign_Progress_Stops_Sum_Order_By>;
+  var_pop?: Maybe<Campaign_Progress_Stops_Var_Pop_Order_By>;
+  var_samp?: Maybe<Campaign_Progress_Stops_Var_Samp_Order_By>;
+  variance?: Maybe<Campaign_Progress_Stops_Variance_Order_By>;
+};
+
+/** input type for inserting array relation for remote table "campaign_progress_stops" */
+export type Campaign_Progress_Stops_Arr_Rel_Insert_Input = {
+  data: Array<Campaign_Progress_Stops_Insert_Input>;
+  on_conflict?: Maybe<Campaign_Progress_Stops_On_Conflict>;
+};
+
+/** aggregate avg on columns */
+export type Campaign_Progress_Stops_Avg_Fields = {
+  __typename?: 'campaign_progress_stops_avg_fields';
+  campaign_id?: Maybe<Scalars['Float']>;
+  id?: Maybe<Scalars['Float']>;
+  stop?: Maybe<Scalars['Float']>;
+};
+
+/** order by avg() on columns of table "campaign_progress_stops" */
+export type Campaign_Progress_Stops_Avg_Order_By = {
+  campaign_id?: Maybe<Order_By>;
+  id?: Maybe<Order_By>;
+  stop?: Maybe<Order_By>;
+};
+
+/** Boolean expression to filter rows from the table "campaign_progress_stops". All fields are combined with a logical 'AND'. */
+export type Campaign_Progress_Stops_Bool_Exp = {
+  _and?: Maybe<Array<Maybe<Campaign_Progress_Stops_Bool_Exp>>>;
+  _not?: Maybe<Campaign_Progress_Stops_Bool_Exp>;
+  _or?: Maybe<Array<Maybe<Campaign_Progress_Stops_Bool_Exp>>>;
+  campaign?: Maybe<Campaigns_Bool_Exp>;
+  campaign_id?: Maybe<Int_Comparison_Exp>;
+  id?: Maybe<Int_Comparison_Exp>;
+  stop?: Maybe<Numeric_Comparison_Exp>;
+};
+
+/** unique or primary key constraints on table "campaign_progress_stops" */
+export enum Campaign_Progress_Stops_Constraint {
+  /** unique or primary key constraint */
+  CampaignProgressStopsCampaignIdStopKey = 'campaign_progress_stops_campaign_id_stop_key',
+  /** unique or primary key constraint */
+  CampaignProgressStopsPkey = 'campaign_progress_stops_pkey'
+}
+
+/** input type for incrementing integer column in table "campaign_progress_stops" */
+export type Campaign_Progress_Stops_Inc_Input = {
+  campaign_id?: Maybe<Scalars['Int']>;
+  id?: Maybe<Scalars['Int']>;
+  stop?: Maybe<Scalars['numeric']>;
+};
+
+/** input type for inserting data into table "campaign_progress_stops" */
+export type Campaign_Progress_Stops_Insert_Input = {
+  campaign?: Maybe<Campaigns_Obj_Rel_Insert_Input>;
+  campaign_id?: Maybe<Scalars['Int']>;
+  id?: Maybe<Scalars['Int']>;
+  stop?: Maybe<Scalars['numeric']>;
+};
+
+/** aggregate max on columns */
+export type Campaign_Progress_Stops_Max_Fields = {
+  __typename?: 'campaign_progress_stops_max_fields';
+  campaign_id?: Maybe<Scalars['Int']>;
+  id?: Maybe<Scalars['Int']>;
+  stop?: Maybe<Scalars['numeric']>;
+};
+
+/** order by max() on columns of table "campaign_progress_stops" */
+export type Campaign_Progress_Stops_Max_Order_By = {
+  campaign_id?: Maybe<Order_By>;
+  id?: Maybe<Order_By>;
+  stop?: Maybe<Order_By>;
+};
+
+/** aggregate min on columns */
+export type Campaign_Progress_Stops_Min_Fields = {
+  __typename?: 'campaign_progress_stops_min_fields';
+  campaign_id?: Maybe<Scalars['Int']>;
+  id?: Maybe<Scalars['Int']>;
+  stop?: Maybe<Scalars['numeric']>;
+};
+
+/** order by min() on columns of table "campaign_progress_stops" */
+export type Campaign_Progress_Stops_Min_Order_By = {
+  campaign_id?: Maybe<Order_By>;
+  id?: Maybe<Order_By>;
+  stop?: Maybe<Order_By>;
+};
+
+/** response of any mutation on the table "campaign_progress_stops" */
+export type Campaign_Progress_Stops_Mutation_Response = {
+  __typename?: 'campaign_progress_stops_mutation_response';
+  /** number of affected rows by the mutation */
+  affected_rows: Scalars['Int'];
+  /** data of the affected rows by the mutation */
+  returning: Array<Campaign_Progress_Stops>;
+};
+
+/** input type for inserting object relation for remote table "campaign_progress_stops" */
+export type Campaign_Progress_Stops_Obj_Rel_Insert_Input = {
+  data: Campaign_Progress_Stops_Insert_Input;
+  on_conflict?: Maybe<Campaign_Progress_Stops_On_Conflict>;
+};
+
+/** on conflict condition type for table "campaign_progress_stops" */
+export type Campaign_Progress_Stops_On_Conflict = {
+  constraint: Campaign_Progress_Stops_Constraint;
+  update_columns: Array<Campaign_Progress_Stops_Update_Column>;
+  where?: Maybe<Campaign_Progress_Stops_Bool_Exp>;
+};
+
+/** ordering options when selecting data from "campaign_progress_stops" */
+export type Campaign_Progress_Stops_Order_By = {
+  campaign?: Maybe<Campaigns_Order_By>;
+  campaign_id?: Maybe<Order_By>;
+  id?: Maybe<Order_By>;
+  stop?: Maybe<Order_By>;
+};
+
+/** primary key columns input for table: "campaign_progress_stops" */
+export type Campaign_Progress_Stops_Pk_Columns_Input = {
+  id: Scalars['Int'];
+};
+
+/** select columns of table "campaign_progress_stops" */
+export enum Campaign_Progress_Stops_Select_Column {
+  /** column name */
+  CampaignId = 'campaign_id',
+  /** column name */
+  Id = 'id',
+  /** column name */
+  Stop = 'stop'
+}
+
+/** input type for updating data in table "campaign_progress_stops" */
+export type Campaign_Progress_Stops_Set_Input = {
+  campaign_id?: Maybe<Scalars['Int']>;
+  id?: Maybe<Scalars['Int']>;
+  stop?: Maybe<Scalars['numeric']>;
+};
+
+/** aggregate stddev on columns */
+export type Campaign_Progress_Stops_Stddev_Fields = {
+  __typename?: 'campaign_progress_stops_stddev_fields';
+  campaign_id?: Maybe<Scalars['Float']>;
+  id?: Maybe<Scalars['Float']>;
+  stop?: Maybe<Scalars['Float']>;
+};
+
+/** order by stddev() on columns of table "campaign_progress_stops" */
+export type Campaign_Progress_Stops_Stddev_Order_By = {
+  campaign_id?: Maybe<Order_By>;
+  id?: Maybe<Order_By>;
+  stop?: Maybe<Order_By>;
+};
+
+/** aggregate stddev_pop on columns */
+export type Campaign_Progress_Stops_Stddev_Pop_Fields = {
+  __typename?: 'campaign_progress_stops_stddev_pop_fields';
+  campaign_id?: Maybe<Scalars['Float']>;
+  id?: Maybe<Scalars['Float']>;
+  stop?: Maybe<Scalars['Float']>;
+};
+
+/** order by stddev_pop() on columns of table "campaign_progress_stops" */
+export type Campaign_Progress_Stops_Stddev_Pop_Order_By = {
+  campaign_id?: Maybe<Order_By>;
+  id?: Maybe<Order_By>;
+  stop?: Maybe<Order_By>;
+};
+
+/** aggregate stddev_samp on columns */
+export type Campaign_Progress_Stops_Stddev_Samp_Fields = {
+  __typename?: 'campaign_progress_stops_stddev_samp_fields';
+  campaign_id?: Maybe<Scalars['Float']>;
+  id?: Maybe<Scalars['Float']>;
+  stop?: Maybe<Scalars['Float']>;
+};
+
+/** order by stddev_samp() on columns of table "campaign_progress_stops" */
+export type Campaign_Progress_Stops_Stddev_Samp_Order_By = {
+  campaign_id?: Maybe<Order_By>;
+  id?: Maybe<Order_By>;
+  stop?: Maybe<Order_By>;
+};
+
+/** aggregate sum on columns */
+export type Campaign_Progress_Stops_Sum_Fields = {
+  __typename?: 'campaign_progress_stops_sum_fields';
+  campaign_id?: Maybe<Scalars['Int']>;
+  id?: Maybe<Scalars['Int']>;
+  stop?: Maybe<Scalars['numeric']>;
+};
+
+/** order by sum() on columns of table "campaign_progress_stops" */
+export type Campaign_Progress_Stops_Sum_Order_By = {
+  campaign_id?: Maybe<Order_By>;
+  id?: Maybe<Order_By>;
+  stop?: Maybe<Order_By>;
+};
+
+/** update columns of table "campaign_progress_stops" */
+export enum Campaign_Progress_Stops_Update_Column {
+  /** column name */
+  CampaignId = 'campaign_id',
+  /** column name */
+  Id = 'id',
+  /** column name */
+  Stop = 'stop'
+}
+
+/** aggregate var_pop on columns */
+export type Campaign_Progress_Stops_Var_Pop_Fields = {
+  __typename?: 'campaign_progress_stops_var_pop_fields';
+  campaign_id?: Maybe<Scalars['Float']>;
+  id?: Maybe<Scalars['Float']>;
+  stop?: Maybe<Scalars['Float']>;
+};
+
+/** order by var_pop() on columns of table "campaign_progress_stops" */
+export type Campaign_Progress_Stops_Var_Pop_Order_By = {
+  campaign_id?: Maybe<Order_By>;
+  id?: Maybe<Order_By>;
+  stop?: Maybe<Order_By>;
+};
+
+/** aggregate var_samp on columns */
+export type Campaign_Progress_Stops_Var_Samp_Fields = {
+  __typename?: 'campaign_progress_stops_var_samp_fields';
+  campaign_id?: Maybe<Scalars['Float']>;
+  id?: Maybe<Scalars['Float']>;
+  stop?: Maybe<Scalars['Float']>;
+};
+
+/** order by var_samp() on columns of table "campaign_progress_stops" */
+export type Campaign_Progress_Stops_Var_Samp_Order_By = {
+  campaign_id?: Maybe<Order_By>;
+  id?: Maybe<Order_By>;
+  stop?: Maybe<Order_By>;
+};
+
+/** aggregate variance on columns */
+export type Campaign_Progress_Stops_Variance_Fields = {
+  __typename?: 'campaign_progress_stops_variance_fields';
+  campaign_id?: Maybe<Scalars['Float']>;
+  id?: Maybe<Scalars['Float']>;
+  stop?: Maybe<Scalars['Float']>;
+};
+
+/** order by variance() on columns of table "campaign_progress_stops" */
+export type Campaign_Progress_Stops_Variance_Order_By = {
+  campaign_id?: Maybe<Order_By>;
+  id?: Maybe<Order_By>;
+  stop?: Maybe<Order_By>;
+};
+
 /** columns and relationships of "campaigns" */
 export type Campaigns = {
   __typename?: 'campaigns';
@@ -51,8 +358,13 @@ export type Campaigns = {
   campaign_contributors: Array<Campaigns_Contributors>;
   /** An aggregated array relationship */
   campaign_contributors_aggregate: Campaigns_Contributors_Aggregate;
+  /** An array relationship */
+  campaign_progress_stops: Array<Campaign_Progress_Stops>;
+  /** An aggregated array relationship */
+  campaign_progress_stops_aggregate: Campaign_Progress_Stops_Aggregate;
   created_at: Scalars['timestamptz'];
   description: Scalars['String'];
+  end_date?: Maybe<Scalars['timestamptz']>;
   id: Scalars['Int'];
   title: Scalars['String'];
   updated_at: Scalars['timestamptz'];
@@ -79,6 +391,26 @@ export type CampaignsCampaign_Contributors_AggregateArgs = {
   offset?: Maybe<Scalars['Int']>;
   order_by?: Maybe<Array<Campaigns_Contributors_Order_By>>;
   where?: Maybe<Campaigns_Contributors_Bool_Exp>;
+};
+
+
+/** columns and relationships of "campaigns" */
+export type CampaignsCampaign_Progress_StopsArgs = {
+  distinct_on?: Maybe<Array<Campaign_Progress_Stops_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Campaign_Progress_Stops_Order_By>>;
+  where?: Maybe<Campaign_Progress_Stops_Bool_Exp>;
+};
+
+
+/** columns and relationships of "campaigns" */
+export type CampaignsCampaign_Progress_Stops_AggregateArgs = {
+  distinct_on?: Maybe<Array<Campaign_Progress_Stops_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Campaign_Progress_Stops_Order_By>>;
+  where?: Maybe<Campaign_Progress_Stops_Bool_Exp>;
 };
 
 /** aggregated selection of "campaigns" */
@@ -151,8 +483,10 @@ export type Campaigns_Bool_Exp = {
   _not?: Maybe<Campaigns_Bool_Exp>;
   _or?: Maybe<Array<Maybe<Campaigns_Bool_Exp>>>;
   campaign_contributors?: Maybe<Campaigns_Contributors_Bool_Exp>;
+  campaign_progress_stops?: Maybe<Campaign_Progress_Stops_Bool_Exp>;
   created_at?: Maybe<Timestamptz_Comparison_Exp>;
   description?: Maybe<String_Comparison_Exp>;
+  end_date?: Maybe<Timestamptz_Comparison_Exp>;
   id?: Maybe<Int_Comparison_Exp>;
   title?: Maybe<String_Comparison_Exp>;
   updated_at?: Maybe<Timestamptz_Comparison_Exp>;
@@ -545,8 +879,10 @@ export type Campaigns_Inc_Input = {
 /** input type for inserting data into table "campaigns" */
 export type Campaigns_Insert_Input = {
   campaign_contributors?: Maybe<Campaigns_Contributors_Arr_Rel_Insert_Input>;
+  campaign_progress_stops?: Maybe<Campaign_Progress_Stops_Arr_Rel_Insert_Input>;
   created_at?: Maybe<Scalars['timestamptz']>;
   description?: Maybe<Scalars['String']>;
+  end_date?: Maybe<Scalars['timestamptz']>;
   id?: Maybe<Scalars['Int']>;
   title?: Maybe<Scalars['String']>;
   updated_at?: Maybe<Scalars['timestamptz']>;
@@ -559,6 +895,7 @@ export type Campaigns_Max_Fields = {
   __typename?: 'campaigns_max_fields';
   created_at?: Maybe<Scalars['timestamptz']>;
   description?: Maybe<Scalars['String']>;
+  end_date?: Maybe<Scalars['timestamptz']>;
   id?: Maybe<Scalars['Int']>;
   title?: Maybe<Scalars['String']>;
   updated_at?: Maybe<Scalars['timestamptz']>;
@@ -569,6 +906,7 @@ export type Campaigns_Max_Fields = {
 export type Campaigns_Max_Order_By = {
   created_at?: Maybe<Order_By>;
   description?: Maybe<Order_By>;
+  end_date?: Maybe<Order_By>;
   id?: Maybe<Order_By>;
   title?: Maybe<Order_By>;
   updated_at?: Maybe<Order_By>;
@@ -580,6 +918,7 @@ export type Campaigns_Min_Fields = {
   __typename?: 'campaigns_min_fields';
   created_at?: Maybe<Scalars['timestamptz']>;
   description?: Maybe<Scalars['String']>;
+  end_date?: Maybe<Scalars['timestamptz']>;
   id?: Maybe<Scalars['Int']>;
   title?: Maybe<Scalars['String']>;
   updated_at?: Maybe<Scalars['timestamptz']>;
@@ -590,6 +929,7 @@ export type Campaigns_Min_Fields = {
 export type Campaigns_Min_Order_By = {
   created_at?: Maybe<Order_By>;
   description?: Maybe<Order_By>;
+  end_date?: Maybe<Order_By>;
   id?: Maybe<Order_By>;
   title?: Maybe<Order_By>;
   updated_at?: Maybe<Order_By>;
@@ -621,8 +961,10 @@ export type Campaigns_On_Conflict = {
 /** ordering options when selecting data from "campaigns" */
 export type Campaigns_Order_By = {
   campaign_contributors_aggregate?: Maybe<Campaigns_Contributors_Aggregate_Order_By>;
+  campaign_progress_stops_aggregate?: Maybe<Campaign_Progress_Stops_Aggregate_Order_By>;
   created_at?: Maybe<Order_By>;
   description?: Maybe<Order_By>;
+  end_date?: Maybe<Order_By>;
   id?: Maybe<Order_By>;
   title?: Maybe<Order_By>;
   updated_at?: Maybe<Order_By>;
@@ -642,6 +984,8 @@ export enum Campaigns_Select_Column {
   /** column name */
   Description = 'description',
   /** column name */
+  EndDate = 'end_date',
+  /** column name */
   Id = 'id',
   /** column name */
   Title = 'title',
@@ -655,6 +999,7 @@ export enum Campaigns_Select_Column {
 export type Campaigns_Set_Input = {
   created_at?: Maybe<Scalars['timestamptz']>;
   description?: Maybe<Scalars['String']>;
+  end_date?: Maybe<Scalars['timestamptz']>;
   id?: Maybe<Scalars['Int']>;
   title?: Maybe<Scalars['String']>;
   updated_at?: Maybe<Scalars['timestamptz']>;
@@ -719,6 +1064,8 @@ export enum Campaigns_Update_Column {
   CreatedAt = 'created_at',
   /** column name */
   Description = 'description',
+  /** column name */
+  EndDate = 'end_date',
   /** column name */
   Id = 'id',
   /** column name */
@@ -1640,6 +1987,10 @@ export type Instruments_Variance_Order_By = {
 /** mutation root */
 export type Mutation_Root = {
   __typename?: 'mutation_root';
+  /** delete data from the table: "campaign_progress_stops" */
+  delete_campaign_progress_stops?: Maybe<Campaign_Progress_Stops_Mutation_Response>;
+  /** delete single row from the table: "campaign_progress_stops" */
+  delete_campaign_progress_stops_by_pk?: Maybe<Campaign_Progress_Stops>;
   /** delete data from the table: "campaigns" */
   delete_campaigns?: Maybe<Campaigns_Mutation_Response>;
   /** delete single row from the table: "campaigns" */
@@ -1680,6 +2031,10 @@ export type Mutation_Root = {
   delete_works_roled_composers?: Maybe<Works_Roled_Composers_Mutation_Response>;
   /** delete single row from the table: "works_roled_composers" */
   delete_works_roled_composers_by_pk?: Maybe<Works_Roled_Composers>;
+  /** insert data into the table: "campaign_progress_stops" */
+  insert_campaign_progress_stops?: Maybe<Campaign_Progress_Stops_Mutation_Response>;
+  /** insert a single row into the table: "campaign_progress_stops" */
+  insert_campaign_progress_stops_one?: Maybe<Campaign_Progress_Stops>;
   /** insert data into the table: "campaigns" */
   insert_campaigns?: Maybe<Campaigns_Mutation_Response>;
   /** insert data into the table: "campaigns_contributors" */
@@ -1720,6 +2075,10 @@ export type Mutation_Root = {
   insert_works_roled_composers?: Maybe<Works_Roled_Composers_Mutation_Response>;
   /** insert a single row into the table: "works_roled_composers" */
   insert_works_roled_composers_one?: Maybe<Works_Roled_Composers>;
+  /** update data of the table: "campaign_progress_stops" */
+  update_campaign_progress_stops?: Maybe<Campaign_Progress_Stops_Mutation_Response>;
+  /** update single row of the table: "campaign_progress_stops" */
+  update_campaign_progress_stops_by_pk?: Maybe<Campaign_Progress_Stops>;
   /** update data of the table: "campaigns" */
   update_campaigns?: Maybe<Campaigns_Mutation_Response>;
   /** update single row of the table: "campaigns" */
@@ -1760,6 +2119,18 @@ export type Mutation_Root = {
   update_works_roled_composers?: Maybe<Works_Roled_Composers_Mutation_Response>;
   /** update single row of the table: "works_roled_composers" */
   update_works_roled_composers_by_pk?: Maybe<Works_Roled_Composers>;
+};
+
+
+/** mutation root */
+export type Mutation_RootDelete_Campaign_Progress_StopsArgs = {
+  where: Campaign_Progress_Stops_Bool_Exp;
+};
+
+
+/** mutation root */
+export type Mutation_RootDelete_Campaign_Progress_Stops_By_PkArgs = {
+  id: Scalars['Int'];
 };
 
 
@@ -1880,6 +2251,20 @@ export type Mutation_RootDelete_Works_Roled_ComposersArgs = {
 /** mutation root */
 export type Mutation_RootDelete_Works_Roled_Composers_By_PkArgs = {
   id: Scalars['Int'];
+};
+
+
+/** mutation root */
+export type Mutation_RootInsert_Campaign_Progress_StopsArgs = {
+  objects: Array<Campaign_Progress_Stops_Insert_Input>;
+  on_conflict?: Maybe<Campaign_Progress_Stops_On_Conflict>;
+};
+
+
+/** mutation root */
+export type Mutation_RootInsert_Campaign_Progress_Stops_OneArgs = {
+  object: Campaign_Progress_Stops_Insert_Input;
+  on_conflict?: Maybe<Campaign_Progress_Stops_On_Conflict>;
 };
 
 
@@ -2020,6 +2405,22 @@ export type Mutation_RootInsert_Works_Roled_ComposersArgs = {
 export type Mutation_RootInsert_Works_Roled_Composers_OneArgs = {
   object: Works_Roled_Composers_Insert_Input;
   on_conflict?: Maybe<Works_Roled_Composers_On_Conflict>;
+};
+
+
+/** mutation root */
+export type Mutation_RootUpdate_Campaign_Progress_StopsArgs = {
+  _inc?: Maybe<Campaign_Progress_Stops_Inc_Input>;
+  _set?: Maybe<Campaign_Progress_Stops_Set_Input>;
+  where: Campaign_Progress_Stops_Bool_Exp;
+};
+
+
+/** mutation root */
+export type Mutation_RootUpdate_Campaign_Progress_Stops_By_PkArgs = {
+  _inc?: Maybe<Campaign_Progress_Stops_Inc_Input>;
+  _set?: Maybe<Campaign_Progress_Stops_Set_Input>;
+  pk_columns: Campaign_Progress_Stops_Pk_Columns_Input;
 };
 
 
@@ -2215,6 +2616,12 @@ export enum Order_By {
 /** query root */
 export type Query_Root = {
   __typename?: 'query_root';
+  /** fetch data from the table: "campaign_progress_stops" */
+  campaign_progress_stops: Array<Campaign_Progress_Stops>;
+  /** fetch aggregated fields from the table: "campaign_progress_stops" */
+  campaign_progress_stops_aggregate: Campaign_Progress_Stops_Aggregate;
+  /** fetch data from the table: "campaign_progress_stops" using primary key columns */
+  campaign_progress_stops_by_pk?: Maybe<Campaign_Progress_Stops>;
   /** fetch data from the table: "campaigns" */
   campaigns: Array<Campaigns>;
   /** fetch aggregated fields from the table: "campaigns" */
@@ -2275,6 +2682,32 @@ export type Query_Root = {
   works_roled_composers_aggregate: Works_Roled_Composers_Aggregate;
   /** fetch data from the table: "works_roled_composers" using primary key columns */
   works_roled_composers_by_pk?: Maybe<Works_Roled_Composers>;
+};
+
+
+/** query root */
+export type Query_RootCampaign_Progress_StopsArgs = {
+  distinct_on?: Maybe<Array<Campaign_Progress_Stops_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Campaign_Progress_Stops_Order_By>>;
+  where?: Maybe<Campaign_Progress_Stops_Bool_Exp>;
+};
+
+
+/** query root */
+export type Query_RootCampaign_Progress_Stops_AggregateArgs = {
+  distinct_on?: Maybe<Array<Campaign_Progress_Stops_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Campaign_Progress_Stops_Order_By>>;
+  where?: Maybe<Campaign_Progress_Stops_Bool_Exp>;
+};
+
+
+/** query root */
+export type Query_RootCampaign_Progress_Stops_By_PkArgs = {
+  id: Scalars['Int'];
 };
 
 
@@ -2879,6 +3312,12 @@ export type Roled_Composers_Variance_Order_By = {
 /** subscription root */
 export type Subscription_Root = {
   __typename?: 'subscription_root';
+  /** fetch data from the table: "campaign_progress_stops" */
+  campaign_progress_stops: Array<Campaign_Progress_Stops>;
+  /** fetch aggregated fields from the table: "campaign_progress_stops" */
+  campaign_progress_stops_aggregate: Campaign_Progress_Stops_Aggregate;
+  /** fetch data from the table: "campaign_progress_stops" using primary key columns */
+  campaign_progress_stops_by_pk?: Maybe<Campaign_Progress_Stops>;
   /** fetch data from the table: "campaigns" */
   campaigns: Array<Campaigns>;
   /** fetch aggregated fields from the table: "campaigns" */
@@ -2939,6 +3378,32 @@ export type Subscription_Root = {
   works_roled_composers_aggregate: Works_Roled_Composers_Aggregate;
   /** fetch data from the table: "works_roled_composers" using primary key columns */
   works_roled_composers_by_pk?: Maybe<Works_Roled_Composers>;
+};
+
+
+/** subscription root */
+export type Subscription_RootCampaign_Progress_StopsArgs = {
+  distinct_on?: Maybe<Array<Campaign_Progress_Stops_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Campaign_Progress_Stops_Order_By>>;
+  where?: Maybe<Campaign_Progress_Stops_Bool_Exp>;
+};
+
+
+/** subscription root */
+export type Subscription_RootCampaign_Progress_Stops_AggregateArgs = {
+  distinct_on?: Maybe<Array<Campaign_Progress_Stops_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Campaign_Progress_Stops_Order_By>>;
+  where?: Maybe<Campaign_Progress_Stops_Bool_Exp>;
+};
+
+
+/** subscription root */
+export type Subscription_RootCampaign_Progress_Stops_By_PkArgs = {
+  id: Scalars['Int'];
 };
 
 

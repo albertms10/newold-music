@@ -25,7 +25,20 @@ export type CampaignInfoQuery = (
   & { campaigns_by_pk?: Maybe<(
     { __typename?: 'campaigns' }
     & Pick<Campaigns, 'id' | 'title' | 'description' | 'created_at'>
-    & { work?: Maybe<(
+    & { campaign_progress_stops: Array<(
+      { __typename?: 'campaign_progress_stops' }
+      & Pick<Campaign_Progress_Stops, 'stop'>
+    )>, campaign_contributors_aggregate: (
+      { __typename?: 'campaigns_contributors_aggregate' }
+      & { aggregate?: Maybe<(
+        { __typename?: 'campaigns_contributors_aggregate_fields' }
+        & Pick<Campaigns_Contributors_Aggregate_Fields, 'count'>
+        & { sum?: Maybe<(
+          { __typename?: 'campaigns_contributors_sum_fields' }
+          & Pick<Campaigns_Contributors_Sum_Fields, 'quantity'>
+        )> }
+      )> }
+    ), work?: Maybe<(
       { __typename?: 'works' }
       & Pick<Works, 'id' | 'duration' | 'title'>
       & { work_roled_composers: Array<(
@@ -58,8 +71,15 @@ export type CampaignsListQuery = (
       & { aggregate?: Maybe<(
         { __typename?: 'campaigns_contributors_aggregate_fields' }
         & Pick<Campaigns_Contributors_Aggregate_Fields, 'count'>
+        & { sum?: Maybe<(
+          { __typename?: 'campaigns_contributors_sum_fields' }
+          & Pick<Campaigns_Contributors_Sum_Fields, 'quantity'>
+        )> }
       )> }
-    ) }
+    ), campaign_progress_stops: Array<(
+      { __typename?: 'campaign_progress_stops' }
+      & Pick<Campaign_Progress_Stops, 'stop'>
+    )> }
   )> }
 );
 

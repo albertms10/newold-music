@@ -7,7 +7,13 @@ query CampaignsList {
     campaign_contributors_aggregate {
       aggregate {
         count
+        sum {
+          quantity
+        }
       }
+    }
+    campaign_progress_stops {
+      stop
     }
   }
 }

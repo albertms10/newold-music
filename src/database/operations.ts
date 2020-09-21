@@ -10,7 +10,13 @@ export const CAMPAIGNS_LIST = gql`
       campaign_contributors_aggregate {
         aggregate {
           count
+          sum {
+            quantity
+          }
         }
+      }
+      campaign_progress_stops {
+        stop
       }
     }
   }
@@ -23,6 +29,17 @@ export const CAMPAIGN_INFO = gql`
       title
       description
       created_at
+      campaign_progress_stops {
+        stop
+      }
+      campaign_contributors_aggregate {
+        aggregate {
+          count
+          sum {
+            quantity
+          }
+        }
+      }
       work {
         id
         duration

@@ -4,6 +4,17 @@ query CampaignInfo($id: Int!) {
     title
     description
     created_at
+    campaign_progress_stops {
+      stop
+    }
+    campaign_contributors_aggregate {
+      aggregate {
+        count
+        sum {
+          quantity
+        }
+      }
+    }
     work {
       id
       duration
