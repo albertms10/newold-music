@@ -35,6 +35,7 @@
     display: flex;
     justify-content: flex-end;
     align-items: center;
+    flex: 1;
   }
 
   .social {
@@ -43,12 +44,6 @@
 
   .locale-switcher {
     width: 8rem;
-  }
-
-  :global(.bx--header__name) {
-    margin-left: 1rem;
-    padding-right: 0 !important;
-    width: 18rem;
   }
 </style>
 
