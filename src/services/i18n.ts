@@ -16,6 +16,12 @@ const INIT_OPTIONS: ConfigureOptions = {
   formats: {
     number: {
       EUR: { style: "currency", currency: "EUR" },
+      "EUR-int": {
+        style: "currency",
+        currency: "EUR",
+        minimumFractionDigits: 0,
+        maximumFractionDigits: 0,
+      },
     },
   },
   warnOnMissingMessages: true,
