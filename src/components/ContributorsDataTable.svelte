@@ -27,7 +27,7 @@
   }));
 
   type DataTableRows = {
-    [P in typeof headersList[number]]?: unknown;
+    [P in typeof headersList[number]]: string;
   };
 
   $: mapContributorRow = ({ user, quantity, created_at }): DataTableRows => ({
