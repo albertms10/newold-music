@@ -24,6 +24,7 @@
   } from "carbon-components-svelte";
   import WorkGridViewTile from "components/WorkGridViewTile.svelte";
   import ContributorsDataTable from "components/ContributorsDataTable.svelte";
+  import CampaignProgressBar from "components/CampaignProgressBar.svelte";
   import type { CampaignInfoQuery } from "database/generated/operations";
   import { query, restore } from "svelte-apollo";
   import { _ } from "svelte-i18n";
@@ -41,6 +42,11 @@
 <style>
   h1 {
     margin-bottom: 2rem;
+  }
+
+  .progress-bar {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
   }
 </style>
 
@@ -68,6 +74,12 @@
       title={result.data.campaigns_by_pk.work.title}
       composers={result.data.campaigns_by_pk.work.work_roled_composers.map(({ roled_composer }) => `${roled_composer.composer.name} ${roled_composer.composer.surname}`)}
       duration={result.data.campaigns_by_pk.work.duration} />
+
+    <div class="progress-bar">
+      <CampaignProgressBar
+        amount={result.data.campaigns_by_pk.campaign_contributors_aggregate.aggregate.sum.quantity}
+        stops={result.data.campaigns_by_pk.campaign_progress_stops.map(({ stop }) => stop)} />
+    </div>
 
     <ContributorsDataTable campaignId={id} />
   {/if}
