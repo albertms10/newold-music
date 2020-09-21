@@ -16,6 +16,7 @@
   $: getAriaCurrent = (href?: string) =>
     segment === href ? "page" : undefined;
 
+  let winWidth = undefined;
   let isSideNavOpen: boolean;
 
   const routes = [
@@ -29,6 +30,17 @@
 </script>
 
 <style>
+  .platform {
+    display: flex;
+    height: 100%;
+    align-items: center;
+  }
+
+  .platform img {
+    height: 71%;
+    margin-right: 0.5rem;
+  }
+
   .actions {
     width: 100%;
     padding-right: 1rem;
@@ -42,44 +54,80 @@
     margin-right: 1rem;
   }
 
-  .locale-switcher {
+  .locale-switcher.nav {
     width: 8rem;
+  }
+
+  .locale-switcher.side {
+    padding: 1rem;
+  }
+
+  :global(.bx--header) {
+    height: 4rem !important;
+  }
+
+  :global(.bx--header ~ .bx--content) {
+    margin-top: 4rem !important;
+  }
+
+  :global(.bx--side-nav__overlay) {
+    top: 4rem !important;
+  }
+
+  :global(.bx--header__action) {
+    height: 4rem !important;
+  }
+
+  :global(.bx--side-nav--ux) {
+    top: 4rem !important;
   }
 </style>
 
+<svelte:window bind:innerWidth={winWidth} />
+
 <Header
-  platformName="Newold Music"
   href="."
   uiShellAriaLabel="Main"
   expandedByDefault={false}
   bind:isSideNavOpen>
-  <SideNav fixed bind:isOpen={isSideNavOpen} ariaLabel="Main">
-    <SideNavItems>
+  <div class="platform" slot="platform">
+    <img src="logo-dark-192.png" alt="Logo" />
+    <div>Newold Music</div>
+  </div>
+  {#if winWidth < 1056}
+    <SideNav fixed bind:isOpen={isSideNavOpen} ariaLabel="Main">
+      <SideNavItems>
+        {#each routes as route}
+          <SideNavLink
+            href={route}
+            text={$_(`routes.${route}`)}
+            aria-current={getAriaCurrent(route)}
+            on:click={() => (isSideNavOpen = !isSideNavOpen)} />
+        {/each}
+        <div class="locale-switcher side">
+          <LocaleSwitcher />
+        </div>
+      </SideNavItems>
+    </SideNav>
+  {:else}
+    <HeaderNav ariaLabel="Main">
       {#each routes as route}
-        <SideNavLink
+        <HeaderNavItem
           href={route}
           text={$_(`routes.${route}`)}
-          aria-current={getAriaCurrent(route)}
-          on:click={() => (isSideNavOpen = !isSideNavOpen)} />
+          aria-current={getAriaCurrent(route)} />
       {/each}
-    </SideNavItems>
-  </SideNav>
-
-  <HeaderNav ariaLabel="Main">
-    {#each routes as route}
-      <HeaderNavItem
-        href={route}
-        text={$_(`routes.${route}`)}
-        aria-current={getAriaCurrent(route)} />
-    {/each}
-  </HeaderNav>
+    </HeaderNav>
+  {/if}
 
   <div class="actions">
     <div class="social">
       <Social />
     </div>
-    <div class="locale-switcher">
-      <LocaleSwitcher />
-    </div>
+    {#if winWidth >= 1056}
+      <div class="locale-switcher nav">
+        <LocaleSwitcher />
+      </div>
+    {/if}
   </div>
 </Header>
