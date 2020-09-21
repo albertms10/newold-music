@@ -1,17 +1,15 @@
 <script lang="ts">
-  import ProgressBar from "@okrad/svelte-progressbar";
   import { number } from "svelte-i18n";
+  import { cubicOut } from "svelte/easing";
+  import { tweened } from "svelte/motion";
   import { gcd } from "utils/math";
 
   export let amount: number;
   export let stops: number[];
-
-  $: hasProgress = typeof window !== "undefined" && amount && stops.length > 0;
+  export let isSmall: boolean = false;
 
   const maxStop = stops[stops.length - 1];
-  let progress: number;
-
-  $: if (hasProgress) progress = Math.round((amount / maxStop) * 100);
+  const progress = amount / maxStop;
 
   const weights = stops.map((stop, index) =>
     index > 0 ? stop - stops[index - 1] : stop
@@ -19,12 +17,12 @@
 
   const weightsGCD = gcd(...weights);
 
-  const colors = ["#4589ff", "#008000"];
+  const width = tweened(0, {
+    duration: (from, to) => (to - from) * 1000,
+    easing: cubicOut,
+  });
 
-  const thresholds = stops.map((stop, index) => ({
-    till: (stop / maxStop) * 100,
-    color: colors[index > colors.length ? colors[colors.length - 1] : index],
-  }));
+  width.set(progress);
 </script>
 
 <style>
@@ -38,14 +36,19 @@
 
   .stops div {
     text-align: right;
-    border-right: 1px solid #e5e5e5;
+    border-right: 1px solid #c5c5c5;
     padding-right: 0.5rem;
-    margin-right: 4px;
-    margin-left: calc(-4px - 0.5rem);
+    margin-left: -0.5rem;
   }
 
-  :global(.progressbar) {
-    position: relative;
+  .progress-bar {
+    background-color: #eee;
+    margin-top: 0.5rem;
+  }
+
+  .progress-bar .bar {
+    height: 100%;
+    background-color: #4589ff;
   }
 </style>
 
@@ -57,12 +60,7 @@
       </div>
     {/each}
   </div>
-  {#if hasProgress}
-    <ProgressBar
-      style="thin"
-      width="100%"
-      valueLabel=" "
-      series={[progress]}
-      {thresholds} />
-  {/if}
+  <div class="progress-bar" style={`height: ${isSmall ? 0.4 : 1}rem`}>
+    <div class="bar" style={`width: ${$width * 100}%`} />
+  </div>
 </div>

@@ -9,7 +9,9 @@
   export let id: number;
   export let title: string = undefined;
   export let description: string = undefined;
+
   export let contributorsCount: number = undefined;
+
   export let progressAmount: number = undefined;
   export let progressStops: number[] = [];
 </script>
@@ -23,6 +25,9 @@
       label={$_('numerable.contributors', {
         values: { n: contributorsCount },
       })} />
-    <CampaignProgressBar amount={progressAmount} stops={progressStops} />
+    <CampaignProgressBar
+      amount={progressAmount}
+      stops={progressStops}
+      isSmall />
   </div>
 </GridViewTile>
