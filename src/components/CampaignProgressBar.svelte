@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { TooltipDefinition } from "carbon-components-svelte";
   import { number } from "svelte-i18n";
   import { cubicOut } from "svelte/easing";
   import { tweened } from "svelte/motion";
@@ -6,7 +7,6 @@
 
   export let amount: number;
   export let stops: number[];
-  export let isSmall: boolean = false;
 
   const maxStop = stops[stops.length - 1];
   const progress = amount / maxStop;
@@ -23,6 +23,9 @@
   });
 
   width.set(progress);
+
+  const heightCSS = `height: 1rem`;
+  $: widthCSS = `--progress-width: ${$width * 100}%`;
 </script>
 
 <style>
@@ -50,6 +53,15 @@
     height: 100%;
     background-color: #4589ff;
   }
+
+  :global(.progress-bar .bx--tooltip--definition) {
+    width: var(--progress-width);
+  }
+
+  :global(.progress-bar .bx--tooltip__trigger) {
+    width: 100%;
+    border-bottom: none;
+  }
 </style>
 
 <div class="progress">
@@ -60,7 +72,14 @@
       </div>
     {/each}
   </div>
-  <div class="progress-bar" style={`height: ${isSmall ? 0.4 : 1}rem`}>
-    <div class="bar" style={`width: ${$width * 100}%`} />
+  <div
+    class="progress-bar"
+    style={`${widthCSS}; ${heightCSS}`}
+    on:click|preventDefault>
+    <TooltipDefinition
+      direction="top"
+      tooltipText={$number(amount, { format: 'EUR-int' })}>
+      <div class="bar" style={`width: 100%; ${heightCSS}`} />
+    </TooltipDefinition>
   </div>
 </div>

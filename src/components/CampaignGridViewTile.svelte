@@ -25,9 +25,6 @@
       label={$_('numerable.contributors', {
         values: { n: contributorsCount },
       })} />
-    <CampaignProgressBar
-      amount={progressAmount}
-      stops={progressStops}
-      isSmall />
+    <CampaignProgressBar amount={progressAmount} stops={progressStops} />
   </div>
 </GridViewTile>
