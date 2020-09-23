@@ -27,7 +27,7 @@
       {#each result.data.composers as { id, name, surname, roled_composers } (id)}
         <ComposerGridViewTile
           {id}
-          composer={`${name} ${surname}`}
+          composer="{name} {surname}"
           worksCount={roled_composers.reduce((prev, curr) => prev + curr.work_roled_composers_aggregate.aggregate.count, 0)} />
       {/each}
     </GridView>

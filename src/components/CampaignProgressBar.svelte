@@ -7,6 +7,7 @@
 
   export let amount: number;
   export let stops: number[];
+  export let isSmall: boolean = false;
 
   const maxStop = stops[stops.length - 1];
   const progress = amount / maxStop;
@@ -23,9 +24,6 @@
   });
 
   width.set(progress);
-
-  const heightCSS = `height: 1rem`;
-  $: widthCSS = `--progress-width: ${$width * 100}%`;
 </script>
 
 <style>
@@ -45,13 +43,20 @@
   }
 
   .progress-bar {
+    height: 1rem;
     background-color: #eee;
     margin-top: 0.5rem;
   }
 
   .progress-bar .bar {
-    height: 100%;
+    height: 1rem;
+    width: 100%;
     background-color: #4589ff;
+  }
+
+  .progress-bar.isSmall,
+  .progress-bar .bar.isSmall {
+    height: 0.4rem;
   }
 
   :global(.progress-bar .bx--tooltip--definition) {
@@ -67,19 +72,20 @@
 <div class="progress">
   <div class="stops">
     {#each stops as stop, index}
-      <div style={`flex: ${weights[index] / weightsGCD}`}>
+      <div style="flex: {weights[index] / weightsGCD}">
         {$number(stop, { format: 'EUR-int' })}
       </div>
     {/each}
   </div>
   <div
     class="progress-bar"
-    style={`${widthCSS}; ${heightCSS}`}
+    class:isSmall
+    style="--progress-width: {$width * 100}%"
     on:click|preventDefault>
     <TooltipDefinition
       direction="top"
       tooltipText={$number(amount, { format: 'EUR-int' })}>
-      <div class="bar" style={`width: 100%; ${heightCSS}`} />
+      <div class="bar" class:isSmall />
     </TooltipDefinition>
   </div>
 </div>

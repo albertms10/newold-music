@@ -67,7 +67,7 @@
   <article>
     <ClickableTile {href}>
       <div class="content">
-        <div class="avatar" style={`background-image: url(${avatarUrl})`} />
+        <div class="avatar" style="background-image: url({avatarUrl})" />
         <div class="header">
           {#if $$slots.title}
             <h3>

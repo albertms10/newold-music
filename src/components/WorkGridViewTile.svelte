@@ -10,7 +10,7 @@
   export let duration: string = undefined;
 </script>
 
-<GridViewTile href={`shop/${id}`}>
+<GridViewTile href="shop/{id}">
   <span slot="title">{title}</span>
   <span slot="meta">{composers.join(', ')}</span>
   <div slot="details">

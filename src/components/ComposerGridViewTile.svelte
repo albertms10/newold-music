@@ -9,7 +9,7 @@
   export let worksCount: number = undefined;
 </script>
 
-<GridViewTile href={`composers/${id}`}>
+<GridViewTile href="composers/{id}">
   <span slot="title">{composer}</span>
   <div slot="details">
     <GridViewTileDetail

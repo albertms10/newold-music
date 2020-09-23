@@ -16,7 +16,7 @@
   export let progressStops: number[] = [];
 </script>
 
-<GridViewTile href={`campaigns/${id}`} aspectRatio="16x9" sm={4} md={8} lg={8}>
+<GridViewTile href="campaigns/{id}" aspectRatio="16x9" sm={4} md={8} lg={8}>
   <span slot="title">{title}</span>
   <span slot="meta">{truncateString(description, 82)}</span>
   <div slot="details">
