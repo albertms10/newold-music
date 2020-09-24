@@ -3,12 +3,12 @@
   import { COMPOSER_INFO } from "database/operations";
 
   export async function preload({ params }) {
-    const { id } = params;
+    const { composerId } = params;
 
     return {
       composerCache: await client.query({
         query: COMPOSER_INFO,
-        variables: { id },
+        variables: { id: composerId },
       }),
     };
   }

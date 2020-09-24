@@ -3,12 +3,12 @@
   import { WORK_INFO } from "database/operations";
 
   export async function preload({ params }) {
-    const { id } = params;
+    const { workId } = params;
 
     return {
       workCache: await client.query({
         query: WORK_INFO,
-        variables: { id },
+        variables: { id: workId },
       }),
     };
   }

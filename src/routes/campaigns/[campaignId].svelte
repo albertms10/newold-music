@@ -3,14 +3,14 @@
   import { CAMPAIGN_INFO } from "database/operations";
 
   export async function preload({ params }) {
-    const { id } = params;
+    const { campaignId } = params;
 
     return {
       campaignCache: await client.query({
         query: CAMPAIGN_INFO,
-        variables: { id },
+        variables: { id: campaignId },
       }),
-      id: parseInt(id),
+      id: parseInt(campaignId),
     };
   }
 </script>
