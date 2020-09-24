@@ -27,10 +27,16 @@
   }));
 
   type DataTableRows = {
-    [P in typeof headersList[number]]: string;
+    [P in typeof headersList[number] & "id"]: string;
   };
 
-  $: mapContributorRow = ({ user, quantity, created_at }): DataTableRows => ({
+  $: mapContributorRow = ({
+    id,
+    user,
+    quantity,
+    created_at,
+  }): DataTableRows => ({
+    id,
     name: `${user.name} ${user.surname}`,
     quantity: $number(quantity, { format: "EUR" }),
     date: dayjs(created_at).fromNow(),
@@ -42,7 +48,7 @@
 {:then result}
   <DataTable
     title={title($_('terms.contributors', { values: { n: 0 } }))}
-    description="Llista d’usuaris que han participat en la campanya"
+    description={$_('descriptions.users list')}
     {headers}
     rows={result.data.campaigns_contributors.map(mapContributorRow)}
     sortable
