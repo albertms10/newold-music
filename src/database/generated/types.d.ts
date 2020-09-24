@@ -603,9 +603,7 @@ export type Campaigns_Contributors_Bool_Exp = {
 /** unique or primary key constraints on table "campaigns_contributors" */
 export enum Campaigns_Contributors_Constraint {
   /** unique or primary key constraint */
-  CampaignContributorPkey = 'campaign_contributor_pkey',
-  /** unique or primary key constraint */
-  CampaignContributorUserIdCampaignIdKey = 'campaign_contributor_user_id_campaign_id_key'
+  CampaignContributorPkey = 'campaign_contributor_pkey'
 }
 
 /** input type for incrementing integer column in table "campaigns_contributors" */
