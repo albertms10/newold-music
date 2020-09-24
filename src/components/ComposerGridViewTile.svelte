@@ -14,6 +14,7 @@
   <div slot="details">
     <GridViewTileDetail
       icon={Product20}
-      label={$_('numerable.works', { values: { n: worksCount } })} />
+      label={$_('numerable.works', { values: { n: worksCount } })}
+    />
   </div>
 </GridViewTile>

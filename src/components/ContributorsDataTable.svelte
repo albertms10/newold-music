@@ -47,5 +47,6 @@
     rows={result.data.campaigns_contributors.map(mapContributorRow)}
     sortable
     stickyHeader
-    zebra />
+    zebra
+  />
 {/await}

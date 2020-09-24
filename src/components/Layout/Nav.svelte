@@ -89,7 +89,8 @@
   href="."
   uiShellAriaLabel="Main"
   expandedByDefault={false}
-  bind:isSideNavOpen>
+  bind:isSideNavOpen
+>
   <div class="platform" slot="platform">
     <img src="logo-dark-192.png" alt="Logo" />
     {#if winWidth > 378}
@@ -104,7 +105,8 @@
             href={route}
             text={$_(`routes.${route}`)}
             aria-current={getAriaCurrent(route)}
-            on:click={() => (isSideNavOpen = !isSideNavOpen)} />
+            on:click={() => (isSideNavOpen = !isSideNavOpen)}
+          />
         {/each}
         <div class="locale-switcher side">
           <LocaleSwitcher />
@@ -117,7 +119,8 @@
         <HeaderNavItem
           href={route}
           text={$_(`routes.${route}`)}
-          aria-current={getAriaCurrent(route)} />
+          aria-current={getAriaCurrent(route)}
+        />
       {/each}
     </HeaderNav>
   {/if}

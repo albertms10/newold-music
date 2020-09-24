@@ -28,7 +28,8 @@
         <ComposerGridViewTile
           {id}
           composer="{name} {surname}"
-          worksCount={roled_composers.reduce((prev, curr) => prev + curr.work_roled_composers_aggregate.aggregate.count, 0)} />
+          worksCount={roled_composers.reduce((prev, curr) => prev + curr.work_roled_composers_aggregate.aggregate.count, 0)}
+        />
       {/each}
     </GridView>
   {:else}

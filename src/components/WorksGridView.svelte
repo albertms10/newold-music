@@ -29,7 +29,8 @@
           {id}
           {title}
           composers={work_roled_composers.map(({ roled_composer }) => `${roled_composer.composer.name} ${roled_composer.composer.surname}`)}
-          {duration} />
+          {duration}
+        />
       {/each}
     </GridView>
   {:else}

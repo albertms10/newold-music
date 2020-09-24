@@ -81,10 +81,12 @@
     class="progress-bar"
     class:isSmall
     style="--progress-width: {$width * 100}%"
-    on:click|preventDefault>
+    on:click|preventDefault
+  >
     <TooltipDefinition
       direction="top"
-      tooltipText={$number(amount, { format: 'EUR-int' })}>
+      tooltipText={$number(amount, { format: 'EUR-int' })}
+    >
       <div class="bar" class:isSmall />
     </TooltipDefinition>
   </div>

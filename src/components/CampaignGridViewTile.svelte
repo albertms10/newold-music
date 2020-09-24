@@ -22,9 +22,8 @@
   <div slot="details">
     <GridViewTileDetail
       icon={Collaborate20}
-      label={$_('numerable.contributors', {
-        values: { n: contributorsCount },
-      })} />
+      label={$_('numerable.contributors', { values: { n: contributorsCount } })}
+    />
     <CampaignProgressBar amount={progressAmount} stops={progressStops} />
   </div>
 </GridViewTile>

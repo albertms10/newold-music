@@ -68,7 +68,8 @@
         hasIconOnly
         {icon}
         {iconDescription}
-        {href} />
+        {href}
+      />
     {/each}
   </div>
 {:else}
@@ -90,7 +91,8 @@
           <div class="icon" class:instagram={iconDescription === 'Instagram'}>
             <svelte:component
               this={icon}
-              style={iconDescription !== 'Instagram' ? `color: ${color}` : undefined} />
+              style={iconDescription !== 'Instagram' ? `color: ${color}` : undefined}
+            />
           </div>
           <p>{iconDescription}</p>
         </div>
