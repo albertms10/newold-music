@@ -92,7 +92,9 @@
   bind:isSideNavOpen>
   <div class="platform" slot="platform">
     <img src="logo-dark-192.png" alt="Logo" />
-    <div>Newold Music</div>
+    {#if winWidth > 378}
+      <div>Newold Music</div>
+    {/if}
   </div>
   {#if winWidth < 1056}
     <SideNav fixed bind:isOpen={isSideNavOpen} ariaLabel="Main">
@@ -122,7 +124,7 @@
 
   <div class="actions">
     <div class="social">
-      <Social />
+      <Social isSmall />
     </div>
     {#if winWidth >= 1056}
       <div class="locale-switcher nav">

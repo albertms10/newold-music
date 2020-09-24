@@ -9,6 +9,7 @@
 <script lang="ts">
   import { stores } from "@sapper/app";
   import { Content, Loading } from "carbon-components-svelte";
+  import Footer from "components/Layout/Footer.svelte";
   import Nav from "components/Layout/Nav.svelte";
   import { onMount } from "svelte";
   import { isLoading as isLoadingLocale } from "svelte-i18n";
@@ -43,6 +44,16 @@
 </script>
 
 <style>
+  .content {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+  }
+
+  :global(.content main) {
+    flex: 1;
+  }
+
   :global(hr) {
     border: 0;
     height: 0;
@@ -54,8 +65,12 @@
   <Loading small />
 {/if}
 
-<Nav {segment} />
+<div class="content">
+  <Nav {segment} />
 
-<Content>
-  <slot />
-</Content>
+  <Content>
+    <slot />
+  </Content>
+
+  <Footer />
+</div>
