@@ -11,7 +11,7 @@
 
 <script lang="ts">
   import type { ApolloQueryResult } from "apollo-boost";
-  import WorksGridView from "components/WorksGridView.svelte";
+  import LoadWorksGridView from "components/LoadWorksGridView.svelte";
   import type { WorksListQuery } from "database/generated/operations";
   import { _ } from "svelte-i18n";
 
@@ -30,4 +30,4 @@
 
 <h1>{$_('routes.shop')}</h1>
 
-<WorksGridView bind:worksCache />
+<LoadWorksGridView bind:worksCache />

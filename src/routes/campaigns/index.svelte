@@ -11,7 +11,7 @@
 
 <script lang="ts">
   import type { ApolloQueryResult } from "apollo-boost";
-  import CampaignsGridView from "components/CampaignsGridView.svelte";
+  import LoadCampaignsGridView from "components/LoadCampaignsGridView.svelte";
   import type { CampaignsListQuery } from "database/generated/operations";
   import { _ } from "svelte-i18n";
 
@@ -30,4 +30,4 @@
 
 <h1>{$_('routes.campaigns')}</h1>
 
-<CampaignsGridView bind:campaignsCache />
+<LoadCampaignsGridView bind:campaignsCache />

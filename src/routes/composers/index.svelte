@@ -11,7 +11,7 @@
 
 <script lang="ts">
   import type { ApolloQueryResult } from "apollo-boost";
-  import ComposersGridView from "components/ComposersGridView.svelte";
+  import LoadComposersGridView from "components/LoadComposersGridView.svelte";
   import type { ComposersListQuery } from "database/generated/operations";
   import { _ } from "svelte-i18n";
 
@@ -30,4 +30,4 @@
 
 <h1>{$_('routes.composers')}</h1>
 
-<ComposersGridView bind:composersCache />
+<LoadComposersGridView bind:composersCache />
