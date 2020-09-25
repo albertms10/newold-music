@@ -2,9 +2,9 @@
   import Collaborate20 from "carbon-icons-svelte/lib/Collaborate20";
   import { _ } from "svelte-i18n";
   import { truncateString } from "utils/strings";
+  import CampaignProgressBar from "./CampaignProgressBar.svelte";
   import GridViewTile from "./GridView/GridViewTile.svelte";
   import GridViewTileDetail from "./GridView/GridViewTileDetail.svelte";
-  import CampaignProgressBar from "./CampaignProgressBar.svelte";
 
   export let id: number;
   export let title: string = undefined;

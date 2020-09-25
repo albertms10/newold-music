@@ -1,12 +1,12 @@
 <script lang="ts">
   import type { ApolloQueryResult } from "apollo-boost";
   import { Loading } from "carbon-components-svelte";
-  import CampaignGridViewTile from "components/CampaignGridViewTile.svelte";
-  import GridView from "components/GridView/GridView.svelte";
   import client from "database/apollo";
   import type { CampaignsListQuery } from "database/generated/operations";
   import { CAMPAIGNS_LIST } from "database/operations";
   import { query, restore } from "svelte-apollo";
+  import CampaignsGridView from "./CampaignsGridView.svelte";
+  import GridView from "./GridView/GridView.svelte";
 
   export let campaignsCache: ApolloQueryResult<CampaignsListQuery>;
 
@@ -23,18 +23,7 @@
   <Loading small />
 {:then result}
   {#if result && result.data && result.data.campaigns.length > 0}
-    <GridView {numerableName} count={result.data.campaigns.length}>
-      {#each result.data.campaigns as { id, title, description, campaign_contributors_aggregate, campaign_progress_stops } (id)}
-        <CampaignGridViewTile
-          {id}
-          {title}
-          {description}
-          contributorsCount={campaign_contributors_aggregate.aggregate.count}
-          progressAmount={campaign_contributors_aggregate.aggregate.sum.quantity}
-          progressStops={campaign_progress_stops.map(({ stop }) => stop)}
-        />
-      {/each}
-    </GridView>
+    <CampaignsGridView items={result.data.campaigns} />
   {:else}
     <GridView {numerableName} />
   {/if}
