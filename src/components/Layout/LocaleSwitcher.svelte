@@ -14,7 +14,6 @@
     { id: "en", text: "English" },
     { id: "es", text: "Español" },
     { id: "fr", text: "Français" },
-    { id: "it", text: "Italiano" },
   ];
 
   $: selectedIndex = langs.findIndex((l) => l.id === $locale.split("-")[0]);
