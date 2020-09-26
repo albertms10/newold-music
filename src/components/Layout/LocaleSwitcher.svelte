@@ -1,6 +1,11 @@
 <script lang="ts">
   import { Dropdown } from "carbon-components-svelte";
   import dayjs from "dayjs";
+  import "dayjs/locale/ca";
+  import "dayjs/locale/de";
+  import "dayjs/locale/en";
+  import "dayjs/locale/es";
+  import "dayjs/locale/fr";
   import { locale } from "svelte-i18n";
 
   interface Lang {
@@ -21,10 +26,7 @@
   $: {
     const selectedLocale = langs[selectedIndex].id;
     locale.set(selectedLocale);
-
-    import(`dayjs/locale/${selectedLocale}`).then(() => {
-      dayjs.locale(selectedLocale);
-    });
+    dayjs.locale(selectedLocale);
   }
 </script>
 
