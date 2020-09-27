@@ -6,15 +6,17 @@
 
   export let id: number;
   export let composer: string = undefined;
+  export let role: string = undefined;
   export let worksCount: number = undefined;
 </script>
 
-<GridViewTile href="composers/{id}">
-  <span slot="title">{composer}</span>
+<GridViewTile title={composer} meta={role} href="composers/{id}">
   <div slot="details">
-    <GridViewTileDetail
-      icon={Product20}
-      label={$_('numerable.works', { values: { n: worksCount } })}
-    />
+    {#if worksCount !== undefined}
+      <GridViewTileDetail
+        icon={Product20}
+        label={$_('numerable.works', { values: { n: worksCount } })}
+      />
+    {/if}
   </div>
 </GridViewTile>

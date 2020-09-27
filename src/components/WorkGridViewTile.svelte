@@ -10,9 +10,7 @@
   export let duration: string = undefined;
 </script>
 
-<GridViewTile href="shop/{id}">
-  <span slot="title">{title}</span>
-  <span slot="meta">{composers.join(', ')}</span>
+<GridViewTile {title} meta={composers.join(', ')} href="shop/{id}">
   <div slot="details">
     <GridViewTileDetail icon={Timer20} label={timeDuration(duration)} />
   </div>

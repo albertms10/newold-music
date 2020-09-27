@@ -1,6 +1,9 @@
 <script lang="ts">
   import { ClickableTile, Column } from "carbon-components-svelte";
 
+  export let title: string = undefined;
+  export let meta: string = undefined;
+
   export let href: string = undefined;
   export let avatarUrl =
     "https://cdn.pixabay.com/photo/2016/10/02/00/36/clarinet-1708715_1280.jpg";
@@ -69,14 +72,14 @@
       <div class="content">
         <div class="avatar" style="background-image: url({avatarUrl})" />
         <div class="header">
-          {#if $$slots.title}
+          {#if title || $$slots.title}
             <h3>
-              <slot name="title" />
+              <slot name="title">{title}</slot>
             </h3>
           {/if}
-          {#if $$slots.meta}
+          {#if meta || $$slots.meta}
             <p>
-              <slot name="meta" />
+              <slot name="meta">{meta}</slot>
             </p>
           {/if}
         </div>
