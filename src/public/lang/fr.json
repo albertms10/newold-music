@@ -8,12 +8,26 @@
     "feedback": "Suggestions",
     "contact": "Contact"
   },
+  "terms": {
+    "campaigns": "{n, plural, one {Campagne} other {Campagnes}}",
+    "contributors": "{n, plural, one {Collaborateur} other {Collaboraterus}}",
+    "composers": "{n, plural, one {Compositeur} other {Compositeurs}}",
+    "works": "{n, plural, one {Œuvre} other {Œuvres}}"
+  },
+  "descriptions": {
+    "users list": "Lista de usuarios que han participado en la campaña"
+  },
   "numerable": {
     "items": "{n, plural, =0 {Sans élements} one {# élement} other {# élements}}",
     "campaigns": "{n, plural, =0 {Sans campagnes} one {# campagne} other {# campagnes}}",
     "contributors": "{n, plural, =0 {Sans collaborateurs} one {# collaborateur} other {# collaborateurs}}",
     "composers": "{n, plural, =0 {Sans compositeurs} one {# compositeur} other {# compositeurs}}",
     "works": "{n, plural, =0 {Sans œuvres} one {# œuvre} other {# œuvres}}"
+  },
+  "fields": {
+    "name": "Nom",
+    "contribution": "Contribution",
+    "date": "Date"
   },
   "actions": {
     "go back home": "Retour à la page d’accueil"

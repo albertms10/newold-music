@@ -19,7 +19,7 @@
     pollInterval: 10000,
   });
 
-  const headersList = ["name", "quantity", "date"] as const;
+  const headersList = ["name", "contribution", "date"] as const;
 
   const headers = headersList.map((header: string) => ({
     key: header,
@@ -38,7 +38,7 @@
   }): DataTableRows => ({
     id,
     name: `${user.name} ${user.surname}`,
-    quantity: $number(quantity, { format: "EUR" }),
+    contribution: $number(quantity, { format: "EUR" }),
     date: dayjs(created_at).fromNow(),
   });
 </script>

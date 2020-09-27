@@ -8,12 +8,26 @@
     "feedback": "Feedback",
     "contact": "Contact"
   },
+  "terms": {
+    "campaigns": "{n, plural, one {Campaign} other {Campaigns}}",
+    "contributors": "{n, plural, one {Contributor} other {Contributors}}",
+    "composers": "{n, plural, one {Composer} other {Composers}}",
+    "works": "{n, plural, one {Work} other {Works}}"
+  },
+  "descriptions": {
+    "users list": "List of users who participated in the campaign"
+  },
   "numerable": {
     "items": "{n, plural, =0 {No items} one {# item} other {# items}}",
     "campaigns": "{n, plural, =0 {No campaigns} one {# campaign} other {# campaigns}}",
     "contributors": "{n, plural, =0 {No contributors} one {# contributor} other {# contributors}}",
     "composers": "{n, plural, =0 {No composers} one {# composer} other {# composers}}",
     "works": "{n, plural, =0 {No works} one {# work} other {# works}}"
+  },
+  "fields": {
+    "name": "Name",
+    "contribution": "Contribution",
+    "date": "Date"
   },
   "actions": {
     "go back home": "Go back home"
