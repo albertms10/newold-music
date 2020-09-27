@@ -1,7 +1,7 @@
 <script lang="ts">
   import { Grid, Row } from "carbon-components-svelte";
-  import DataTable32 from "carbon-icons-svelte/lib/DataTable32";
   import { _ } from "svelte-i18n";
+  import { Empty } from "../Layout";
 
   export let numerableName: string = "items";
   export let count: number = 0;
@@ -24,12 +24,6 @@
     text-align: right;
     color: #777;
   }
-
-  .no-items {
-    text-align: center;
-    width: 100%;
-    color: #777;
-  }
 </style>
 
 <section>
@@ -40,10 +34,7 @@
   <Grid>
     <Row>
       <slot>
-        <div class="no-items">
-          <DataTable32 />
-          <h5>{countText}</h5>
-        </div>
+        <Empty text={countText} />
       </slot>
     </Row>
   </Grid>
