@@ -16,6 +16,8 @@
   }
 </style>
 
+<svelte:options immutable />
+
 <p>
   <svelte:component this={icon} />
   <span>{label}</span>
