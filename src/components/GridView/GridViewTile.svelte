@@ -58,7 +58,7 @@
     height: 100%;
   }
 
-  :global(.grid-view-tile div[class^="bx--col"]) {
+  :global(div[class^="bx--col"]) {
     margin-top: 1rem;
     margin-bottom: 1rem;
   }
