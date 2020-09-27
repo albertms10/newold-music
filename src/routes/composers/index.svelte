@@ -11,7 +11,7 @@
 
 <script lang="ts">
   import type { ApolloQueryResult } from "apollo-boost";
-  import LoadComposersGridView from "components/LoadComposersGridView.svelte";
+  import { LoadComposersGridView } from "components/Composers";
   import type { ComposersListQuery } from "database/generated/operations";
   import { _ } from "svelte-i18n";
 

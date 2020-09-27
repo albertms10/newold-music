@@ -11,7 +11,7 @@
 
 <script lang="ts">
   import type { ApolloQueryResult } from "apollo-boost";
-  import LoadWorksGridView from "components/LoadWorksGridView.svelte";
+  import { LoadWorksGridView } from "components/Works";
   import type { WorksListQuery } from "database/generated/operations";
   import { _ } from "svelte-i18n";
 

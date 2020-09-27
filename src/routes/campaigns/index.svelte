@@ -11,7 +11,7 @@
 
 <script lang="ts">
   import type { ApolloQueryResult } from "apollo-boost";
-  import LoadCampaignsGridView from "components/LoadCampaignsGridView.svelte";
+  import { LoadCampaignsGridView } from "components/Campaigns";
   import type { CampaignsListQuery } from "database/generated/operations";
   import { _ } from "svelte-i18n";
 

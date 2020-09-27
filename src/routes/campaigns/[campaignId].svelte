@@ -22,9 +22,11 @@
     BreadcrumbItem,
     Loading,
   } from "carbon-components-svelte";
-  import WorkGridViewTile from "components/WorkGridViewTile.svelte";
-  import ContributorsDataTable from "components/ContributorsDataTable.svelte";
-  import CampaignProgressBar from "components/CampaignProgressBar.svelte";
+  import {
+    ContributorsDataTable,
+    CampaignProgressBar,
+  } from "components/Campaigns";
+  import { WorkGridViewTile } from "components/Works";
   import type { CampaignInfoQuery } from "database/generated/operations";
   import { query, restore } from "svelte-apollo";
   import { _ } from "svelte-i18n";

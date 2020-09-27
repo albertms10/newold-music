@@ -1,8 +1,8 @@
 <script lang="ts">
   import type { WorkInfoQuery } from "database/generated/operations";
-  import ComposerGridViewTile from "./ComposerGridViewTile.svelte";
-  import GridView from "./GridView/GridView.svelte";
   import { _ } from "svelte-i18n";
+  import { GridView } from "../GridView";
+  import ComposerGridViewTile from "./ComposerGridViewTile.svelte";
 
   export let numerableName = "composers";
   export let items: WorkInfoQuery["works_by_pk"]["work_roled_composers"] = [];

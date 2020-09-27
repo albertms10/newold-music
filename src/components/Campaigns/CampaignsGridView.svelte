@@ -1,7 +1,7 @@
 <script lang="ts">
   import type { CampaignsListQuery } from "database/generated/operations";
+  import { GridView } from "../GridView";
   import CampaignGridViewTile from "./CampaignGridViewTile.svelte";
-  import GridView from "./GridView/GridView.svelte";
 
   export let numerableName = "campaigns";
   export let items: CampaignsListQuery["campaigns"] = [];

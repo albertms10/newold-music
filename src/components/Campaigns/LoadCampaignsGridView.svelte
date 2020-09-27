@@ -5,8 +5,8 @@
   import type { CampaignsListQuery } from "database/generated/operations";
   import { CAMPAIGNS_LIST } from "database/operations";
   import { query, restore } from "svelte-apollo";
+  import { GridView } from "../GridView";
   import CampaignsGridView from "./CampaignsGridView.svelte";
-  import GridView from "./GridView/GridView.svelte";
 
   export let campaignsCache: ApolloQueryResult<CampaignsListQuery>;
 

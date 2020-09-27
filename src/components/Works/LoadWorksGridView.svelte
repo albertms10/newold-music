@@ -5,7 +5,7 @@
   import type { WorksListQuery } from "database/generated/operations";
   import { WORKS_LIST } from "database/operations";
   import { query, restore } from "svelte-apollo";
-  import GridView from "./GridView/GridView.svelte";
+  import { GridView } from "../GridView";
   import WorksGridView from "./WorksGridView.svelte";
 
   export let worksCache: ApolloQueryResult<WorksListQuery>;

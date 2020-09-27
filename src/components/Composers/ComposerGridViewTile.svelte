@@ -1,8 +1,7 @@
 <script lang="ts">
   import Product20 from "carbon-icons-svelte/lib/Product20";
   import { _ } from "svelte-i18n";
-  import GridViewTile from "./GridView/GridViewTile.svelte";
-  import GridViewTileDetail from "./GridView/GridViewTileDetail.svelte";
+  import { GridViewTile, GridViewTileDetail } from "../GridView";
 
   export let id: number;
   export let composer: string = undefined;

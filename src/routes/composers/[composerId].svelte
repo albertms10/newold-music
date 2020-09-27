@@ -21,8 +21,8 @@
     BreadcrumbItem,
     Loading,
   } from "carbon-components-svelte";
-  import GridView from "components/GridView/GridView.svelte";
-  import WorkGridViewTile from "components/WorkGridViewTile.svelte";
+  import { GridView } from "components/GridView";
+  import { WorkGridViewTile } from "components/Works";
   import type { ComposerInfoQuery } from "database/generated/operations";
   import { query, restore } from "svelte-apollo";
   import { _ } from "svelte-i18n";

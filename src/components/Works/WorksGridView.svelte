@@ -1,6 +1,6 @@
 <script lang="ts">
   import type { WorksListQuery } from "database/generated/operations";
-  import GridView from "./GridView/GridView.svelte";
+  import { GridView } from "../GridView";
   import WorkGridViewTile from "./WorkGridViewTile.svelte";
 
   export let numerableName = "works";

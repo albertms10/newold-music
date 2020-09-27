@@ -1,8 +1,7 @@
 <script lang="ts">
   import Timer20 from "carbon-icons-svelte/lib/Timer20";
   import { timeDuration } from "utils/datetime";
-  import GridViewTile from "./GridView/GridViewTile.svelte";
-  import GridViewTileDetail from "./GridView/GridViewTileDetail.svelte";
+  import { GridViewTile, GridViewTileDetail } from "../GridView";
 
   export let id: number;
   export let title: string = undefined;

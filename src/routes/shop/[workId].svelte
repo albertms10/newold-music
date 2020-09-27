@@ -21,7 +21,7 @@
     BreadcrumbItem,
     Loading,
   } from "carbon-components-svelte";
-  import RoledComposersGridView from "components/RoledComposersGridView.svelte";
+  import { RoledComposersGridView } from "components/Composers";
   import type { WorkInfoQuery } from "database/generated/operations";
   import { query, restore } from "svelte-apollo";
   import { _ } from "svelte-i18n";

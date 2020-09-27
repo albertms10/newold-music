@@ -1,7 +1,7 @@
 <script lang="ts">
   import type { ComposersListQuery } from "database/generated/operations";
+  import { GridView } from "../GridView";
   import ComposerGridViewTile from "./ComposerGridViewTile.svelte";
-  import GridView from "./GridView/GridView.svelte";
 
   export let numerableName = "composers";
   export let items: ComposersListQuery["composers"] = [];

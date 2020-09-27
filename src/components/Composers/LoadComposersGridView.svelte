@@ -5,8 +5,8 @@
   import type { ComposersListQuery } from "database/generated/operations";
   import { COMPOSERS_LIST } from "database/operations";
   import { query, restore } from "svelte-apollo";
+  import { GridView } from "../GridView";
   import ComposersGridView from "./ComposersGridView.svelte";
-  import GridView from "./GridView/GridView.svelte";
 
   export let composersCache: ApolloQueryResult<ComposersListQuery>;
 
