@@ -16,12 +16,9 @@
 
 <script lang="ts">
   import type { ApolloQueryResult } from "apollo-boost";
-  import {
-    Breadcrumb,
-    BreadcrumbItem,
-    Loading,
-  } from "carbon-components-svelte";
-  import { RoledComposersGridView } from "components/Composers";
+  import { Loading } from "carbon-components-svelte";
+  import { ComposersTagView } from "components/Composers";
+  import { BreadcrumbBar } from "components/Layout";
   import type { WorkInfoQuery } from "database/generated/operations";
   import { query, restore } from "svelte-apollo";
   import { _ } from "svelte-i18n";
@@ -40,6 +37,10 @@
   h1 {
     margin-bottom: 2rem;
   }
+
+  .tag-view {
+    margin-top: 1rem;
+  }
 </style>
 
 <svelte:head>
@@ -50,21 +51,14 @@
   <Loading small />
 {:then result}
   {#if result && result.data && result.data.works_by_pk}
-    <Breadcrumb noTrailingSlash>
-      <BreadcrumbItem let:props>
-        <a {...props} href="shop">{$_('routes.shop')}</a>
-      </BreadcrumbItem>
-      <BreadcrumbItem aria-current="page">
-        {result.data.works_by_pk.title}
-      </BreadcrumbItem>
-    </Breadcrumb>
+    <BreadcrumbBar route="shop" page={result.data.works_by_pk.title} />
 
     <h1>{result.data.works_by_pk.title}</h1>
 
     <p>{timeDuration(result.data.works_by_pk.duration)}</p>
 
-    <RoledComposersGridView
-      items={result.data.works_by_pk.work_roled_composers}
-    />
+    <div class="tag-view">
+      <ComposersTagView items={result.data.works_by_pk.work_roled_composers} />
+    </div>
   {/if}
 {/await}

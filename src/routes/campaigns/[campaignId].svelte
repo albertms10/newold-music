@@ -17,15 +17,12 @@
 
 <script lang="ts">
   import type { ApolloQueryResult } from "apollo-boost";
-  import {
-    Breadcrumb,
-    BreadcrumbItem,
-    Loading,
-  } from "carbon-components-svelte";
+  import { Loading } from "carbon-components-svelte";
   import {
     ContributorsDataTable,
     CampaignProgressBar,
   } from "components/Campaigns";
+  import { BreadcrumbBar } from "components/Layout";
   import { WorkGridViewTile } from "components/Works";
   import type { CampaignInfoQuery } from "database/generated/operations";
   import { query, restore } from "svelte-apollo";
@@ -60,14 +57,7 @@
   <Loading small />
 {:then result}
   {#if result && result.data && result.data.campaigns_by_pk}
-    <Breadcrumb noTrailingSlash>
-      <BreadcrumbItem let:props>
-        <a {...props} href="campaigns">{$_('routes.campaigns')}</a>
-      </BreadcrumbItem>
-      <BreadcrumbItem aria-current="page">
-        {result.data.campaigns_by_pk.title}
-      </BreadcrumbItem>
-    </Breadcrumb>
+    <BreadcrumbBar route="campaigns" page={result.data.works_by_pk.title} />
 
     <h1>{result.data.campaigns_by_pk.title}</h1>
 

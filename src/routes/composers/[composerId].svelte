@@ -16,12 +16,9 @@
 
 <script lang="ts">
   import type { ApolloQueryResult } from "apollo-boost";
-  import {
-    Breadcrumb,
-    BreadcrumbItem,
-    Loading,
-  } from "carbon-components-svelte";
+  import { Loading } from "carbon-components-svelte";
   import { GridView } from "components/GridView";
+  import { BreadcrumbBar } from "components/Layout";
   import { WorkGridViewTile } from "components/Works";
   import type { ComposerInfoQuery } from "database/generated/operations";
   import { query, restore } from "svelte-apollo";
@@ -50,15 +47,10 @@
   <Loading small />
 {:then result}
   {#if result && result.data && result.data.composers_by_pk}
-    <Breadcrumb noTrailingSlash>
-      <BreadcrumbItem let:props>
-        <a {...props} href="composers">{$_('routes.composers')}</a>
-      </BreadcrumbItem>
-      <BreadcrumbItem aria-current="page">
-        {result.data.composers_by_pk.name}
-        {result.data.composers_by_pk.surname}
-      </BreadcrumbItem>
-    </Breadcrumb>
+    <BreadcrumbBar
+      route="composers"
+      page="{result.data.composers_by_pk.name} {result.data.composers_by_pk.surname}"
+    />
 
     <h1>
       {result.data.composers_by_pk.name}
