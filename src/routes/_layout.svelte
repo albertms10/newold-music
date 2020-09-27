@@ -1,4 +1,4 @@
-<script context="module">
+<script context="module" lang="ts">
   import { waitLocale } from "svelte-i18n";
 
   export async function preload() {

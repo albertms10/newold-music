@@ -1,4 +1,4 @@
-<script context="module">
+<script context="module" lang="ts">
   import client from "database/apollo";
   import { CAMPAIGNS_LIST } from "database/operations";
 

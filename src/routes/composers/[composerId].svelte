@@ -1,4 +1,4 @@
-<script context="module">
+<script context="module" lang="ts">
   import client from "database/apollo";
   import { COMPOSER_INFO } from "database/operations";
 
