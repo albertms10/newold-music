@@ -30,6 +30,7 @@
     "date": "Date"
   },
   "actions": {
-    "go back home": "Retour à la page d’accueil"
+    "go back home": "Retour à la page d’accueil",
+    "search": "Chercher…"
   }
 }

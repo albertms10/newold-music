@@ -30,6 +30,7 @@
     "date": "Date"
   },
   "actions": {
-    "go back home": "Go back home"
+    "go back home": "Go back home",
+    "search": "Search…"
   }
 }

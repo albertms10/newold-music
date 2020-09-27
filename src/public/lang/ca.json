@@ -30,6 +30,7 @@
     "date": "Data"
   },
   "actions": {
-    "go back home": "Torna a l’inici"
+    "go back home": "Torna a l’inici",
+    "search": "Cercar…"
   }
 }
