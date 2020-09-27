@@ -21,6 +21,7 @@
     BreadcrumbItem,
     Loading,
   } from "carbon-components-svelte";
+  import RoledComposersGridView from "components/RoledComposersGridView.svelte";
   import type { WorkInfoQuery } from "database/generated/operations";
   import { query, restore } from "svelte-apollo";
   import { _ } from "svelte-i18n";
@@ -60,15 +61,10 @@
 
     <h1>{result.data.works_by_pk.title}</h1>
 
-    <h3>
-      {result.data.works_by_pk.work_roled_composers
-        .map(
-          ({ roled_composer }) =>
-            `${roled_composer.composer.name} ${roled_composer.composer.surname}`
-        )
-        .join(', ')}
-    </h3>
-
     <p>{timeDuration(result.data.works_by_pk.duration)}</p>
+
+    <RoledComposersGridView
+      items={result.data.works_by_pk.work_roled_composers}
+    />
   {/if}
 {/await}
