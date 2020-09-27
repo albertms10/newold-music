@@ -27,7 +27,7 @@
   }));
 
   type DataTableRows = {
-    [P in typeof headersList[number] & "id"]: string;
+    [P in typeof headersList[number] | "id"]: string;
   };
 
   $: mapContributorRow = ({
