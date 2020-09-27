@@ -54,11 +54,11 @@
     flex: 0;
   }
 
-  :global(.bx--tile--clickable) {
+  :global(.grid-view-tile .bx--tile--clickable) {
     height: 100%;
   }
 
-  :global(div[class^="bx--col"]) {
+  :global(.grid-view-tile div[class^="bx--col"]) {
     margin-top: 1rem;
     margin-bottom: 1rem;
   }
@@ -67,7 +67,7 @@
 <svelte:options immutable />
 
 <Column {aspectRatio} {sm} {md} {lg}>
-  <article>
+  <article class="grid-view-tile">
     <ClickableTile {href}>
       <div class="content">
         <div class="avatar" style="background-image: url({avatarUrl})" />
