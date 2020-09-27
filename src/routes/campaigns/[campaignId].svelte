@@ -57,7 +57,7 @@
   <Loading small />
 {:then result}
   {#if result && result.data && result.data.campaigns_by_pk}
-    <BreadcrumbBar route="campaigns" page={result.data.works_by_pk.title} />
+    <BreadcrumbBar route="campaigns" page={result.data.campaigns_by_pk.title} />
 
     <h1>{result.data.campaigns_by_pk.title}</h1>
 
