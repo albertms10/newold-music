@@ -9,12 +9,12 @@
     "contact": "Contact"
   },
   "terms": {
-    "campaigns": "{n, plural, one {Campaign} other {Campaigns}}",
-    "contributors": "{n, plural, one {Contributor} other {Contributors}}",
-    "composers": "{n, plural, one {Composer} other {Composers}}",
-    "arrangers": "{n, plural, one {Arranger} other {Arrangers}}",
-    "lyricists": "{n, plural, one {Lyricist} other {Lyricists}}",
-    "works": "{n, plural, one {Work} other {Works}}"
+    "campaigns": "{n, plural, one {campaign} other {campaigns}}",
+    "contributors": "{n, plural, one {contributor} other {contributors}}",
+    "composers": "{n, plural, one {composer} other {composers}}",
+    "arrangers": "{n, plural, one {arranger} other {arrangers}}",
+    "lyricists": "{n, plural, one {lyricist} other {lyricists}}",
+    "works": "{n, plural, one {work} other {works}}"
   },
   "descriptions": {
     "users list": "List of users who participated in the campaign"

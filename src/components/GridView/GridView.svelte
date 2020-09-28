@@ -17,7 +17,7 @@
   });
   $: numerableTerm = $_(`terms.${numerableName}`, {
     values: { n: count },
-  }).toLowerCase();
+  });
   $: filteredCountText = $_("numerable.showing start", {
     values: { n: filteredCount, t: count },
   });

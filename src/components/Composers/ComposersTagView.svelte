@@ -1,6 +1,7 @@
 <script lang="ts">
   import type { WorkInfoQuery } from "database/generated/operations";
   import { _ } from "svelte-i18n";
+  import { title } from "utils/strings";
   import { TagView, TagViewTile } from "../TagView";
 
   export let numerableName = "composers";
@@ -11,9 +12,9 @@
   {#each items as { roled_composer } (roled_composer.composer.id)}
     <TagViewTile
       title="{roled_composer.composer.name} {roled_composer.composer.surname}"
-      meta={$_(`terms.${roled_composer.composer_role.role}s`, {
-        values: { n: 1 },
-      })}
+      meta={title($_(`terms.${roled_composer.composer_role.role}s`, {
+          values: { n: 1 },
+        }))}
       href="composers/{roled_composer.composer.id}"
     />
   {/each}

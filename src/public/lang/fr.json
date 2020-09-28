@@ -9,12 +9,12 @@
     "contact": "Contact"
   },
   "terms": {
-    "campaigns": "{n, plural, one {Campagne} other {Campagnes}}",
-    "contributors": "{n, plural, one {Collaborateur} other {Collaboraterus}}",
-    "composers": "{n, plural, one {Compositeur} other {Compositeurs}}",
-    "arrangers": "{n, plural, one {Arrangeur} other {Arrangeurs}}",
-    "lyricists": "{n, plural, one {Parolier} other {Paroliers}}",
-    "works": "{n, plural, one {Œuvre} other {Œuvres}}"
+    "campaigns": "{n, plural, one {campagne} other {campagnes}}",
+    "contributors": "{n, plural, one {collaborateur} other {collaboraterus}}",
+    "composers": "{n, plural, one {compositeur} other {compositeurs}}",
+    "arrangers": "{n, plural, one {arrangeur} other {arrangeurs}}",
+    "lyricists": "{n, plural, one {parolier} other {paroliers}}",
+    "works": "{n, plural, one {œuvre} other {œuvres}}"
   },
   "descriptions": {
     "users list": "Lista de usuarios que han participado en la campaña"
