@@ -25,6 +25,11 @@
   });
 
   if ($page.query.search !== undefined) value = $page.query.search;
+
+  const onChange = (e: InputEvent) => {
+    const search = (e.target as HTMLInputElement).value;
+    goto(`.${$page.path}${search ? `?search=${search}` : ""}`);
+  };
 </script>
 
 <style>
@@ -48,7 +53,7 @@
     autofocus
     autocomplete="on"
     bind:value
-    on:change={(e) => goto(`.${$page.path}?search=${e.target.value}`)}
+    on:change={onChange}
   />
 
   <p class="count">
