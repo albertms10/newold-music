@@ -20,6 +20,7 @@
     "users list": "Llista d’usuaris que han participat en la campanya"
   },
   "numerable": {
+    "showing start": "Mostrant {n} {t, plural, one {d’#} =11 {d’#} other {de #}}",
     "items": "{n, plural, =0 {Sense ítems} one {# ítem} other {# ítems}}",
     "campaigns": "{n, plural, =0 {Sense campanyes} one {# campanya} other {# campanyes}}",
     "contributors": "{n, plural, =0 {Sense col·laboradors} one {# col·laborador} other {# col·laboradors}}",

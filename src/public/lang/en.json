@@ -20,6 +20,7 @@
     "users list": "List of users who participated in the campaign"
   },
   "numerable": {
+    "showing start": "Showing {n} of {t}",
     "items": "{n, plural, =0 {No items} one {# item} other {# items}}",
     "campaigns": "{n, plural, =0 {No campaigns} one {# campaign} other {# campaigns}}",
     "contributors": "{n, plural, =0 {No contributors} one {# contributor} other {# contributors}}",
