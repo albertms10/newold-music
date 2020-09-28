@@ -12,6 +12,8 @@
     "campaigns": "{n, plural, one {Kampagne} other {Kampagne}}",
     "contributors": "{n, plural, one {Mitarbeiter} other {Mitarbeiter}}",
     "composers": "{n, plural, one {Komponiste} other {Komponisten}}",
+    "arrangers": "{n, plural, one {Arrangeur} other {Arrangeure}}",
+    "lyricists": "{n, plural, one {Texter} other {Texter}}",
     "works": "{n, plural, one {Werk} other {Werke}}"
   },
   "descriptions": {
