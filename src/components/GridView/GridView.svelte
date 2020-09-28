@@ -12,7 +12,9 @@
 
   export let searchValue: string = undefined;
 
-  $: countText = $_(`numerable.${numerableName}`, { values: { n: count } });
+  $: countText = $_(`numerable.${numerableName}`, {
+    values: { n: filteredCount },
+  });
   $: numerableTerm = $_(`terms.${numerableName}`, {
     values: { n: count },
   }).toLowerCase();
@@ -61,7 +63,7 @@
   </div>
   <Grid>
     <Row>
-      {#if count > 0 || filteredCount > 0}
+      {#if count > 0 && filteredCount > 0}
         <slot />
       {:else}
         <Empty text={countText} />
