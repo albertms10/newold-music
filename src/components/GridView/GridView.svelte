@@ -2,13 +2,25 @@
   import { Grid, Row, Search } from "carbon-components-svelte";
   import { _ } from "svelte-i18n";
   import { Empty } from "../Layout";
+  import { stores, goto } from "@sapper/app";
+
+  const { page } = stores();
 
   export let numerableName: string = "items";
   export let count: number = 0;
+  export let filteredCount: number = 0;
 
   export let searchValue: string = undefined;
 
   $: countText = $_(`numerable.${numerableName}`, { values: { n: count } });
+  $: numerableTerm = $_(`terms.${numerableName}`, {
+    values: { n: count },
+  }).toLowerCase();
+  $: filteredCountText = $_("numerable.showing start", {
+    values: { n: filteredCount, t: count },
+  });
+
+  searchValue = $page.query.search;
 </script>
 
 <style>
@@ -26,8 +38,8 @@
 </style>
 
 <section>
-  {#if count > 0}
-    <div class="header">
+  <div class="header">
+    {#if count > 0}
       <Search
         placeholder={$_('actions.search')}
         small
@@ -35,15 +47,25 @@
         autofocus
         autocomplete="on"
         bind:value={searchValue}
+        on:change={(e) => goto(`.${$page.path}?search=${e.target.value}`)}
       />
-      <p class="count">{countText}</p>
-    </div>
-  {/if}
+      <p class="count">
+        {#if filteredCount < count}
+          {filteredCountText}
+          {numerableTerm}
+        {:else}{countText}{/if}
+      </p>
+    {:else}
+      <hr />
+    {/if}
+  </div>
   <Grid>
     <Row>
-      <slot>
+      {#if count > 0 || filteredCount > 0}
+        <slot />
+      {:else}
         <Empty text={countText} />
-      </slot>
+      {/if}
     </Row>
   </Grid>
 </section>

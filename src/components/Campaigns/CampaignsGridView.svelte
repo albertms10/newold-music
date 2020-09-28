@@ -14,7 +14,12 @@
   );
 </script>
 
-<GridView {numerableName} count={items.length} bind:searchValue>
+<GridView
+  {numerableName}
+  count={items.length}
+  filteredCount={filteredItems.length}
+  bind:searchValue
+>
   {#each filteredItems as { id, title, description, campaign_contributors_aggregate, campaign_progress_stops } (id)}
     <CampaignGridViewTile
       {id}

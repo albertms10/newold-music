@@ -25,7 +25,12 @@
   );
 </script>
 
-<GridView {numerableName} count={items.length} bind:searchValue>
+<GridView
+  {numerableName}
+  count={items.length}
+  filteredCount={filteredItems.length}
+  bind:searchValue
+>
   {#each filteredItems as { id, title, duration, work_roled_composers } (id)}
     <WorkGridViewTile
       {id}
