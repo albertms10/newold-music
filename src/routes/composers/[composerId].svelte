@@ -17,9 +17,8 @@
 <script lang="ts">
   import type { ApolloQueryResult } from "apollo-boost";
   import { Loading } from "carbon-components-svelte";
-  import { GridView } from "components/GridView";
   import { BreadcrumbBar } from "components/Layout";
-  import { WorkGridViewTile } from "components/Works";
+  import { ComposerWorksGridView } from "components/Works";
   import type { ComposerInfoQuery } from "database/generated/operations";
   import { query, restore } from "svelte-apollo";
   import { _ } from "svelte-i18n";
@@ -31,6 +30,23 @@
   const composer = query<ComposerInfoQuery>(client, {
     query: COMPOSER_INFO,
   });
+
+  const getComposerRoledWorks = (
+    roled_composers: ComposerInfoQuery["composers_by_pk"]["roled_composers"]
+  ) => {
+    const works = [];
+
+    roled_composers.forEach((roled_composer) => {
+      works.push(
+        ...roled_composer.work_roled_composers.map((work_roled_composer) => ({
+          ...roled_composer,
+          ...work_roled_composer,
+        }))
+      );
+    });
+
+    return works;
+  };
 </script>
 
 <style>
@@ -57,16 +73,8 @@
       {result.data.composers_by_pk.surname}
     </h1>
 
-    {#each result.data.composers_by_pk.roled_composers as { id, work_roled_composers } (id)}
-      {#if work_roled_composers.length > 0}
-        <GridView numerableName="works" count={work_roled_composers.length}>
-          {#each work_roled_composers as { work: { id, title, duration } } (id)}
-            <WorkGridViewTile {id} {title} {duration} />
-          {/each}
-        </GridView>
-      {:else}
-        <GridView numerableName="works" />
-      {/if}
-    {/each}
+    <ComposerWorksGridView
+      items={getComposerRoledWorks(result.data.composers_by_pk.roled_composers)}
+    />
   {/if}
 {/await}
