@@ -1,0 +1,9 @@
+{
+  "faqs": [
+    {
+      "id": 1,
+      "q": "Question",
+      "a": "Answer"
+    }
+  ]
+}
