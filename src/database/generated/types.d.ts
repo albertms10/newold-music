@@ -2021,6 +2021,10 @@ export type Mutation_Root = {
   delete_users?: Maybe<Users_Mutation_Response>;
   /** delete single row from the table: "users" */
   delete_users_by_pk?: Maybe<Users>;
+  /** delete data from the table: "work_movements" */
+  delete_work_movements?: Maybe<Work_Movements_Mutation_Response>;
+  /** delete single row from the table: "work_movements" */
+  delete_work_movements_by_pk?: Maybe<Work_Movements>;
   /** delete data from the table: "works" */
   delete_works?: Maybe<Works_Mutation_Response>;
   /** delete single row from the table: "works" */
@@ -2065,6 +2069,10 @@ export type Mutation_Root = {
   insert_users?: Maybe<Users_Mutation_Response>;
   /** insert a single row into the table: "users" */
   insert_users_one?: Maybe<Users>;
+  /** insert data into the table: "work_movements" */
+  insert_work_movements?: Maybe<Work_Movements_Mutation_Response>;
+  /** insert a single row into the table: "work_movements" */
+  insert_work_movements_one?: Maybe<Work_Movements>;
   /** insert data into the table: "works" */
   insert_works?: Maybe<Works_Mutation_Response>;
   /** insert a single row into the table: "works" */
@@ -2109,6 +2117,10 @@ export type Mutation_Root = {
   update_users?: Maybe<Users_Mutation_Response>;
   /** update single row of the table: "users" */
   update_users_by_pk?: Maybe<Users>;
+  /** update data of the table: "work_movements" */
+  update_work_movements?: Maybe<Work_Movements_Mutation_Response>;
+  /** update single row of the table: "work_movements" */
+  update_work_movements_by_pk?: Maybe<Work_Movements>;
   /** update data of the table: "works" */
   update_works?: Maybe<Works_Mutation_Response>;
   /** update single row of the table: "works" */
@@ -2224,6 +2236,18 @@ export type Mutation_RootDelete_UsersArgs = {
 
 /** mutation root */
 export type Mutation_RootDelete_Users_By_PkArgs = {
+  id: Scalars['Int'];
+};
+
+
+/** mutation root */
+export type Mutation_RootDelete_Work_MovementsArgs = {
+  where: Work_Movements_Bool_Exp;
+};
+
+
+/** mutation root */
+export type Mutation_RootDelete_Work_Movements_By_PkArgs = {
   id: Scalars['Int'];
 };
 
@@ -2375,6 +2399,20 @@ export type Mutation_RootInsert_UsersArgs = {
 export type Mutation_RootInsert_Users_OneArgs = {
   object: Users_Insert_Input;
   on_conflict?: Maybe<Users_On_Conflict>;
+};
+
+
+/** mutation root */
+export type Mutation_RootInsert_Work_MovementsArgs = {
+  objects: Array<Work_Movements_Insert_Input>;
+  on_conflict?: Maybe<Work_Movements_On_Conflict>;
+};
+
+
+/** mutation root */
+export type Mutation_RootInsert_Work_Movements_OneArgs = {
+  object: Work_Movements_Insert_Input;
+  on_conflict?: Maybe<Work_Movements_On_Conflict>;
 };
 
 
@@ -2551,6 +2589,22 @@ export type Mutation_RootUpdate_Users_By_PkArgs = {
 
 
 /** mutation root */
+export type Mutation_RootUpdate_Work_MovementsArgs = {
+  _inc?: Maybe<Work_Movements_Inc_Input>;
+  _set?: Maybe<Work_Movements_Set_Input>;
+  where: Work_Movements_Bool_Exp;
+};
+
+
+/** mutation root */
+export type Mutation_RootUpdate_Work_Movements_By_PkArgs = {
+  _inc?: Maybe<Work_Movements_Inc_Input>;
+  _set?: Maybe<Work_Movements_Set_Input>;
+  pk_columns: Work_Movements_Pk_Columns_Input;
+};
+
+
+/** mutation root */
 export type Mutation_RootUpdate_WorksArgs = {
   _inc?: Maybe<Works_Inc_Input>;
   _set?: Maybe<Works_Set_Input>;
@@ -2668,6 +2722,12 @@ export type Query_Root = {
   users_aggregate: Users_Aggregate;
   /** fetch data from the table: "users" using primary key columns */
   users_by_pk?: Maybe<Users>;
+  /** fetch data from the table: "work_movements" */
+  work_movements: Array<Work_Movements>;
+  /** fetch aggregated fields from the table: "work_movements" */
+  work_movements_aggregate: Work_Movements_Aggregate;
+  /** fetch data from the table: "work_movements" using primary key columns */
+  work_movements_by_pk?: Maybe<Work_Movements>;
   /** fetch data from the table: "works" */
   works: Array<Works>;
   /** fetch aggregated fields from the table: "works" */
@@ -2913,6 +2973,32 @@ export type Query_RootUsers_AggregateArgs = {
 
 /** query root */
 export type Query_RootUsers_By_PkArgs = {
+  id: Scalars['Int'];
+};
+
+
+/** query root */
+export type Query_RootWork_MovementsArgs = {
+  distinct_on?: Maybe<Array<Work_Movements_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Work_Movements_Order_By>>;
+  where?: Maybe<Work_Movements_Bool_Exp>;
+};
+
+
+/** query root */
+export type Query_RootWork_Movements_AggregateArgs = {
+  distinct_on?: Maybe<Array<Work_Movements_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Work_Movements_Order_By>>;
+  where?: Maybe<Work_Movements_Bool_Exp>;
+};
+
+
+/** query root */
+export type Query_RootWork_Movements_By_PkArgs = {
   id: Scalars['Int'];
 };
 
@@ -3364,6 +3450,12 @@ export type Subscription_Root = {
   users_aggregate: Users_Aggregate;
   /** fetch data from the table: "users" using primary key columns */
   users_by_pk?: Maybe<Users>;
+  /** fetch data from the table: "work_movements" */
+  work_movements: Array<Work_Movements>;
+  /** fetch aggregated fields from the table: "work_movements" */
+  work_movements_aggregate: Work_Movements_Aggregate;
+  /** fetch data from the table: "work_movements" using primary key columns */
+  work_movements_by_pk?: Maybe<Work_Movements>;
   /** fetch data from the table: "works" */
   works: Array<Works>;
   /** fetch aggregated fields from the table: "works" */
@@ -3609,6 +3701,32 @@ export type Subscription_RootUsers_AggregateArgs = {
 
 /** subscription root */
 export type Subscription_RootUsers_By_PkArgs = {
+  id: Scalars['Int'];
+};
+
+
+/** subscription root */
+export type Subscription_RootWork_MovementsArgs = {
+  distinct_on?: Maybe<Array<Work_Movements_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Work_Movements_Order_By>>;
+  where?: Maybe<Work_Movements_Bool_Exp>;
+};
+
+
+/** subscription root */
+export type Subscription_RootWork_Movements_AggregateArgs = {
+  distinct_on?: Maybe<Array<Work_Movements_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Work_Movements_Order_By>>;
+  where?: Maybe<Work_Movements_Bool_Exp>;
+};
+
+
+/** subscription root */
+export type Subscription_RootWork_Movements_By_PkArgs = {
   id: Scalars['Int'];
 };
 
@@ -4318,6 +4436,339 @@ export type Users_Variance_Order_By = {
   id?: Maybe<Order_By>;
 };
 
+/** columns and relationships of "work_movements" */
+export type Work_Movements = {
+  __typename?: 'work_movements';
+  duration?: Maybe<Scalars['timetz']>;
+  id: Scalars['Int'];
+  order: Scalars['Int'];
+  title: Scalars['String'];
+  /** An object relationship */
+  work: Works;
+  work_id: Scalars['Int'];
+};
+
+/** aggregated selection of "work_movements" */
+export type Work_Movements_Aggregate = {
+  __typename?: 'work_movements_aggregate';
+  aggregate?: Maybe<Work_Movements_Aggregate_Fields>;
+  nodes: Array<Work_Movements>;
+};
+
+/** aggregate fields of "work_movements" */
+export type Work_Movements_Aggregate_Fields = {
+  __typename?: 'work_movements_aggregate_fields';
+  avg?: Maybe<Work_Movements_Avg_Fields>;
+  count?: Maybe<Scalars['Int']>;
+  max?: Maybe<Work_Movements_Max_Fields>;
+  min?: Maybe<Work_Movements_Min_Fields>;
+  stddev?: Maybe<Work_Movements_Stddev_Fields>;
+  stddev_pop?: Maybe<Work_Movements_Stddev_Pop_Fields>;
+  stddev_samp?: Maybe<Work_Movements_Stddev_Samp_Fields>;
+  sum?: Maybe<Work_Movements_Sum_Fields>;
+  var_pop?: Maybe<Work_Movements_Var_Pop_Fields>;
+  var_samp?: Maybe<Work_Movements_Var_Samp_Fields>;
+  variance?: Maybe<Work_Movements_Variance_Fields>;
+};
+
+
+/** aggregate fields of "work_movements" */
+export type Work_Movements_Aggregate_FieldsCountArgs = {
+  columns?: Maybe<Array<Work_Movements_Select_Column>>;
+  distinct?: Maybe<Scalars['Boolean']>;
+};
+
+/** order by aggregate values of table "work_movements" */
+export type Work_Movements_Aggregate_Order_By = {
+  avg?: Maybe<Work_Movements_Avg_Order_By>;
+  count?: Maybe<Order_By>;
+  max?: Maybe<Work_Movements_Max_Order_By>;
+  min?: Maybe<Work_Movements_Min_Order_By>;
+  stddev?: Maybe<Work_Movements_Stddev_Order_By>;
+  stddev_pop?: Maybe<Work_Movements_Stddev_Pop_Order_By>;
+  stddev_samp?: Maybe<Work_Movements_Stddev_Samp_Order_By>;
+  sum?: Maybe<Work_Movements_Sum_Order_By>;
+  var_pop?: Maybe<Work_Movements_Var_Pop_Order_By>;
+  var_samp?: Maybe<Work_Movements_Var_Samp_Order_By>;
+  variance?: Maybe<Work_Movements_Variance_Order_By>;
+};
+
+/** input type for inserting array relation for remote table "work_movements" */
+export type Work_Movements_Arr_Rel_Insert_Input = {
+  data: Array<Work_Movements_Insert_Input>;
+  on_conflict?: Maybe<Work_Movements_On_Conflict>;
+};
+
+/** aggregate avg on columns */
+export type Work_Movements_Avg_Fields = {
+  __typename?: 'work_movements_avg_fields';
+  id?: Maybe<Scalars['Float']>;
+  order?: Maybe<Scalars['Float']>;
+  work_id?: Maybe<Scalars['Float']>;
+};
+
+/** order by avg() on columns of table "work_movements" */
+export type Work_Movements_Avg_Order_By = {
+  id?: Maybe<Order_By>;
+  order?: Maybe<Order_By>;
+  work_id?: Maybe<Order_By>;
+};
+
+/** Boolean expression to filter rows from the table "work_movements". All fields are combined with a logical 'AND'. */
+export type Work_Movements_Bool_Exp = {
+  _and?: Maybe<Array<Maybe<Work_Movements_Bool_Exp>>>;
+  _not?: Maybe<Work_Movements_Bool_Exp>;
+  _or?: Maybe<Array<Maybe<Work_Movements_Bool_Exp>>>;
+  duration?: Maybe<Timetz_Comparison_Exp>;
+  id?: Maybe<Int_Comparison_Exp>;
+  order?: Maybe<Int_Comparison_Exp>;
+  title?: Maybe<String_Comparison_Exp>;
+  work?: Maybe<Works_Bool_Exp>;
+  work_id?: Maybe<Int_Comparison_Exp>;
+};
+
+/** unique or primary key constraints on table "work_movements" */
+export enum Work_Movements_Constraint {
+  /** unique or primary key constraint */
+  WorkMovementsPkey = 'work_movements_pkey',
+  /** unique or primary key constraint */
+  WorkMovementsWorkIdOrderKey = 'work_movements_work_id_order_key'
+}
+
+/** input type for incrementing integer column in table "work_movements" */
+export type Work_Movements_Inc_Input = {
+  id?: Maybe<Scalars['Int']>;
+  order?: Maybe<Scalars['Int']>;
+  work_id?: Maybe<Scalars['Int']>;
+};
+
+/** input type for inserting data into table "work_movements" */
+export type Work_Movements_Insert_Input = {
+  duration?: Maybe<Scalars['timetz']>;
+  id?: Maybe<Scalars['Int']>;
+  order?: Maybe<Scalars['Int']>;
+  title?: Maybe<Scalars['String']>;
+  work?: Maybe<Works_Obj_Rel_Insert_Input>;
+  work_id?: Maybe<Scalars['Int']>;
+};
+
+/** aggregate max on columns */
+export type Work_Movements_Max_Fields = {
+  __typename?: 'work_movements_max_fields';
+  duration?: Maybe<Scalars['timetz']>;
+  id?: Maybe<Scalars['Int']>;
+  order?: Maybe<Scalars['Int']>;
+  title?: Maybe<Scalars['String']>;
+  work_id?: Maybe<Scalars['Int']>;
+};
+
+/** order by max() on columns of table "work_movements" */
+export type Work_Movements_Max_Order_By = {
+  duration?: Maybe<Order_By>;
+  id?: Maybe<Order_By>;
+  order?: Maybe<Order_By>;
+  title?: Maybe<Order_By>;
+  work_id?: Maybe<Order_By>;
+};
+
+/** aggregate min on columns */
+export type Work_Movements_Min_Fields = {
+  __typename?: 'work_movements_min_fields';
+  duration?: Maybe<Scalars['timetz']>;
+  id?: Maybe<Scalars['Int']>;
+  order?: Maybe<Scalars['Int']>;
+  title?: Maybe<Scalars['String']>;
+  work_id?: Maybe<Scalars['Int']>;
+};
+
+/** order by min() on columns of table "work_movements" */
+export type Work_Movements_Min_Order_By = {
+  duration?: Maybe<Order_By>;
+  id?: Maybe<Order_By>;
+  order?: Maybe<Order_By>;
+  title?: Maybe<Order_By>;
+  work_id?: Maybe<Order_By>;
+};
+
+/** response of any mutation on the table "work_movements" */
+export type Work_Movements_Mutation_Response = {
+  __typename?: 'work_movements_mutation_response';
+  /** number of affected rows by the mutation */
+  affected_rows: Scalars['Int'];
+  /** data of the affected rows by the mutation */
+  returning: Array<Work_Movements>;
+};
+
+/** input type for inserting object relation for remote table "work_movements" */
+export type Work_Movements_Obj_Rel_Insert_Input = {
+  data: Work_Movements_Insert_Input;
+  on_conflict?: Maybe<Work_Movements_On_Conflict>;
+};
+
+/** on conflict condition type for table "work_movements" */
+export type Work_Movements_On_Conflict = {
+  constraint: Work_Movements_Constraint;
+  update_columns: Array<Work_Movements_Update_Column>;
+  where?: Maybe<Work_Movements_Bool_Exp>;
+};
+
+/** ordering options when selecting data from "work_movements" */
+export type Work_Movements_Order_By = {
+  duration?: Maybe<Order_By>;
+  id?: Maybe<Order_By>;
+  order?: Maybe<Order_By>;
+  title?: Maybe<Order_By>;
+  work?: Maybe<Works_Order_By>;
+  work_id?: Maybe<Order_By>;
+};
+
+/** primary key columns input for table: "work_movements" */
+export type Work_Movements_Pk_Columns_Input = {
+  id: Scalars['Int'];
+};
+
+/** select columns of table "work_movements" */
+export enum Work_Movements_Select_Column {
+  /** column name */
+  Duration = 'duration',
+  /** column name */
+  Id = 'id',
+  /** column name */
+  Order = 'order',
+  /** column name */
+  Title = 'title',
+  /** column name */
+  WorkId = 'work_id'
+}
+
+/** input type for updating data in table "work_movements" */
+export type Work_Movements_Set_Input = {
+  duration?: Maybe<Scalars['timetz']>;
+  id?: Maybe<Scalars['Int']>;
+  order?: Maybe<Scalars['Int']>;
+  title?: Maybe<Scalars['String']>;
+  work_id?: Maybe<Scalars['Int']>;
+};
+
+/** aggregate stddev on columns */
+export type Work_Movements_Stddev_Fields = {
+  __typename?: 'work_movements_stddev_fields';
+  id?: Maybe<Scalars['Float']>;
+  order?: Maybe<Scalars['Float']>;
+  work_id?: Maybe<Scalars['Float']>;
+};
+
+/** order by stddev() on columns of table "work_movements" */
+export type Work_Movements_Stddev_Order_By = {
+  id?: Maybe<Order_By>;
+  order?: Maybe<Order_By>;
+  work_id?: Maybe<Order_By>;
+};
+
+/** aggregate stddev_pop on columns */
+export type Work_Movements_Stddev_Pop_Fields = {
+  __typename?: 'work_movements_stddev_pop_fields';
+  id?: Maybe<Scalars['Float']>;
+  order?: Maybe<Scalars['Float']>;
+  work_id?: Maybe<Scalars['Float']>;
+};
+
+/** order by stddev_pop() on columns of table "work_movements" */
+export type Work_Movements_Stddev_Pop_Order_By = {
+  id?: Maybe<Order_By>;
+  order?: Maybe<Order_By>;
+  work_id?: Maybe<Order_By>;
+};
+
+/** aggregate stddev_samp on columns */
+export type Work_Movements_Stddev_Samp_Fields = {
+  __typename?: 'work_movements_stddev_samp_fields';
+  id?: Maybe<Scalars['Float']>;
+  order?: Maybe<Scalars['Float']>;
+  work_id?: Maybe<Scalars['Float']>;
+};
+
+/** order by stddev_samp() on columns of table "work_movements" */
+export type Work_Movements_Stddev_Samp_Order_By = {
+  id?: Maybe<Order_By>;
+  order?: Maybe<Order_By>;
+  work_id?: Maybe<Order_By>;
+};
+
+/** aggregate sum on columns */
+export type Work_Movements_Sum_Fields = {
+  __typename?: 'work_movements_sum_fields';
+  id?: Maybe<Scalars['Int']>;
+  order?: Maybe<Scalars['Int']>;
+  work_id?: Maybe<Scalars['Int']>;
+};
+
+/** order by sum() on columns of table "work_movements" */
+export type Work_Movements_Sum_Order_By = {
+  id?: Maybe<Order_By>;
+  order?: Maybe<Order_By>;
+  work_id?: Maybe<Order_By>;
+};
+
+/** update columns of table "work_movements" */
+export enum Work_Movements_Update_Column {
+  /** column name */
+  Duration = 'duration',
+  /** column name */
+  Id = 'id',
+  /** column name */
+  Order = 'order',
+  /** column name */
+  Title = 'title',
+  /** column name */
+  WorkId = 'work_id'
+}
+
+/** aggregate var_pop on columns */
+export type Work_Movements_Var_Pop_Fields = {
+  __typename?: 'work_movements_var_pop_fields';
+  id?: Maybe<Scalars['Float']>;
+  order?: Maybe<Scalars['Float']>;
+  work_id?: Maybe<Scalars['Float']>;
+};
+
+/** order by var_pop() on columns of table "work_movements" */
+export type Work_Movements_Var_Pop_Order_By = {
+  id?: Maybe<Order_By>;
+  order?: Maybe<Order_By>;
+  work_id?: Maybe<Order_By>;
+};
+
+/** aggregate var_samp on columns */
+export type Work_Movements_Var_Samp_Fields = {
+  __typename?: 'work_movements_var_samp_fields';
+  id?: Maybe<Scalars['Float']>;
+  order?: Maybe<Scalars['Float']>;
+  work_id?: Maybe<Scalars['Float']>;
+};
+
+/** order by var_samp() on columns of table "work_movements" */
+export type Work_Movements_Var_Samp_Order_By = {
+  id?: Maybe<Order_By>;
+  order?: Maybe<Order_By>;
+  work_id?: Maybe<Order_By>;
+};
+
+/** aggregate variance on columns */
+export type Work_Movements_Variance_Fields = {
+  __typename?: 'work_movements_variance_fields';
+  id?: Maybe<Scalars['Float']>;
+  order?: Maybe<Scalars['Float']>;
+  work_id?: Maybe<Scalars['Float']>;
+};
+
+/** order by variance() on columns of table "work_movements" */
+export type Work_Movements_Variance_Order_By = {
+  id?: Maybe<Order_By>;
+  order?: Maybe<Order_By>;
+  work_id?: Maybe<Order_By>;
+};
+
 /** columns and relationships of "works" */
 export type Works = {
   __typename?: 'works';
@@ -4327,9 +4778,33 @@ export type Works = {
   id: Scalars['Int'];
   title: Scalars['String'];
   /** An array relationship */
+  work_movements: Array<Work_Movements>;
+  /** An aggregated array relationship */
+  work_movements_aggregate: Work_Movements_Aggregate;
+  /** An array relationship */
   work_roled_composers: Array<Works_Roled_Composers>;
   /** An aggregated array relationship */
   work_roled_composers_aggregate: Works_Roled_Composers_Aggregate;
+};
+
+
+/** columns and relationships of "works" */
+export type WorksWork_MovementsArgs = {
+  distinct_on?: Maybe<Array<Work_Movements_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Work_Movements_Order_By>>;
+  where?: Maybe<Work_Movements_Bool_Exp>;
+};
+
+
+/** columns and relationships of "works" */
+export type WorksWork_Movements_AggregateArgs = {
+  distinct_on?: Maybe<Array<Work_Movements_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Work_Movements_Order_By>>;
+  where?: Maybe<Work_Movements_Bool_Exp>;
 };
 
 
@@ -4423,6 +4898,7 @@ export type Works_Bool_Exp = {
   duration?: Maybe<Timetz_Comparison_Exp>;
   id?: Maybe<Int_Comparison_Exp>;
   title?: Maybe<String_Comparison_Exp>;
+  work_movements?: Maybe<Work_Movements_Bool_Exp>;
   work_roled_composers?: Maybe<Works_Roled_Composers_Bool_Exp>;
 };
 
@@ -4443,6 +4919,7 @@ export type Works_Insert_Input = {
   duration?: Maybe<Scalars['timetz']>;
   id?: Maybe<Scalars['Int']>;
   title?: Maybe<Scalars['String']>;
+  work_movements?: Maybe<Work_Movements_Arr_Rel_Insert_Input>;
   work_roled_composers?: Maybe<Works_Roled_Composers_Arr_Rel_Insert_Input>;
 };
 
@@ -4504,6 +4981,7 @@ export type Works_Order_By = {
   duration?: Maybe<Order_By>;
   id?: Maybe<Order_By>;
   title?: Maybe<Order_By>;
+  work_movements_aggregate?: Maybe<Work_Movements_Aggregate_Order_By>;
   work_roled_composers_aggregate?: Maybe<Works_Roled_Composers_Aggregate_Order_By>;
 };
 

@@ -135,6 +135,11 @@ export const WORKS_LIST = gql`
           }
         }
       }
+      work_movements_aggregate {
+        aggregate {
+          count
+        }
+      }
     }
   }
 `;
@@ -145,6 +150,11 @@ export const WORK_INFO = gql`
       id
       title
       duration
+      work_movements {
+        order
+        title
+        duration
+      }
       work_roled_composers {
         roled_composer {
           composer {

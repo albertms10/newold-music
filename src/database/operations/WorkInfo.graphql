@@ -3,6 +3,11 @@ query WorkInfo($id: Int!) {
     id
     title
     duration
+    work_movements {
+      order
+      title
+      duration
+    }
     work_roled_composers {
       roled_composer {
         composer {

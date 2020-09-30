@@ -140,7 +140,10 @@ export type WorkInfoQuery = (
   & { works_by_pk?: Maybe<(
     { __typename?: 'works' }
     & Pick<Works, 'id' | 'title' | 'duration'>
-    & { work_roled_composers: Array<(
+    & { work_movements: Array<(
+      { __typename?: 'work_movements' }
+      & Pick<Work_Movements, 'order' | 'title' | 'duration'>
+    )>, work_roled_composers: Array<(
       { __typename?: 'works_roled_composers' }
       & { roled_composer: (
         { __typename?: 'roled_composers' }
@@ -179,6 +182,12 @@ export type WorksListQuery = (
           & Pick<Composers_Roles, 'role'>
         ) }
       ) }
-    )> }
+    )>, work_movements_aggregate: (
+      { __typename?: 'work_movements_aggregate' }
+      & { aggregate?: Maybe<(
+        { __typename?: 'work_movements_aggregate_fields' }
+        & Pick<Work_Movements_Aggregate_Fields, 'count'>
+      )> }
+    ) }
   )> }
 );

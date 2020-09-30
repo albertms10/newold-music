@@ -15,5 +15,10 @@ query WorksList {
         }
       }
     }
+    work_movements_aggregate {
+      aggregate {
+        count
+      }
+    }
   }
 }
