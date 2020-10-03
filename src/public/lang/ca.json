@@ -29,11 +29,14 @@
   },
   "fields": {
     "name": "Nom",
+    "email": "Adreça electrònica",
+    "message": "Missatge",
     "contribution": "Contribució",
     "date": "Data"
   },
   "actions": {
     "go back home": "Torna a l’inici",
-    "search": "Cercar…"
+    "search": "Cercar…",
+    "send": "Enviar"
   }
 }

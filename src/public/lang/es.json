@@ -29,11 +29,14 @@
   },
   "fields": {
     "name": "Nombre",
+    "email": "Direcció electrónica",
+    "message": "Mensaje",
     "contribution": "Contribución",
     "date": "Date"
   },
   "actions": {
     "go back home": "Volver al inicio",
-    "search": "Buscar…"
+    "search": "Buscar…",
+    "send": "Enviar"
   }
 }

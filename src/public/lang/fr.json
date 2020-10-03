@@ -29,11 +29,14 @@
   },
   "fields": {
     "name": "Nom",
+    "email": "Email",
+    "message": "Message",
     "contribution": "Contribution",
     "date": "Date"
   },
   "actions": {
     "go back home": "Retour à la page d’accueil",
-    "search": "Chercher…"
+    "search": "Chercher…",
+    "send": "Envoyer"
   }
 }
