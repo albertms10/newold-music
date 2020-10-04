@@ -4,12 +4,22 @@
   import { _ } from "svelte-i18n";
 
   export let title: string = undefined;
+  export let description: string = undefined;
+
   export let goBackRoute: string = undefined;
 </script>
 
 <style>
   h1 {
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  .back-button {
+    margin-bottom: 1rem;
+  }
+
+  .back-button .label {
+    margin-left: 0.5rem;
   }
 
   .page-header {
@@ -18,16 +28,27 @@
     background-color: #fff;
     border-bottom: 1px solid #eee;
   }
+
+  :global(.back-button svg) {
+    margin-left: -0.5rem;
+  }
 </style>
 
 <div class="page-header">
   {#if goBackRoute}
-    <Button kind="ghost" icon={ChevronLeft16} size="small" href={goBackRoute}>
-      {$_(`routes.${goBackRoute}`)}
-    </Button>
+    <div class="back-button">
+      <Button kind="ghost" size="small" href={goBackRoute}>
+        <svelte:component this={ChevronLeft16} />
+        <p class="label">{$_(`routes.${goBackRoute}`)}</p>
+      </Button>
+    </div>
   {/if}
 
   <h1>{title}</h1>
+
+  {#if description}
+    <p>{description}</p>
+  {/if}
 
   <slot />
 </div>
