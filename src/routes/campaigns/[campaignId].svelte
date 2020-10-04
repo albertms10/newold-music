@@ -55,6 +55,7 @@
   {#if result && result.data && result.data.campaigns_by_pk}
     <PageHeader
       title={result.data.campaigns_by_pk.title}
+      description={result.data.campaigns_by_pk.description}
       goBackRoute="campaigns"
     />
 
