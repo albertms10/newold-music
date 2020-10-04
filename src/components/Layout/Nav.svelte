@@ -24,7 +24,6 @@
     "mission",
     "composers",
     "shop",
-    "feedback",
     "contact",
   ];
 </script>
