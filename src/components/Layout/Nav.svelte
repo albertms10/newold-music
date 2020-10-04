@@ -90,40 +90,46 @@
   </div>
   <div class="platform" slot="platform">
     <img src="logo-dark-192.png" alt="Logo" />
+
     {#if winWidth > 378}
       <div>Newold Music</div>
     {/if}
   </div>
-  <HeaderNav ariaLabel="Main">
-    {#each routes as route}
-      <HeaderNavItem
-        href={route}
-        text={$_(`routes.${route}`)}
-        aria-current={getAriaCurrent(route)}
-      />
-    {/each}
-  </HeaderNav>
 
-  <SideNav fixed bind:isOpen={isSideNavOpen} ariaLabel="Main">
-    <SideNavItems>
+  {#if winWidth > 378}
+    <HeaderNav ariaLabel="Main">
       {#each routes as route}
-        <SideNavLink
+        <HeaderNavItem
           href={route}
           text={$_(`routes.${route}`)}
           aria-current={getAriaCurrent(route)}
-          on:click={() => (isSideNavOpen = !isSideNavOpen)}
         />
       {/each}
-      <div class="locale-switcher side">
-        <LocaleSwitcher />
-      </div>
-    </SideNavItems>
-  </SideNav>
+    </HeaderNav>
+  {:else}
+    <SideNav fixed bind:isOpen={isSideNavOpen} ariaLabel="Main">
+      <SideNavItems>
+        {#each routes as route}
+          <SideNavLink
+            href={route}
+            text={$_(`routes.${route}`)}
+            aria-current={getAriaCurrent(route)}
+            on:click={() => (isSideNavOpen = !isSideNavOpen)}
+          />
+        {/each}
+
+        <div class="locale-switcher side">
+          <LocaleSwitcher />
+        </div>
+      </SideNavItems>
+    </SideNav>
+  {/if}
 
   <div class="actions">
     <div class="social">
       <Social isSmall />
     </div>
+
     {#if winWidth >= 1056}
       <div class="locale-switcher nav">
         <LocaleSwitcher />
