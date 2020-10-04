@@ -10,9 +10,21 @@
 </script>
 
 <style>
-  h1 {
+  .header {
     margin-top: 1rem;
     margin-bottom: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .header h1 {
+    flex: 1;
+  }
+
+  .action {
+    display: flex;
+    align-items: center;
+    margin-top: 0.5rem;
   }
 
   .back-button .label {
@@ -41,7 +53,12 @@
     </div>
   {/if}
 
-  <h1>{title}</h1>
+  <div class="header">
+    <h1>{title}</h1>
+    <div class="action">
+      <slot name="action" />
+    </div>
+  </div>
 
   {#if description}
     <p>{description}</p>
