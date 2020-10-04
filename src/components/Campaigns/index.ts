@@ -1,3 +1,5 @@
+export { default as CampaignFeedbackModal } from "./CampaignFeedbackModal.svelte";
+export { default as CampaignFeedbackTooltip } from "./CampaignFeedbackTooltip.svelte";
 export { default as CampaignGridViewTile } from "./CampaignGridViewTile.svelte";
 export { default as CampaignProgressBar } from "./CampaignProgressBar.svelte";
 export { default as CampaignsGridView } from "./CampaignsGridView.svelte";

@@ -11,7 +11,10 @@
 
 <script lang="ts">
   import type { ApolloQueryResult } from "apollo-boost";
-  import { LoadCampaignsGridView } from "components/Campaigns";
+  import {
+    CampaignFeedbackTooltip,
+    LoadCampaignsGridView,
+  } from "components/Campaigns";
   import { PageHeader } from "components/Layout";
   import type { CampaignsListQuery } from "database/generated/operations";
   import { _ } from "svelte-i18n";
@@ -23,6 +26,10 @@
   <title>{$_('routes.campaigns')} — Newold Music</title>
 </svelte:head>
 
-<PageHeader title={$_('routes.campaigns')} />
+<PageHeader title={$_('routes.campaigns')}>
+  <div slot="description">
+    <CampaignFeedbackTooltip />
+  </div>
+</PageHeader>
 
 <LoadCampaignsGridView bind:campaignsCache />
