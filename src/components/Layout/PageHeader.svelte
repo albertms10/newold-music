@@ -11,10 +11,7 @@
 
 <style>
   h1 {
-    margin-bottom: 1rem;
-  }
-
-  .back-button {
+    margin-top: 1rem;
     margin-bottom: 1rem;
   }
 
