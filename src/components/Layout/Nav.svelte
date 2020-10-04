@@ -6,6 +6,7 @@
     SideNav,
     SideNavItems,
     SideNavLink,
+    SkipToContent,
   } from "carbon-components-svelte";
   import { _ } from "svelte-i18n";
   import LocaleSwitcher from "./LocaleSwitcher.svelte";
@@ -19,13 +20,7 @@
   let winWidth = undefined;
   let isSideNavOpen: boolean;
 
-  const routes = [
-    "campaigns",
-    "mission",
-    "composers",
-    "shop",
-    "contact",
-  ];
+  const routes = ["campaigns", "mission", "composers", "shop", "contact"];
 </script>
 
 <style>
@@ -90,39 +85,40 @@
   expandedByDefault={false}
   bind:isSideNavOpen
 >
+  <div slot="skip-to-content">
+    <SkipToContent />
+  </div>
   <div class="platform" slot="platform">
     <img src="logo-dark-192.png" alt="Logo" />
     {#if winWidth > 378}
       <div>Newold Music</div>
     {/if}
   </div>
-  {#if winWidth < 1056}
-    <SideNav fixed bind:isOpen={isSideNavOpen} ariaLabel="Main">
-      <SideNavItems>
-        {#each routes as route}
-          <SideNavLink
-            href={route}
-            text={$_(`routes.${route}`)}
-            aria-current={getAriaCurrent(route)}
-            on:click={() => (isSideNavOpen = !isSideNavOpen)}
-          />
-        {/each}
-        <div class="locale-switcher side">
-          <LocaleSwitcher />
-        </div>
-      </SideNavItems>
-    </SideNav>
-  {:else}
-    <HeaderNav ariaLabel="Main">
+  <HeaderNav ariaLabel="Main">
+    {#each routes as route}
+      <HeaderNavItem
+        href={route}
+        text={$_(`routes.${route}`)}
+        aria-current={getAriaCurrent(route)}
+      />
+    {/each}
+  </HeaderNav>
+
+  <SideNav fixed bind:isOpen={isSideNavOpen} ariaLabel="Main">
+    <SideNavItems>
       {#each routes as route}
-        <HeaderNavItem
+        <SideNavLink
           href={route}
           text={$_(`routes.${route}`)}
           aria-current={getAriaCurrent(route)}
+          on:click={() => (isSideNavOpen = !isSideNavOpen)}
         />
       {/each}
-    </HeaderNav>
-  {/if}
+      <div class="locale-switcher side">
+        <LocaleSwitcher />
+      </div>
+    </SideNavItems>
+  </SideNav>
 
   <div class="actions">
     <div class="social">
