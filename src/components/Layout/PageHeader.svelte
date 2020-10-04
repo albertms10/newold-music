@@ -54,15 +54,21 @@
   {/if}
 
   <div class="header">
-    <h1>{title}</h1>
+    <slot name="title">
+      {#if title}
+        <h1>{title}</h1>
+      {/if}
+    </slot>
     <div class="action">
       <slot name="action" />
     </div>
   </div>
 
-  {#if description}
-    <p>{description}</p>
-  {/if}
+  <slot name="description">
+    {#if description}
+      <p>{description}</p>
+    {/if}
+  </slot>
 
   <slot />
 </div>
