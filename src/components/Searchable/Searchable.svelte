@@ -6,7 +6,7 @@
   const { page } = stores();
 
   export let value: string = undefined;
-  export let hideInput: boolean = false;
+  export let hideInput = false;
 
   export let numerableName: string = "items";
   export let count: number = 0;

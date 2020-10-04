@@ -7,7 +7,7 @@
 
   export let amount: number;
   export let stops: number[];
-  export let isSmall: boolean = false;
+  export let isSmall = false;
 
   const maxStop = stops[stops.length - 1];
   const progress = amount / maxStop;

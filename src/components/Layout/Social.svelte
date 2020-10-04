@@ -5,7 +5,7 @@
   import LogoInstagram32 from "carbon-icons-svelte/lib/LogoInstagram32";
   import LogoTwitter32 from "carbon-icons-svelte/lib/LogoTwitter32";
 
-  export let isSmall: boolean = false;
+  export let isSmall = false;
 
   interface SocialButton {
     icon: typeof CarbonIcon;
