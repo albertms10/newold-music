@@ -14,9 +14,7 @@
 
 <div class="bar">
   <Breadcrumb noTrailingSlash>
-    <BreadcrumbItem let:props>
-      <a {...props} href={route}>{$_(`routes.${route}`)}</a>
-    </BreadcrumbItem>
+    <BreadcrumbItem href={route}>{$_(`routes.${route}`)}</BreadcrumbItem>
     <BreadcrumbItem aria-current="page">{page}</BreadcrumbItem>
   </Breadcrumb>
 </div>
