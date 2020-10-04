@@ -75,7 +75,7 @@
 {:else}
   <div class="buttons">
     {#each buttons as { icon, iconDescription, color, href }}
-      <ClickableTile {href}>
+      <ClickableTile {href} light>
         <div class="content">
           {#if iconDescription === 'Instagram'}
             <svg width="0" height="0">
