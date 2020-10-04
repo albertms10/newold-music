@@ -18,7 +18,7 @@
   import type { ApolloQueryResult } from "apollo-boost";
   import { Loading } from "carbon-components-svelte";
   import { ComposersTagView } from "components/Composers";
-  import { BreadcrumbBar } from "components/Layout";
+  import { PageHeader } from "components/Layout";
   import type { WorkInfoQuery } from "database/generated/operations";
   import { query, restore } from "svelte-apollo";
   import { _ } from "svelte-i18n";
@@ -34,10 +34,6 @@
 </script>
 
 <style>
-  h1 {
-    margin-bottom: 2rem;
-  }
-
   .tag-view {
     margin-top: 1rem;
   }
@@ -51,9 +47,7 @@
   <Loading small />
 {:then result}
   {#if result && result.data && result.data.works_by_pk}
-    <BreadcrumbBar route="shop" page={result.data.works_by_pk.title} />
-
-    <h1>{result.data.works_by_pk.title}</h1>
+    <PageHeader title={result.data.works_by_pk.title} goBackRoute="shop" />
 
     <p>{timeDuration(result.data.works_by_pk.duration)}</p>
 

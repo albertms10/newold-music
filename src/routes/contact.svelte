@@ -6,6 +6,7 @@
     TextArea,
     TextInput,
   } from "carbon-components-svelte";
+  import { PageHeader } from "components/Layout";
   import { _ } from "svelte-i18n";
   import { getFormData } from "utils/misc";
 
@@ -14,17 +15,11 @@
   };
 </script>
 
-<style>
-  h1 {
-    margin-bottom: 2rem;
-  }
-</style>
-
 <svelte:head>
   <title>{$_('routes.contact')} — Newold Music</title>
 </svelte:head>
 
-<h1>{$_('routes.contact')}</h1>
+<PageHeader title={$_('routes.contact')} />
 
 <Form on:submit={handleSubmit}>
   <FormGroup>

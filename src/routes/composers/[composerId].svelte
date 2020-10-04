@@ -17,7 +17,7 @@
 <script lang="ts">
   import type { ApolloQueryResult } from "apollo-boost";
   import { Loading } from "carbon-components-svelte";
-  import { BreadcrumbBar } from "components/Layout";
+  import { PageHeader } from "components/Layout";
   import { ComposerWorksGridView } from "components/Works";
   import type { ComposerInfoQuery } from "database/generated/operations";
   import { query, restore } from "svelte-apollo";
@@ -49,12 +49,6 @@
   };
 </script>
 
-<style>
-  h1 {
-    margin-bottom: 2rem;
-  }
-</style>
-
 <svelte:head>
   <title>{$_('routes.composers')} — Newold Music</title>
 </svelte:head>
@@ -63,15 +57,10 @@
   <Loading small />
 {:then result}
   {#if result && result.data && result.data.composers_by_pk}
-    <BreadcrumbBar
-      route="composers"
-      page="{result.data.composers_by_pk.name} {result.data.composers_by_pk.surname}"
+    <PageHeader
+      title="{result.data.composers_by_pk.name} {result.data.composers_by_pk.surname}"
+      goBackRoute="composers"
     />
-
-    <h1>
-      {result.data.composers_by_pk.name}
-      {result.data.composers_by_pk.surname}
-    </h1>
 
     <ComposerWorksGridView
       items={getComposerRoledWorks(result.data.composers_by_pk.roled_composers)}

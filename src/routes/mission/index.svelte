@@ -1,11 +1,11 @@
 <script lang="ts">
   import { Accordion, AccordionItem } from "carbon-components-svelte";
+  import { PageHeader } from "components/Layout";
   import { _ } from "svelte-i18n";
   import { faqs } from "./_faqs.json";
 </script>
 
 <style>
-  h1,
   h2 {
     margin-bottom: 2rem;
   }
@@ -15,7 +15,7 @@
   <title>{$_('routes.mission')} — Newold Music</title>
 </svelte:head>
 
-<h1>{$_('routes.mission')}</h1>
+<PageHeader title={$_('routes.mission')} />
 
 <h2 id="faq">Preguntes freqüents</h2>
 

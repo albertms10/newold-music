@@ -22,7 +22,7 @@
     ContributorsDataTable,
     CampaignProgressBar,
   } from "components/Campaigns";
-  import { BreadcrumbBar } from "components/Layout";
+  import { PageHeader } from "components/Layout";
   import { WorkGridViewTile } from "components/Works";
   import type { CampaignInfoQuery } from "database/generated/operations";
   import { query, restore } from "svelte-apollo";
@@ -39,10 +39,6 @@
 </script>
 
 <style>
-  h1 {
-    margin-bottom: 2rem;
-  }
-
   .progress-bar {
     margin-top: 1rem;
     margin-bottom: 1rem;
@@ -57,9 +53,10 @@
   <Loading small />
 {:then result}
   {#if result && result.data && result.data.campaigns_by_pk}
-    <BreadcrumbBar route="campaigns" page={result.data.campaigns_by_pk.title} />
-
-    <h1>{result.data.campaigns_by_pk.title}</h1>
+    <PageHeader
+      title={result.data.campaigns_by_pk.title}
+      goBackRoute="campaigns"
+    />
 
     <WorkGridViewTile
       id={result.data.campaigns_by_pk.work.id}

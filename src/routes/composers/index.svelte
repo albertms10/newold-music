@@ -12,22 +12,17 @@
 <script lang="ts">
   import type { ApolloQueryResult } from "apollo-boost";
   import { LoadComposersGridView } from "components/Composers";
+  import { PageHeader } from "components/Layout";
   import type { ComposersListQuery } from "database/generated/operations";
   import { _ } from "svelte-i18n";
 
   export let composersCache: ApolloQueryResult<ComposersListQuery>;
 </script>
 
-<style>
-  h1 {
-    margin-bottom: 2rem;
-  }
-</style>
-
 <svelte:head>
   <title>{$_('routes.composers')} — Newold Music</title>
 </svelte:head>
 
-<h1>{$_('routes.composers')}</h1>
+<PageHeader title={$_('routes.composers')} />
 
 <LoadComposersGridView bind:composersCache />
