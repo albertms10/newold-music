@@ -11,9 +11,3 @@ jobs:
         uses: truewebartisans/actions-sapper@1.1.0
         with:
           args: "--basepath newold-music --legacy"
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          publish_dir: __sapper__/export/newold-music
-          publish_branch: gh-pages
-          github_token: ${{ secrets.GITHUB_TOKEN }}
