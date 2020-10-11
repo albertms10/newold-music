@@ -9,7 +9,7 @@ const dev = NODE_ENV === "development";
 
 polka()
   .use(
-    "newold-music", // base url for gh-pages
+    "/",
     compression({ threshold: 0 }),
     sirv("static", { dev }),
     i18nMiddleware(),

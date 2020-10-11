@@ -4,7 +4,7 @@
 
   export let status: number;
   export let error: { message: string; stack: string };
-  export let baseUrl: string = "/newold-music";
+  export let baseUrl: string = "/";
 
   const dev = process.env.NODE_ENV === "development";
 </script>
