@@ -1,6 +1,5 @@
 <script lang="ts">
   import { DataTable, DataTableSkeleton } from "carbon-components-svelte";
-  import client from "database/apollo";
   import type { CampaignContributorsListQuery } from "database/generated/operations";
   import { CAMPAIGN_CONTRIBUTORS_LIST } from "database/operations";
   import dayjs from "dayjs";
@@ -13,11 +12,13 @@
 
   export let campaignId: number;
 
-  const contributors = query<CampaignContributorsListQuery>(client, {
-    query: CAMPAIGN_CONTRIBUTORS_LIST,
-    variables: { id: campaignId },
-    pollInterval: 10000,
-  });
+  const contributors = query<CampaignContributorsListQuery>(
+    CAMPAIGN_CONTRIBUTORS_LIST,
+    {
+      variables: { id: campaignId },
+      pollInterval: 10000,
+    }
+  );
 
   const headersList = ["name", "contribution", "date"] as const;
 

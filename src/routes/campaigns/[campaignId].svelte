@@ -16,7 +16,7 @@
 </script>
 
 <script lang="ts">
-  import type { ApolloQueryResult } from "apollo-boost";
+  import type { ApolloQueryResult } from "@apollo/client/core";
   import { Loading } from "carbon-components-svelte";
   import {
     ContributorsDataTable,
@@ -31,11 +31,9 @@
   export let campaignCache: ApolloQueryResult<CampaignInfoQuery>;
   export let id: number;
 
-  restore(client, CAMPAIGN_INFO, campaignCache.data);
+  restore(CAMPAIGN_INFO, { data: campaignCache.data });
 
-  const campaign = query<CampaignInfoQuery>(client, {
-    query: CAMPAIGN_INFO,
-  });
+  const campaign = query<CampaignInfoQuery>(CAMPAIGN_INFO);
 </script>
 
 <style>

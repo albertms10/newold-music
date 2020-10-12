@@ -15,7 +15,7 @@
 </script>
 
 <script lang="ts">
-  import type { ApolloQueryResult } from "apollo-boost";
+  import type { ApolloQueryResult } from "@apollo/client/core";
   import { Loading } from "carbon-components-svelte";
   import { PageHeader } from "components/Layout";
   import { ComposerWorksGridView } from "components/Works";
@@ -25,11 +25,9 @@
 
   export let composerCache: ApolloQueryResult<ComposerInfoQuery>;
 
-  restore(client, COMPOSER_INFO, composerCache.data);
+  restore(COMPOSER_INFO, { data: composerCache.data });
 
-  const composer = query<ComposerInfoQuery>(client, {
-    query: COMPOSER_INFO,
-  });
+  const composer = query<ComposerInfoQuery>(COMPOSER_INFO);
 
   const getComposerRoledWorks = (
     roled_composers: ComposerInfoQuery["composers_by_pk"]["roled_composers"]

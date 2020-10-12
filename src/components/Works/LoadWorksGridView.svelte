@@ -1,7 +1,6 @@
 <script lang="ts">
-  import type { ApolloQueryResult } from "apollo-boost";
+  import type { ApolloQueryResult } from "@apollo/client/core";
   import { Loading } from "carbon-components-svelte";
-  import client from "database/apollo";
   import type { WorksListQuery } from "database/generated/operations";
   import { WORKS_LIST } from "database/operations";
   import { query, restore } from "svelte-apollo";
@@ -10,11 +9,9 @@
 
   export let worksCache: ApolloQueryResult<WorksListQuery>;
 
-  restore(client, WORKS_LIST, worksCache.data);
+  restore(WORKS_LIST, { data: worksCache.data });
 
-  const works = query<WorksListQuery>(client, {
-    query: WORKS_LIST,
-  });
+  const works = query<WorksListQuery>(WORKS_LIST);
 
   const numerableName = "works";
 </script>

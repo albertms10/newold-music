@@ -1,6 +1,9 @@
 <script context="module" lang="ts">
   import client from "database/apollo";
   import { CAMPAIGNS_LIST } from "database/operations";
+  import { setClient } from "svelte-apollo";
+
+  setClient(client);
 
   export async function preload() {
     return {
@@ -10,7 +13,7 @@
 </script>
 
 <script lang="ts">
-  import type { ApolloQueryResult } from "apollo-boost";
+  import type { ApolloQueryResult } from "@apollo/client/core";
   import {
     CampaignFeedbackTooltip,
     LoadCampaignsGridView,
