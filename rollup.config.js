@@ -1,3 +1,4 @@
+import graphql from "@kocal/rollup-plugin-graphql";
 import alias from "@rollup/plugin-alias";
 import babel from "@rollup/plugin-babel";
 import commonjs from "@rollup/plugin-commonjs";
@@ -24,7 +25,7 @@ const onwarn = (warning, onwarn) =>
   onwarn(warning);
 
 const aliases = alias({
-  resolve: [".svelte", ".ts"],
+  resolve: [".svelte", ".ts", ".graphql"],
   entries: {
     components: path.resolve(__dirname, "src/components"),
     database: path.resolve(__dirname, "src/database"),
@@ -56,6 +57,7 @@ export default {
         browser: true,
         dedupe: ["svelte"],
       }),
+      graphql(),
       commonjs(),
       json(),
       typescript({
@@ -99,6 +101,7 @@ export default {
       resolve({
         dedupe: ["svelte"],
       }),
+      graphql(),
       commonjs(),
       json(),
       typescript({

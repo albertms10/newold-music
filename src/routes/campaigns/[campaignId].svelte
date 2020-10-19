@@ -1,16 +1,14 @@
 <script context="module" lang="ts">
   import client from "database/apollo";
-  import { CAMPAIGN_INFO } from "database/operations";
+  import { CampaignInfo } from "database/operations/Campaigns.graphql";
 
-  export async function preload({ params }) {
-    const { campaignId } = params;
-
+  export async function preload({ params: { campaignId: id } }) {
     return {
       campaignCache: await client.query({
-        query: CAMPAIGN_INFO,
-        variables: { id: campaignId },
+        query: CampaignInfo,
+        variables: { id },
       }),
-      id: parseInt(campaignId),
+      id: parseInt(id),
     };
   }
 </script>
@@ -31,10 +29,10 @@
   export let campaignCache: ApolloQueryResult<CampaignInfoQuery>;
   export let id: number;
 
-  restore(client, CAMPAIGN_INFO, campaignCache.data);
+  restore(client, CampaignInfo, campaignCache.data);
 
   const campaign = query<CampaignInfoQuery>(client, {
-    query: CAMPAIGN_INFO,
+    query: CampaignInfo,
   });
 </script>
 

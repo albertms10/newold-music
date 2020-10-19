@@ -1,10 +1,10 @@
 <script context="module" lang="ts">
   import client from "database/apollo";
-  import { CAMPAIGNS_LIST } from "database/operations";
+  import { CampaignsList } from "database/operations/Campaigns.graphql";
 
   export async function preload() {
     return {
-      campaignsCache: await client.query({ query: CAMPAIGNS_LIST }),
+      campaignsCache: await client.query({ query: CampaignsList }),
     };
   }
 </script>

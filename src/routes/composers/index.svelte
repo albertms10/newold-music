@@ -1,10 +1,10 @@
 <script context="module" lang="ts">
   import client from "database/apollo";
-  import { COMPOSERS_LIST } from "database/operations";
+  import { ComposersList } from "database/operations/Composers.graphql";
 
   export async function preload() {
     return {
-      composersCache: await client.query({ query: COMPOSERS_LIST }),
+      composersCache: await client.query({ query: ComposersList }),
     };
   }
 </script>

@@ -1,3 +1,23 @@
+query CampaignsList {
+  campaigns {
+    id
+    title
+    description
+    created_at
+    campaign_contributors_aggregate {
+      aggregate {
+        count
+        sum {
+          quantity
+        }
+      }
+    }
+    campaign_progress_stops {
+      stop
+    }
+  }
+}
+
 query CampaignInfo($id: Int!) {
   campaigns_by_pk(id: $id) {
     id
@@ -31,6 +51,21 @@ query CampaignInfo($id: Int!) {
           }
         }
       }
+    }
+  }
+}
+
+
+query CampaignContributorsList($id: Int!) {
+  campaigns_contributors(where: { campaign_id: { _eq: $id } }) {
+    id
+    quantity
+    created_at
+    updated_at
+    user {
+      id
+      name
+      surname
     }
   }
 }

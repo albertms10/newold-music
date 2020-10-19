@@ -2,7 +2,7 @@
   import { DataTable, DataTableSkeleton } from "carbon-components-svelte";
   import client from "database/apollo";
   import type { CampaignContributorsListQuery } from "database/generated/operations";
-  import { CAMPAIGN_CONTRIBUTORS_LIST } from "database/operations";
+  import { CampaignContributorsList } from "database/operations/Campaigns.graphql";
   import dayjs from "dayjs";
   import relativeTime from "dayjs/plugin/relativeTime";
   import { query } from "svelte-apollo";
@@ -14,7 +14,7 @@
   export let campaignId: number;
 
   const contributors = query<CampaignContributorsListQuery>(client, {
-    query: CAMPAIGN_CONTRIBUTORS_LIST,
+    query: CampaignContributorsList,
     variables: { id: campaignId },
     pollInterval: 10000,
   });

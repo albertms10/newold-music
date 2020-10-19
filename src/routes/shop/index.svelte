@@ -1,10 +1,10 @@
 <script context="module" lang="ts">
   import client from "database/apollo";
-  import { WORKS_LIST } from "database/operations";
+  import { WorksList } from "database/operations/Works.graphql";
 
   export async function preload() {
     return {
-      worksCache: await client.query({ query: WORKS_LIST }),
+      worksCache: await client.query({ query: WorksList }),
     };
   }
 </script>

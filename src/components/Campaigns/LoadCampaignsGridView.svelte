@@ -3,17 +3,17 @@
   import { Loading } from "carbon-components-svelte";
   import client from "database/apollo";
   import type { CampaignsListQuery } from "database/generated/operations";
-  import { CAMPAIGNS_LIST } from "database/operations";
+  import { CampaignsList } from "database/operations/Campaigns.graphql";
   import { query, restore } from "svelte-apollo";
   import { GridView } from "../GridView";
   import CampaignsGridView from "./CampaignsGridView.svelte";
 
   export let campaignsCache: ApolloQueryResult<CampaignsListQuery>;
 
-  restore(client, CAMPAIGNS_LIST, campaignsCache.data);
+  restore(client, CampaignsList, campaignsCache.data);
 
   const campaigns = query<CampaignsListQuery>(client, {
-    query: CAMPAIGNS_LIST,
+    query: CampaignsList,
   });
 
   const numerableName = "campaigns";

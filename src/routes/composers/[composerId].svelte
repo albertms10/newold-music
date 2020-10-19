@@ -1,14 +1,12 @@
 <script context="module" lang="ts">
   import client from "database/apollo";
-  import { COMPOSER_INFO } from "database/operations";
+  import { ComposerInfo } from "database/operations/Composers.graphql";
 
-  export async function preload({ params }) {
-    const { composerId } = params;
-
+  export async function preload({ params: { composerId: id } }) {
     return {
       composerCache: await client.query({
-        query: COMPOSER_INFO,
-        variables: { id: composerId },
+        query: ComposerInfo,
+        variables: { id },
       }),
     };
   }
@@ -25,10 +23,10 @@
 
   export let composerCache: ApolloQueryResult<ComposerInfoQuery>;
 
-  restore(client, COMPOSER_INFO, composerCache.data);
+  restore(client, ComposerInfo, composerCache.data);
 
   const composer = query<ComposerInfoQuery>(client, {
-    query: COMPOSER_INFO,
+    query: ComposerInfo,
   });
 
   const getComposerRoledWorks = (

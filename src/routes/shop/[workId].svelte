@@ -1,14 +1,12 @@
 <script context="module" lang="ts">
   import client from "database/apollo";
-  import { WORK_INFO } from "database/operations";
+  import { WorkInfo } from "database/operations/Works.graphql";
 
-  export async function preload({ params }) {
-    const { workId } = params;
-
+  export async function preload({ params: { workId: id } }) {
     return {
       workCache: await client.query({
-        query: WORK_INFO,
-        variables: { id: workId },
+        query: WorkInfo,
+        variables: { id },
       }),
     };
   }
@@ -26,10 +24,10 @@
 
   export let workCache: ApolloQueryResult<WorkInfoQuery>;
 
-  restore(client, WORK_INFO, workCache.data);
+  restore(client, WorkInfo, workCache.data);
 
   const work = query<WorkInfoQuery>(client, {
-    query: WORK_INFO,
+    query: WorkInfo,
   });
 </script>
 
