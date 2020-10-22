@@ -55,7 +55,6 @@ query CampaignInfo($id: Int!) {
   }
 }
 
-
 query CampaignContributorsList($id: Int!) {
   campaigns_contributors(where: { campaign_id: { _eq: $id } }) {
     id
