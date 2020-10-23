@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { stores } from "@sapper/app";
   import {
     Header,
     HeaderNav,
@@ -12,10 +13,10 @@
   import LocaleSwitcher from "./LocaleSwitcher.svelte";
   import Social from "./Social.svelte";
 
-  export let segment: string;
+  const { page } = stores();
 
-  $: getAriaCurrent = (href?: string) =>
-    segment === href ? "page" : undefined;
+  $: getAriaCurrent = (route?: string) =>
+    $page.path === `/${route}` ? "page" : undefined;
 
   let winWidth = undefined;
   let isSideNavOpen: boolean;
@@ -103,7 +104,7 @@
     <HeaderNav ariaLabel="Main">
       {#each routes as route}
         <HeaderNavItem
-          href={route}
+          href="/{route}"
           text={$_(`routes.${route}`)}
           aria-current={getAriaCurrent(route)}
         />
@@ -114,7 +115,7 @@
       <SideNavItems>
         {#each routes as route}
           <SideNavLink
-            href={route}
+            href="/{route}"
             text={$_(`routes.${route}`)}
             aria-current={getAriaCurrent(route)}
             on:click={() => (isSideNavOpen = !isSideNavOpen)}

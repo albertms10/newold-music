@@ -20,8 +20,6 @@
     setTimeout(() => set(currentPreloading), 250);
   });
 
-  export let segment: string;
-
   onMount(() => {
     const usesDarkMode =
       window.matchMedia("(prefers-color-scheme: dark)").matches || false;
@@ -65,7 +63,7 @@
 {/if}
 
 <div class="content">
-  <Nav {segment} />
+  <Nav />
 
   <Content>
     <slot />
