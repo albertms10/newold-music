@@ -51,10 +51,17 @@
 
   :global(.inline-radio .bx--tile-group div) {
     display: flex;
+    flex-wrap: wrap;
   }
 
   :global(.inline-radio .bx--tile-group div label) {
     flex: 1;
+  }
+
+  :global(.bx--modal-container) {
+    position: relative;
+    top: calc(-4rem / 2);
+    height: calc(90% - 4rem);
   }
 </style>
 
