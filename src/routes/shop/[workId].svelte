@@ -13,7 +13,7 @@
 </script>
 
 <script lang="ts">
-  import type { ApolloQueryResult } from "apollo-boost";
+  import type { ApolloQueryResult } from "@apollo/client/core";
   import { Loading } from "carbon-components-svelte";
   import { ComposersTagView } from "components/Composers";
   import { PageHeader } from "components/Layout";
@@ -24,11 +24,9 @@
 
   export let workCache: ApolloQueryResult<WorkInfoQuery>;
 
-  restore(client, WorkInfo, workCache.data);
+  restore(WorkInfo, { data: workCache.data });
 
-  const work = query<WorkInfoQuery>(client, {
-    query: WorkInfo,
-  });
+  const work = query<WorkInfoQuery>(WorkInfo);
 </script>
 
 <style>

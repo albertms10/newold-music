@@ -10,7 +10,7 @@
 </script>
 
 <script lang="ts">
-  import type { ApolloQueryResult } from "apollo-boost";
+  import type { ApolloQueryResult } from "@apollo/client/core";
   import {
     CampaignFeedbackTooltip,
     LoadCampaignsGridView,

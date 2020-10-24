@@ -10,9 +10,13 @@
   import { stores } from "@sapper/app";
   import { Content, Loading } from "carbon-components-svelte";
   import { Footer, Nav } from "components/Layout";
+  import client from "database/apollo";
   import { onMount } from "svelte";
   import { isLoading as isLoadingLocale } from "svelte-i18n";
   import { derived } from "svelte/store";
+  import { setClient } from "svelte-apollo";
+
+  setClient(client);
 
   const { preloading } = stores();
 

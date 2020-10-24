@@ -1,7 +1,6 @@
 <script lang="ts">
-  import type { ApolloQueryResult } from "apollo-boost";
+  import type { ApolloQueryResult } from "@apollo/client/core";
   import { Loading } from "carbon-components-svelte";
-  import client from "database/apollo";
   import type { CampaignsListQuery } from "database/generated/operations";
   import { CampaignsList } from "database/operations/Campaigns.graphql";
   import { query, restore } from "svelte-apollo";
@@ -10,11 +9,9 @@
 
   export let campaignsCache: ApolloQueryResult<CampaignsListQuery>;
 
-  restore(client, CampaignsList, campaignsCache.data);
+  restore(CampaignsList, { data: campaignsCache.data });
 
-  const campaigns = query<CampaignsListQuery>(client, {
-    query: CampaignsList,
-  });
+  const campaigns = query<CampaignsListQuery>(CampaignsList);
 
   const numerableName = "campaigns";
 </script>

@@ -1,6 +1,5 @@
 <script lang="ts">
   import { DataTable, DataTableSkeleton } from "carbon-components-svelte";
-  import client from "database/apollo";
   import type { CampaignContributorsListQuery } from "database/generated/operations";
   import { CampaignContributorsList } from "database/operations/Campaigns.graphql";
   import dayjs from "dayjs";
@@ -13,11 +12,13 @@
 
   export let campaignId: number;
 
-  const contributors = query<CampaignContributorsListQuery>(client, {
-    query: CampaignContributorsList,
-    variables: { id: campaignId },
-    pollInterval: 10000,
-  });
+  const contributors = query<CampaignContributorsListQuery>(
+    CampaignContributorsList,
+    {
+      variables: { id: campaignId },
+      pollInterval: 10000,
+    }
+  );
 
   const headersList = ["name", "contribution", "date"] as const;
 
@@ -50,7 +51,7 @@
     title={title($_('terms.contributors', { values: { n: 0 } }))}
     description={$_('descriptions.users list')}
     {headers}
-    rows={result.data.campaigns_contributors.map(mapContributorRow)}
+    rows={result.data ? result.data.campaigns_contributors.map(mapContributorRow) : []}
     sortable
     stickyHeader
     zebra

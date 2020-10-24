@@ -1,7 +1,6 @@
 <script lang="ts">
-  import type { ApolloQueryResult } from "apollo-boost";
+  import type { ApolloQueryResult } from "@apollo/client/core";
   import { Loading } from "carbon-components-svelte";
-  import client from "database/apollo";
   import type { ComposersListQuery } from "database/generated/operations";
   import { ComposersList } from "database/operations/Composers.graphql";
   import { query, restore } from "svelte-apollo";
@@ -10,11 +9,9 @@
 
   export let composersCache: ApolloQueryResult<ComposersListQuery>;
 
-  restore(client, ComposersList, composersCache.data);
+  restore(ComposersList, { data: composersCache.data });
 
-  const composers = query<ComposersListQuery>(client, {
-    query: ComposersList,
-  });
+  const composers = query<ComposersListQuery>(ComposersList);
 
   const numerableName = "composers";
 </script>
