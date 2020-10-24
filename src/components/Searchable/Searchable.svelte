@@ -48,7 +48,7 @@
 {#if !hideInput}
   <Search
     placeholder={$_('actions.search')}
-    small
+    size="lg"
     light
     autofocus
     autocomplete="on"
