@@ -22,9 +22,21 @@
 
   const headersList = ["name", "contribution", "date"] as const;
 
-  const headers = headersList.map((header: string) => ({
+  const headersMethods = [
+    {},
+    {
+      display: (quantity) => $number(quantity, { format: "EUR" }),
+    },
+    {
+      display: (date) => dayjs(date).fromNow(),
+      sort: (a, b) => (dayjs(a.date).isBefore(dayjs(b.date)) ? -1 : 1),
+    },
+  ];
+
+  const headers = headersList.map((header: string, index) => ({
     key: header,
     value: $_(`fields.${header}`),
+    ...headersMethods[index],
   }));
 
   type DataTableRows = {
@@ -39,13 +51,13 @@
   }): DataTableRows => ({
     id,
     name: `${user.name} ${user.surname}`,
-    contribution: $number(quantity, { format: "EUR" }),
-    date: dayjs(created_at).fromNow(),
+    contribution: quantity,
+    date: created_at,
   });
 </script>
 
 {#await $contributors}
-  <DataTableSkeleton zebra />
+  <DataTableSkeleton headers={[...headersList]} zebra />
 {:then result}
   <DataTable
     title={title($_('terms.contributors', { values: { n: 0 } }))}
