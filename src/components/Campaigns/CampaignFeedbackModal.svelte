@@ -10,9 +10,32 @@
     TextArea,
     TextInput,
     TileGroup,
+    ToastNotification,
   } from "carbon-components-svelte";
+  import { writable } from "svelte/store";
 
   export let open = false;
+  let notificationShown = false;
+
+  interface Proposal {
+    user: {
+      name: string;
+      email: string;
+    };
+    title: string;
+    description: string;
+    instrumentation: string;
+  }
+
+  const proposal = writable<Proposal>({
+    user: {
+      name: undefined,
+      email: undefined,
+    },
+    title: undefined,
+    description: undefined,
+    instrumentation: undefined,
+  });
 
   $: instrumentationOptions = [
     { value: "1", label: "Solo" },
@@ -35,6 +58,14 @@
   }
 </style>
 
+{#if notificationShown}
+  <ToastNotification
+    notificationType="inline"
+    kind="success"
+    title="Proposal sent successfully"
+  />
+{/if}
+
 <Modal
   bind:open
   modalLabel="Campaigns"
@@ -48,8 +79,11 @@
   on:click:button--secondary={() => (open = false)}
   on:open
   on:close
-  on:submit={(e) => {
-    console.log('modal', e);
+  on:submit={() => {
+    console.log($proposal);
+
+    notificationShown = true;
+    open = false;
   }}
 >
   <Form>
@@ -58,10 +92,20 @@
       <Grid noGutter>
         <Row>
           <Column>
-            <TextInput name="name" labelText="Name" required />
+            <TextInput
+              name="name"
+              labelText="Name"
+              bind:value={$proposal.user.name}
+              required
+            />
           </Column>
           <Column>
-            <TextInput name="email" labelText="Email" required />
+            <TextInput
+              name="email"
+              labelText="Email"
+              bind:value={$proposal.user.email}
+              required
+            />
           </Column>
         </Row>
       </Grid>
@@ -69,14 +113,26 @@
 
     <hr />
     <FormGroup legendText="Campaign">
-      <TextInput name="title" labelText="Title" required />
+      <TextInput
+        name="title"
+        labelText="Title"
+        bind:value={$proposal.title}
+        required
+      />
     </FormGroup>
     <FormGroup>
-      <TextArea name="description" labelText="Description" />
+      <TextArea
+        name="description"
+        labelText="Description"
+        bind:value={$proposal.description}
+      />
     </FormGroup>
 
     <div class="inline-radio">
-      <TileGroup legend="Instrumentation">
+      <TileGroup
+        legend="Instrumentation"
+        bind:selected={$proposal.instrumentation}
+      >
         {#each instrumentationOptions as { value, label }}
           <RadioTile {value}>{label}</RadioTile>
         {/each}
