@@ -21,15 +21,13 @@ const searchFilter = (
         texts.some((text) => {
           if (!text) return false;
 
-          const strippedText = stripAccents(text.toString());
+          frag = stripAccents(frag.toLowerCase());
+
+          const strippedText = stripAccents(text.toString().toLowerCase());
 
           return (
-            strippedText
-              .toLowerCase()
-              .includes(stripAccents(frag.toLowerCase())) ||
-            initials(strippedText, { minValue: 3 })
-              .toLowerCase()
-              .includes(frag.toLowerCase())
+            strippedText.includes(frag) ||
+            initials(strippedText, { minValue: 3 }).toLowerCase().includes(frag)
           );
         })) ||
       (dates &&
