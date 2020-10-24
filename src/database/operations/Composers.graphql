@@ -1,3 +1,18 @@
+query ComposersList {
+  composers(order_by: [{ surname: asc, name: asc }]) {
+    id
+    name
+    surname
+    roled_composers {
+      work_roled_composers_aggregate {
+        aggregate {
+          count
+        }
+      }
+    }
+  }
+}
+
 query ComposerInfo($id: Int!) {
   composers_by_pk(id: $id) {
     id
@@ -13,21 +28,6 @@ query ComposerInfo($id: Int!) {
           id
           duration
           title
-        }
-      }
-    }
-  }
-}
-
-query ComposersList {
-  composers(order_by: [{ surname: asc, name: asc }]) {
-    id
-    name
-    surname
-    roled_composers {
-      work_roled_composers_aggregate {
-        aggregate {
-          count
         }
       }
     }
