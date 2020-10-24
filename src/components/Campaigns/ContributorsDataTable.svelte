@@ -22,33 +22,40 @@
 
   const headersList = ["name", "contribution", "date"] as const;
 
-  const headersMethods = [
+  interface Header<T = unknown> {
+    key: string;
+    value: string;
+    display?: (value: T) => string;
+    sort?: (a: T, b: T) => number;
+  }
+
+  type Row = {
+    [P in typeof headersList[number] | "id"]: string;
+  };
+
+  const headersMethods: [Partial<Header<string>>, Partial<Header<number>>, Partial<Header<string>>] = [
     {},
     {
       display: (quantity) => $number(quantity, { format: "EUR" }),
     },
     {
       display: (date) => dayjs(date).fromNow(),
-      sort: (a, b) => (dayjs(a.date).isBefore(dayjs(b.date)) ? -1 : 1),
+      sort: (a, b) => (dayjs(a).isBefore(dayjs(b)) ? -1 : 1),
     },
   ];
 
-  const headers = headersList.map((header: string, index) => ({
+  const headers = headersList.map((header: string, index): Header<string | number> => ({
     key: header,
     value: $_(`fields.${header}`),
     ...headersMethods[index],
   }));
-
-  type DataTableRows = {
-    [P in typeof headersList[number] | "id"]: string;
-  };
 
   $: mapContributorRow = ({
     id,
     user,
     quantity,
     created_at,
-  }): DataTableRows => ({
+  }): Row => ({
     id,
     name: `${user.name} ${user.surname}`,
     contribution: quantity,
