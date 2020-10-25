@@ -13,9 +13,15 @@
     ToastNotification,
   } from "carbon-components-svelte";
   import { writable } from "svelte/store";
+  import { fly } from "svelte/transition";
 
   export let open = false;
+
   let notificationShown = false;
+
+  $: if (notificationShown) {
+    setTimeout(() => notificationShown = false, 4000);
+  }
 
   interface Proposal {
     user: {
@@ -45,6 +51,25 @@
 </script>
 
 <style>
+  .notification {
+    --notification-margin: 2rem;
+
+    position: absolute;
+    top: var(--notification-margin);
+    right: var(--notification-margin);
+    max-width: calc(100vw - (calc(var(--notification-margin) * 2)));
+  }
+
+  @media (max-width: 425px) {
+    .notification {
+      --notification-margin: 1rem;
+    }
+  }
+
+  :global(.notification .bx--toast-notification) {
+    max-width: 16rem;
+  }
+
   :global(.bx--tile-group) {
     position: relative;
   }
@@ -66,11 +91,14 @@
 </style>
 
 {#if notificationShown}
-  <ToastNotification
-    notificationType="inline"
-    kind="success"
-    title="Proposal sent successfully"
-  />
+  <div class="notification" in:fly={{ x: 200, duration: 500 }} out:fly>
+    <ToastNotification
+      notificationType="inline"
+      kind="success"
+      title="Proposal sent successfully"
+      hideCloseButton
+    />
+  </div>
 {/if}
 
 <Modal
