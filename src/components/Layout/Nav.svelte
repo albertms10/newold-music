@@ -22,8 +22,10 @@
   let winWidth = undefined;
   let isSideNavOpen: boolean;
 
-  const XS_BREAKPOINT = 378;
-  const MD_BREAKPOINT = 1056;
+  const BREAKPOINTS = {
+    xs: 378,
+    md: 1056
+  }
 
   const routes = ["campaigns", "mission", "composers", "shop", "contact"];
 </script>
@@ -96,12 +98,12 @@
   <div class="platform" slot="platform">
     <img src="logo-dark-192.png" alt="Logo" />
 
-    {#if winWidth > XS_BREAKPOINT}
+    {#if winWidth > BREAKPOINTS.xs}
       <div>Newold Music</div>
     {/if}
   </div>
 
-  {#if winWidth >= MD_BREAKPOINT}
+  {#if winWidth >= BREAKPOINTS.md}
     <HeaderNav ariaLabel="Main">
       {#each routes as route}
         <HeaderNavItem
@@ -135,7 +137,7 @@
       <Social isSmall />
     </div>
 
-    {#if winWidth >= MD_BREAKPOINT}
+    {#if winWidth >= BREAKPOINTS.md}
       <div class="locale-switcher nav">
         <LocaleSwitcher />
       </div>
