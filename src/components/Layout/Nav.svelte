@@ -10,14 +10,15 @@
     SkipToContent,
   } from "carbon-components-svelte";
   import { _ } from "svelte-i18n";
+  import { getPathnames } from "utils/strings";
   import LocaleSwitcher from "./LocaleSwitcher.svelte";
   import Social from "./Social.svelte";
 
   const { page } = stores();
 
   $: getAriaCurrent = (route?: string) =>
-    $page.path === `/${route}` ? "page" : undefined;
-
+    getPathnames($page.path)[0] === route ? "page" : undefined;
+    
   let winWidth = undefined;
   let isSideNavOpen: boolean;
 
