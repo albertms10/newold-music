@@ -69,10 +69,22 @@ export default {
           extensions: [".js", ".mjs", ".html", ".svelte"],
           babelHelpers: "runtime",
           exclude: ["node_modules/@babel/**"],
-          presets: [["@babel/preset-env", { targets: "> 0.25%, not dead" }]],
+          presets: [
+            [
+              "@babel/preset-env",
+              {
+                targets: "> 0.25%, not dead",
+              },
+            ],
+          ],
           plugins: [
             "@babel/plugin-syntax-dynamic-import",
-            ["@babel/plugin-transform-runtime", { useESModules: true }],
+            [
+              "@babel/plugin-transform-runtime",
+              {
+                useESModules: true,
+              },
+            ],
           ],
         }),
 
