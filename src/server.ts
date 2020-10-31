@@ -5,13 +5,12 @@ import sirv from "sirv";
 import { i18nMiddleware } from "./services/i18n";
 
 const { PORT, NODE_ENV } = process.env;
-const dev = NODE_ENV === "development";
 
 polka()
   .use(
     "/",
     compression({ threshold: 0 }),
-    sirv("static", { dev }),
+    sirv("static", { dev: NODE_ENV === "development" }),
     i18nMiddleware(),
     sapper.middleware()
   )
