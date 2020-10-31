@@ -20,7 +20,7 @@
     "cy:run": "cypress run",
     "cy:open": "cypress open",
     "test": "run-p --race dev cy:run",
-    "generate": "graphql-codegen --config codegen.yml"
+    "graphql-gen": "graphql-codegen --config codegen.yml"
   },
   "dependencies": {
     "@apollo/client": "^3.2.5",
