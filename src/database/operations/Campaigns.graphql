@@ -4,6 +4,7 @@ query CampaignsList {
     title
     description
     created_at
+    goal
     campaign_contributors_aggregate {
       aggregate {
         count
@@ -11,9 +12,6 @@ query CampaignsList {
           quantity
         }
       }
-    }
-    campaign_progress_stops {
-      stop
     }
   }
 }
@@ -24,9 +22,7 @@ query CampaignInfo($id: Int!) {
     title
     description
     created_at
-    campaign_progress_stops {
-      stop
-    }
+    goal
     campaign_contributors_aggregate {
       aggregate {
         count

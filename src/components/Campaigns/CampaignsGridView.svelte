@@ -20,14 +20,14 @@
   filteredCount={filteredItems.length}
   bind:searchValue
 >
-  {#each filteredItems as { id, title, description, campaign_contributors_aggregate, campaign_progress_stops } (id)}
+  {#each filteredItems as { id, title, description, goal, campaign_contributors_aggregate } (id)}
     <CampaignGridViewTile
       {id}
       {title}
       {description}
       contributorsCount={campaign_contributors_aggregate.aggregate.count}
       progressAmount={campaign_contributors_aggregate.aggregate.sum.quantity}
-      progressStops={campaign_progress_stops.map(({ stop }) => stop)}
+      progressGoal={goal / 100}
     />
   {/each}
 </GridView>
