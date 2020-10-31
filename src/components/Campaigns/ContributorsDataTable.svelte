@@ -1,10 +1,10 @@
 <script lang="ts">
   import { DataTable, DataTableSkeleton } from "carbon-components-svelte";
   import type { CampaignContributorsListQuery } from "database/generated/operations";
-  import { CampaignContributorsList } from "database/operations/Campaigns.graphql";
+  import { CampaignContributors } from "database/operations/Campaigns.graphql";
   import dayjs from "dayjs";
   import relativeTime from "dayjs/plugin/relativeTime";
-  import { query } from "svelte-apollo";
+  import { subscribe } from "svelte-apollo";
   import { number, _ } from "svelte-i18n";
   import { title } from "utils/strings";
 
@@ -12,12 +12,9 @@
 
   export let campaignId: number;
 
-  const contributors = query<CampaignContributorsListQuery>(
-    CampaignContributorsList,
-    {
-      variables: { id: campaignId },
-      pollInterval: 10000,
-    }
+  const contributors = subscribe<CampaignContributorsListQuery>(
+    CampaignContributors,
+    { variables: { id: campaignId } }
   );
 
   const headersList = ["name", "contribution", "date"] as const;
@@ -61,6 +58,8 @@
     contribution: quantity,
     date: created_at,
   });
+
+  $: console.log($contributors);
 </script>
 
 {#await $contributors}
