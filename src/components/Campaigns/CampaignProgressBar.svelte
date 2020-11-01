@@ -70,13 +70,15 @@
 </style>
 
 <div class="progress">
-  <div class="stops">
-    {#each stops as stop, index}
-      <div style="flex: {weights[index] / weightsGCD}">
-        {$number(stop, { format: 'EUR-int' })}
-      </div>
-    {/each}
-  </div>
+  {#if stops.length > 1}
+    <div class="stops">
+      {#each stops as stop, index}
+        <div style="flex: {weights[index] / weightsGCD}">
+          {$number(stop, { format: 'EUR-int' })}
+        </div>
+      {/each}
+    </div>
+  {/if}
   <div
     class="progress-bar"
     class:isSmall
