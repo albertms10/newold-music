@@ -6,7 +6,7 @@
   import relativeTime from "dayjs/plugin/relativeTime";
   import { query } from "svelte-apollo";
   import { number, _ } from "svelte-i18n";
-  import { title } from "utils/strings";
+  import { titleCase } from "utils/strings";
 
   dayjs.extend(relativeTime);
 
@@ -67,7 +67,7 @@
   <DataTableSkeleton headers={[...headersList]} zebra />
 {:then result}
   <DataTable
-    title={title($_('terms.contributors', { values: { n: 0 } }))}
+    title={titleCase($_('terms.contributors', { values: { n: 0 } }))}
     description={$_('descriptions.users list')}
     {headers}
     rows={result.data ? result.data.campaigns_contributors.map(mapContributorRow) : []}
