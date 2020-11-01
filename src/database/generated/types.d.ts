@@ -54,7 +54,7 @@ export type Campaigns = {
   created_at: Scalars['timestamptz'];
   description: Scalars['String'];
   end_date?: Maybe<Scalars['timestamptz']>;
-  goal: Scalars['Int'];
+  goal: Scalars['numeric'];
   id: Scalars['Int'];
   title: Scalars['String'];
   updated_at: Scalars['timestamptz'];
@@ -158,7 +158,7 @@ export type Campaigns_Bool_Exp = {
   created_at?: Maybe<Timestamptz_Comparison_Exp>;
   description?: Maybe<String_Comparison_Exp>;
   end_date?: Maybe<Timestamptz_Comparison_Exp>;
-  goal?: Maybe<Int_Comparison_Exp>;
+  goal?: Maybe<Numeric_Comparison_Exp>;
   id?: Maybe<Int_Comparison_Exp>;
   title?: Maybe<String_Comparison_Exp>;
   updated_at?: Maybe<Timestamptz_Comparison_Exp>;
@@ -542,7 +542,7 @@ export type Campaigns_Contributors_Variance_Order_By = {
 
 /** input type for incrementing integer column in table "campaigns" */
 export type Campaigns_Inc_Input = {
-  goal?: Maybe<Scalars['Int']>;
+  goal?: Maybe<Scalars['numeric']>;
   id?: Maybe<Scalars['Int']>;
   work_id?: Maybe<Scalars['Int']>;
 };
@@ -553,7 +553,7 @@ export type Campaigns_Insert_Input = {
   created_at?: Maybe<Scalars['timestamptz']>;
   description?: Maybe<Scalars['String']>;
   end_date?: Maybe<Scalars['timestamptz']>;
-  goal?: Maybe<Scalars['Int']>;
+  goal?: Maybe<Scalars['numeric']>;
   id?: Maybe<Scalars['Int']>;
   title?: Maybe<Scalars['String']>;
   updated_at?: Maybe<Scalars['timestamptz']>;
@@ -567,7 +567,7 @@ export type Campaigns_Max_Fields = {
   created_at?: Maybe<Scalars['timestamptz']>;
   description?: Maybe<Scalars['String']>;
   end_date?: Maybe<Scalars['timestamptz']>;
-  goal?: Maybe<Scalars['Int']>;
+  goal?: Maybe<Scalars['numeric']>;
   id?: Maybe<Scalars['Int']>;
   title?: Maybe<Scalars['String']>;
   updated_at?: Maybe<Scalars['timestamptz']>;
@@ -592,7 +592,7 @@ export type Campaigns_Min_Fields = {
   created_at?: Maybe<Scalars['timestamptz']>;
   description?: Maybe<Scalars['String']>;
   end_date?: Maybe<Scalars['timestamptz']>;
-  goal?: Maybe<Scalars['Int']>;
+  goal?: Maybe<Scalars['numeric']>;
   id?: Maybe<Scalars['Int']>;
   title?: Maybe<Scalars['String']>;
   updated_at?: Maybe<Scalars['timestamptz']>;
@@ -677,7 +677,7 @@ export type Campaigns_Set_Input = {
   created_at?: Maybe<Scalars['timestamptz']>;
   description?: Maybe<Scalars['String']>;
   end_date?: Maybe<Scalars['timestamptz']>;
-  goal?: Maybe<Scalars['Int']>;
+  goal?: Maybe<Scalars['numeric']>;
   id?: Maybe<Scalars['Int']>;
   title?: Maybe<Scalars['String']>;
   updated_at?: Maybe<Scalars['timestamptz']>;
@@ -732,7 +732,7 @@ export type Campaigns_Stddev_Samp_Order_By = {
 /** aggregate sum on columns */
 export type Campaigns_Sum_Fields = {
   __typename?: 'campaigns_sum_fields';
-  goal?: Maybe<Scalars['Int']>;
+  goal?: Maybe<Scalars['numeric']>;
   id?: Maybe<Scalars['Int']>;
   work_id?: Maybe<Scalars['Int']>;
 };
@@ -1425,6 +1425,302 @@ export type Composers_Variance_Order_By = {
   id?: Maybe<Order_By>;
 };
 
+/** columns and relationships of "editions" */
+export type Editions = {
+  __typename?: 'editions';
+  created_at: Scalars['timestamptz'];
+  id: Scalars['Int'];
+  updated_at: Scalars['timestamptz'];
+  work_id: Scalars['Int'];
+};
+
+/** aggregated selection of "editions" */
+export type Editions_Aggregate = {
+  __typename?: 'editions_aggregate';
+  aggregate?: Maybe<Editions_Aggregate_Fields>;
+  nodes: Array<Editions>;
+};
+
+/** aggregate fields of "editions" */
+export type Editions_Aggregate_Fields = {
+  __typename?: 'editions_aggregate_fields';
+  avg?: Maybe<Editions_Avg_Fields>;
+  count?: Maybe<Scalars['Int']>;
+  max?: Maybe<Editions_Max_Fields>;
+  min?: Maybe<Editions_Min_Fields>;
+  stddev?: Maybe<Editions_Stddev_Fields>;
+  stddev_pop?: Maybe<Editions_Stddev_Pop_Fields>;
+  stddev_samp?: Maybe<Editions_Stddev_Samp_Fields>;
+  sum?: Maybe<Editions_Sum_Fields>;
+  var_pop?: Maybe<Editions_Var_Pop_Fields>;
+  var_samp?: Maybe<Editions_Var_Samp_Fields>;
+  variance?: Maybe<Editions_Variance_Fields>;
+};
+
+
+/** aggregate fields of "editions" */
+export type Editions_Aggregate_FieldsCountArgs = {
+  columns?: Maybe<Array<Editions_Select_Column>>;
+  distinct?: Maybe<Scalars['Boolean']>;
+};
+
+/** order by aggregate values of table "editions" */
+export type Editions_Aggregate_Order_By = {
+  avg?: Maybe<Editions_Avg_Order_By>;
+  count?: Maybe<Order_By>;
+  max?: Maybe<Editions_Max_Order_By>;
+  min?: Maybe<Editions_Min_Order_By>;
+  stddev?: Maybe<Editions_Stddev_Order_By>;
+  stddev_pop?: Maybe<Editions_Stddev_Pop_Order_By>;
+  stddev_samp?: Maybe<Editions_Stddev_Samp_Order_By>;
+  sum?: Maybe<Editions_Sum_Order_By>;
+  var_pop?: Maybe<Editions_Var_Pop_Order_By>;
+  var_samp?: Maybe<Editions_Var_Samp_Order_By>;
+  variance?: Maybe<Editions_Variance_Order_By>;
+};
+
+/** input type for inserting array relation for remote table "editions" */
+export type Editions_Arr_Rel_Insert_Input = {
+  data: Array<Editions_Insert_Input>;
+  on_conflict?: Maybe<Editions_On_Conflict>;
+};
+
+/** aggregate avg on columns */
+export type Editions_Avg_Fields = {
+  __typename?: 'editions_avg_fields';
+  id?: Maybe<Scalars['Float']>;
+  work_id?: Maybe<Scalars['Float']>;
+};
+
+/** order by avg() on columns of table "editions" */
+export type Editions_Avg_Order_By = {
+  id?: Maybe<Order_By>;
+  work_id?: Maybe<Order_By>;
+};
+
+/** Boolean expression to filter rows from the table "editions". All fields are combined with a logical 'AND'. */
+export type Editions_Bool_Exp = {
+  _and?: Maybe<Array<Maybe<Editions_Bool_Exp>>>;
+  _not?: Maybe<Editions_Bool_Exp>;
+  _or?: Maybe<Array<Maybe<Editions_Bool_Exp>>>;
+  created_at?: Maybe<Timestamptz_Comparison_Exp>;
+  id?: Maybe<Int_Comparison_Exp>;
+  updated_at?: Maybe<Timestamptz_Comparison_Exp>;
+  work_id?: Maybe<Int_Comparison_Exp>;
+};
+
+/** unique or primary key constraints on table "editions" */
+export enum Editions_Constraint {
+  /** unique or primary key constraint */
+  EditionsPkey = 'editions_pkey'
+}
+
+/** input type for incrementing integer column in table "editions" */
+export type Editions_Inc_Input = {
+  id?: Maybe<Scalars['Int']>;
+  work_id?: Maybe<Scalars['Int']>;
+};
+
+/** input type for inserting data into table "editions" */
+export type Editions_Insert_Input = {
+  created_at?: Maybe<Scalars['timestamptz']>;
+  id?: Maybe<Scalars['Int']>;
+  updated_at?: Maybe<Scalars['timestamptz']>;
+  work_id?: Maybe<Scalars['Int']>;
+};
+
+/** aggregate max on columns */
+export type Editions_Max_Fields = {
+  __typename?: 'editions_max_fields';
+  created_at?: Maybe<Scalars['timestamptz']>;
+  id?: Maybe<Scalars['Int']>;
+  updated_at?: Maybe<Scalars['timestamptz']>;
+  work_id?: Maybe<Scalars['Int']>;
+};
+
+/** order by max() on columns of table "editions" */
+export type Editions_Max_Order_By = {
+  created_at?: Maybe<Order_By>;
+  id?: Maybe<Order_By>;
+  updated_at?: Maybe<Order_By>;
+  work_id?: Maybe<Order_By>;
+};
+
+/** aggregate min on columns */
+export type Editions_Min_Fields = {
+  __typename?: 'editions_min_fields';
+  created_at?: Maybe<Scalars['timestamptz']>;
+  id?: Maybe<Scalars['Int']>;
+  updated_at?: Maybe<Scalars['timestamptz']>;
+  work_id?: Maybe<Scalars['Int']>;
+};
+
+/** order by min() on columns of table "editions" */
+export type Editions_Min_Order_By = {
+  created_at?: Maybe<Order_By>;
+  id?: Maybe<Order_By>;
+  updated_at?: Maybe<Order_By>;
+  work_id?: Maybe<Order_By>;
+};
+
+/** response of any mutation on the table "editions" */
+export type Editions_Mutation_Response = {
+  __typename?: 'editions_mutation_response';
+  /** number of affected rows by the mutation */
+  affected_rows: Scalars['Int'];
+  /** data of the affected rows by the mutation */
+  returning: Array<Editions>;
+};
+
+/** input type for inserting object relation for remote table "editions" */
+export type Editions_Obj_Rel_Insert_Input = {
+  data: Editions_Insert_Input;
+  on_conflict?: Maybe<Editions_On_Conflict>;
+};
+
+/** on conflict condition type for table "editions" */
+export type Editions_On_Conflict = {
+  constraint: Editions_Constraint;
+  update_columns: Array<Editions_Update_Column>;
+  where?: Maybe<Editions_Bool_Exp>;
+};
+
+/** ordering options when selecting data from "editions" */
+export type Editions_Order_By = {
+  created_at?: Maybe<Order_By>;
+  id?: Maybe<Order_By>;
+  updated_at?: Maybe<Order_By>;
+  work_id?: Maybe<Order_By>;
+};
+
+/** primary key columns input for table: "editions" */
+export type Editions_Pk_Columns_Input = {
+  id: Scalars['Int'];
+};
+
+/** select columns of table "editions" */
+export enum Editions_Select_Column {
+  /** column name */
+  CreatedAt = 'created_at',
+  /** column name */
+  Id = 'id',
+  /** column name */
+  UpdatedAt = 'updated_at',
+  /** column name */
+  WorkId = 'work_id'
+}
+
+/** input type for updating data in table "editions" */
+export type Editions_Set_Input = {
+  created_at?: Maybe<Scalars['timestamptz']>;
+  id?: Maybe<Scalars['Int']>;
+  updated_at?: Maybe<Scalars['timestamptz']>;
+  work_id?: Maybe<Scalars['Int']>;
+};
+
+/** aggregate stddev on columns */
+export type Editions_Stddev_Fields = {
+  __typename?: 'editions_stddev_fields';
+  id?: Maybe<Scalars['Float']>;
+  work_id?: Maybe<Scalars['Float']>;
+};
+
+/** order by stddev() on columns of table "editions" */
+export type Editions_Stddev_Order_By = {
+  id?: Maybe<Order_By>;
+  work_id?: Maybe<Order_By>;
+};
+
+/** aggregate stddev_pop on columns */
+export type Editions_Stddev_Pop_Fields = {
+  __typename?: 'editions_stddev_pop_fields';
+  id?: Maybe<Scalars['Float']>;
+  work_id?: Maybe<Scalars['Float']>;
+};
+
+/** order by stddev_pop() on columns of table "editions" */
+export type Editions_Stddev_Pop_Order_By = {
+  id?: Maybe<Order_By>;
+  work_id?: Maybe<Order_By>;
+};
+
+/** aggregate stddev_samp on columns */
+export type Editions_Stddev_Samp_Fields = {
+  __typename?: 'editions_stddev_samp_fields';
+  id?: Maybe<Scalars['Float']>;
+  work_id?: Maybe<Scalars['Float']>;
+};
+
+/** order by stddev_samp() on columns of table "editions" */
+export type Editions_Stddev_Samp_Order_By = {
+  id?: Maybe<Order_By>;
+  work_id?: Maybe<Order_By>;
+};
+
+/** aggregate sum on columns */
+export type Editions_Sum_Fields = {
+  __typename?: 'editions_sum_fields';
+  id?: Maybe<Scalars['Int']>;
+  work_id?: Maybe<Scalars['Int']>;
+};
+
+/** order by sum() on columns of table "editions" */
+export type Editions_Sum_Order_By = {
+  id?: Maybe<Order_By>;
+  work_id?: Maybe<Order_By>;
+};
+
+/** update columns of table "editions" */
+export enum Editions_Update_Column {
+  /** column name */
+  CreatedAt = 'created_at',
+  /** column name */
+  Id = 'id',
+  /** column name */
+  UpdatedAt = 'updated_at',
+  /** column name */
+  WorkId = 'work_id'
+}
+
+/** aggregate var_pop on columns */
+export type Editions_Var_Pop_Fields = {
+  __typename?: 'editions_var_pop_fields';
+  id?: Maybe<Scalars['Float']>;
+  work_id?: Maybe<Scalars['Float']>;
+};
+
+/** order by var_pop() on columns of table "editions" */
+export type Editions_Var_Pop_Order_By = {
+  id?: Maybe<Order_By>;
+  work_id?: Maybe<Order_By>;
+};
+
+/** aggregate var_samp on columns */
+export type Editions_Var_Samp_Fields = {
+  __typename?: 'editions_var_samp_fields';
+  id?: Maybe<Scalars['Float']>;
+  work_id?: Maybe<Scalars['Float']>;
+};
+
+/** order by var_samp() on columns of table "editions" */
+export type Editions_Var_Samp_Order_By = {
+  id?: Maybe<Order_By>;
+  work_id?: Maybe<Order_By>;
+};
+
+/** aggregate variance on columns */
+export type Editions_Variance_Fields = {
+  __typename?: 'editions_variance_fields';
+  id?: Maybe<Scalars['Float']>;
+  work_id?: Maybe<Scalars['Float']>;
+};
+
+/** order by variance() on columns of table "editions" */
+export type Editions_Variance_Order_By = {
+  id?: Maybe<Order_By>;
+  work_id?: Maybe<Order_By>;
+};
+
 /** columns and relationships of "instruments" */
 export type Instruments = {
   __typename?: 'instruments';
@@ -1697,6 +1993,10 @@ export type Mutation_Root = {
   delete_composers_roles?: Maybe<Composers_Roles_Mutation_Response>;
   /** delete single row from the table: "composers_roles" */
   delete_composers_roles_by_pk?: Maybe<Composers_Roles>;
+  /** delete data from the table: "editions" */
+  delete_editions?: Maybe<Editions_Mutation_Response>;
+  /** delete single row from the table: "editions" */
+  delete_editions_by_pk?: Maybe<Editions>;
   /** delete data from the table: "instruments" */
   delete_instruments?: Maybe<Instruments_Mutation_Response>;
   /** delete single row from the table: "instruments" */
@@ -1741,6 +2041,10 @@ export type Mutation_Root = {
   insert_composers_roles?: Maybe<Composers_Roles_Mutation_Response>;
   /** insert a single row into the table: "composers_roles" */
   insert_composers_roles_one?: Maybe<Composers_Roles>;
+  /** insert data into the table: "editions" */
+  insert_editions?: Maybe<Editions_Mutation_Response>;
+  /** insert a single row into the table: "editions" */
+  insert_editions_one?: Maybe<Editions>;
   /** insert data into the table: "instruments" */
   insert_instruments?: Maybe<Instruments_Mutation_Response>;
   /** insert a single row into the table: "instruments" */
@@ -1785,6 +2089,10 @@ export type Mutation_Root = {
   update_composers_roles?: Maybe<Composers_Roles_Mutation_Response>;
   /** update single row of the table: "composers_roles" */
   update_composers_roles_by_pk?: Maybe<Composers_Roles>;
+  /** update data of the table: "editions" */
+  update_editions?: Maybe<Editions_Mutation_Response>;
+  /** update single row of the table: "editions" */
+  update_editions_by_pk?: Maybe<Editions>;
   /** update data of the table: "instruments" */
   update_instruments?: Maybe<Instruments_Mutation_Response>;
   /** update single row of the table: "instruments" */
@@ -1860,6 +2168,18 @@ export type Mutation_RootDelete_Composers_RolesArgs = {
 
 /** mutation root */
 export type Mutation_RootDelete_Composers_Roles_By_PkArgs = {
+  id: Scalars['Int'];
+};
+
+
+/** mutation root */
+export type Mutation_RootDelete_EditionsArgs = {
+  where: Editions_Bool_Exp;
+};
+
+
+/** mutation root */
+export type Mutation_RootDelete_Editions_By_PkArgs = {
   id: Scalars['Int'];
 };
 
@@ -2001,6 +2321,20 @@ export type Mutation_RootInsert_Composers_RolesArgs = {
 export type Mutation_RootInsert_Composers_Roles_OneArgs = {
   object: Composers_Roles_Insert_Input;
   on_conflict?: Maybe<Composers_Roles_On_Conflict>;
+};
+
+
+/** mutation root */
+export type Mutation_RootInsert_EditionsArgs = {
+  objects: Array<Editions_Insert_Input>;
+  on_conflict?: Maybe<Editions_On_Conflict>;
+};
+
+
+/** mutation root */
+export type Mutation_RootInsert_Editions_OneArgs = {
+  object: Editions_Insert_Input;
+  on_conflict?: Maybe<Editions_On_Conflict>;
 };
 
 
@@ -2163,6 +2497,22 @@ export type Mutation_RootUpdate_Composers_Roles_By_PkArgs = {
   _inc?: Maybe<Composers_Roles_Inc_Input>;
   _set?: Maybe<Composers_Roles_Set_Input>;
   pk_columns: Composers_Roles_Pk_Columns_Input;
+};
+
+
+/** mutation root */
+export type Mutation_RootUpdate_EditionsArgs = {
+  _inc?: Maybe<Editions_Inc_Input>;
+  _set?: Maybe<Editions_Set_Input>;
+  where: Editions_Bool_Exp;
+};
+
+
+/** mutation root */
+export type Mutation_RootUpdate_Editions_By_PkArgs = {
+  _inc?: Maybe<Editions_Inc_Input>;
+  _set?: Maybe<Editions_Set_Input>;
+  pk_columns: Editions_Pk_Columns_Input;
 };
 
 
@@ -2334,6 +2684,12 @@ export type Query_Root = {
   composers_roles_aggregate: Composers_Roles_Aggregate;
   /** fetch data from the table: "composers_roles" using primary key columns */
   composers_roles_by_pk?: Maybe<Composers_Roles>;
+  /** fetch data from the table: "editions" */
+  editions: Array<Editions>;
+  /** fetch aggregated fields from the table: "editions" */
+  editions_aggregate: Editions_Aggregate;
+  /** fetch data from the table: "editions" using primary key columns */
+  editions_by_pk?: Maybe<Editions>;
   /** fetch data from the table: "instruments" */
   instruments: Array<Instruments>;
   /** fetch aggregated fields from the table: "instruments" */
@@ -2479,6 +2835,32 @@ export type Query_RootComposers_Roles_AggregateArgs = {
 
 /** query root */
 export type Query_RootComposers_Roles_By_PkArgs = {
+  id: Scalars['Int'];
+};
+
+
+/** query root */
+export type Query_RootEditionsArgs = {
+  distinct_on?: Maybe<Array<Editions_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Editions_Order_By>>;
+  where?: Maybe<Editions_Bool_Exp>;
+};
+
+
+/** query root */
+export type Query_RootEditions_AggregateArgs = {
+  distinct_on?: Maybe<Array<Editions_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Editions_Order_By>>;
+  where?: Maybe<Editions_Bool_Exp>;
+};
+
+
+/** query root */
+export type Query_RootEditions_By_PkArgs = {
   id: Scalars['Int'];
 };
 
@@ -3030,6 +3412,12 @@ export type Subscription_Root = {
   composers_roles_aggregate: Composers_Roles_Aggregate;
   /** fetch data from the table: "composers_roles" using primary key columns */
   composers_roles_by_pk?: Maybe<Composers_Roles>;
+  /** fetch data from the table: "editions" */
+  editions: Array<Editions>;
+  /** fetch aggregated fields from the table: "editions" */
+  editions_aggregate: Editions_Aggregate;
+  /** fetch data from the table: "editions" using primary key columns */
+  editions_by_pk?: Maybe<Editions>;
   /** fetch data from the table: "instruments" */
   instruments: Array<Instruments>;
   /** fetch aggregated fields from the table: "instruments" */
@@ -3175,6 +3563,32 @@ export type Subscription_RootComposers_Roles_AggregateArgs = {
 
 /** subscription root */
 export type Subscription_RootComposers_Roles_By_PkArgs = {
+  id: Scalars['Int'];
+};
+
+
+/** subscription root */
+export type Subscription_RootEditionsArgs = {
+  distinct_on?: Maybe<Array<Editions_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Editions_Order_By>>;
+  where?: Maybe<Editions_Bool_Exp>;
+};
+
+
+/** subscription root */
+export type Subscription_RootEditions_AggregateArgs = {
+  distinct_on?: Maybe<Array<Editions_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Editions_Order_By>>;
+  where?: Maybe<Editions_Bool_Exp>;
+};
+
+
+/** subscription root */
+export type Subscription_RootEditions_By_PkArgs = {
   id: Scalars['Int'];
 };
 

@@ -65,7 +65,7 @@
     <div class="progress-bar">
       <CampaignProgressBar
         amount={result.data.campaigns_by_pk.campaign_contributors_aggregate.aggregate.sum.quantity}
-        stops={[result.data.campaigns_by_pk.goal / 100]}
+        stops={[result.data.campaigns_by_pk.goal]}
       />
     </div>
 

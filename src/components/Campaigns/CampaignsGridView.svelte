@@ -27,7 +27,7 @@
       {description}
       contributorsCount={campaign_contributors_aggregate.aggregate.count}
       progressAmount={campaign_contributors_aggregate.aggregate.sum.quantity}
-      progressGoal={goal / 100}
+      progressGoal={goal}
     />
   {/each}
 </GridView>
