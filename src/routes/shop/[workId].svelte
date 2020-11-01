@@ -45,7 +45,9 @@
   {#if result && result.data && result.data.works_by_pk}
     <PageHeader title={result.data.works_by_pk.title} goBackRoute="shop" />
 
-    <p>{timeDuration(result.data.works_by_pk.duration)}</p>
+    <p>{timeDuration(result.data.works_by_pk.duration, {
+      defaultText: $_("fields.no duration")
+    })}</p>
 
     <div class="tag-view">
       <ComposersTagView items={result.data.works_by_pk.work_roled_composers} />

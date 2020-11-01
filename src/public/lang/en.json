@@ -31,7 +31,8 @@
     "email": "Email",
     "message": "Message",
     "contribution": "Contribution",
-    "date": "Date"
+    "date": "Date",
+    "no duration": "No duration"
   },
   "actions": {
     "go back home": "Go back home",

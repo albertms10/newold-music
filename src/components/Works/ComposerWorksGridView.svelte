@@ -1,5 +1,6 @@
 <script lang="ts">
   import type { ComposerInfoQuery } from "database/generated/operations";
+  import { _ } from 'svelte-i18n';
   import { timeDuration } from "utils/datetime";
   import { searchFilter } from "utils/misc";
   import { GridView } from "../GridView";
@@ -12,7 +13,11 @@
 
   $: filteredItems = items.filter(({ work }) =>
     searchFilter(searchValue, {
-      texts: [work.title, work.duration, timeDuration(work.duration)],
+      texts: [
+        work.title,
+        work.duration,
+        timeDuration(work.duration, { defaultText: $_("fields.no duration")})
+      ],
     })
   );
 </script>

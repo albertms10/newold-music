@@ -31,7 +31,8 @@
     "email": "Direcció electrónica",
     "message": "Mensaje",
     "contribution": "Contribución",
-    "date": "Date"
+    "date": "Date",
+    "no duration": "Sin duración"
   },
   "actions": {
     "go back home": "Volver al inicio",

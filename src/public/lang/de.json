@@ -31,7 +31,8 @@
     "email": "Email",
     "message": "Botschaft",
     "contribution": "Beitrag",
-    "date": "Datum"
+    "date": "Datum",
+    "no duration": "Ohne Dauer"
   },
   "actions": {
     "go back home": "Zurück zur Startseite",

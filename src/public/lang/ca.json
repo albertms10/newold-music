@@ -31,7 +31,8 @@
     "email": "Adreça electrònica",
     "message": "Missatge",
     "contribution": "Contribució",
-    "date": "Data"
+    "date": "Data",
+    "no duration": "Sense durada"
   },
   "actions": {
     "go back home": "Torna a l’inici",

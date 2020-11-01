@@ -7,7 +7,7 @@ interface TimeDurationOptions {
  */
 const timeDuration = (
   time?: string,
-  { defaultText = null }: TimeDurationOptions = {}
+  { defaultText = "" }: TimeDurationOptions = {}
 ): string => {
   if (!time) return defaultText;
 

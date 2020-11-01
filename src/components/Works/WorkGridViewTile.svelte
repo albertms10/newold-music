@@ -1,5 +1,6 @@
 <script lang="ts">
   import Timer20 from "carbon-icons-svelte/lib/Timer20";
+  import { _ } from 'svelte-i18n';
   import { timeDuration } from "utils/datetime";
   import { GridViewTile, GridViewTileDetail } from "../GridView";
 
@@ -19,6 +20,9 @@
   lg={3}
 >
   <div slot="details">
-    <GridViewTileDetail icon={Timer20} label={timeDuration(duration)} />
+    <GridViewTileDetail
+      icon={Timer20}
+      label={timeDuration(duration, { defaultText: $_('fields.no duration')})}
+    />
   </div>
 </GridViewTile>
