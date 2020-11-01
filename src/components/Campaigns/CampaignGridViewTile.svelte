@@ -1,14 +1,9 @@
 <script lang="ts">
-  import Analytics20 from "carbon-icons-svelte/lib/Analytics20";
-  import Collaborate20 from "carbon-icons-svelte/lib/Collaborate20";
-  import { number, _ } from "svelte-i18n";
+  import { _ } from "svelte-i18n";
   import { truncateString } from "utils/strings";
-  import {
-    GridViewTile,
-    GridViewTileStat,
-    GridViewTileStats,
-  } from "../GridView";
+  import { GridViewTile } from "../GridView";
   import CampaignProgressBar from "./CampaignProgressBar.svelte";
+  import CampaignStats from "./CampaignStats.svelte";
 
   export let id: number;
   export let title: string = undefined;
@@ -20,6 +15,13 @@
   export let progressAmount: number = undefined;
   export let progressGoal: number = undefined;
 </script>
+
+<style>
+  .stats {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+</style>
 
 <GridViewTile
   {title}
@@ -33,22 +35,10 @@
   hideDetailLine
 >
   <div slot="details">
-    <GridViewTileStats>
-      <GridViewTileStat
-        icon={Collaborate20}
-        label={contributorsCount.toString()}
-        detail={$_('terms.contributors', { values: { n: contributorsCount } })}
-      />
-      <GridViewTileStat
-        icon={Analytics20}
-        label={$number(progressAmount / progressGoal, { style: "percent" })}
-      />
-      <GridViewTileStat
-        label={$number(progressAmount, { format: "EUR-int" })}
-        detail="{$_('numerable.of', { values: { n: Math.floor(progressAmount) } })}{$number(progressGoal, { format: "EUR-int" })}"
-        isHighlighted
-      />
-    </GridViewTileStats>
+    <div class="stats">
+      <CampaignStats {contributorsCount} {progressAmount} {progressGoal} />
+    </div>
+
     <CampaignProgressBar amount={progressAmount} stops={[progressGoal]} />
   </div>
 </GridViewTile>
