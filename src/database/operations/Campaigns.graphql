@@ -5,6 +5,7 @@ query CampaignsList {
     description
     created_at
     goal
+    image_url
     campaign_contributors_aggregate {
       aggregate {
         count
@@ -23,6 +24,7 @@ query CampaignInfo($id: Int!) {
     description
     created_at
     goal
+    image_url
     campaign_contributors_aggregate {
       aggregate {
         count

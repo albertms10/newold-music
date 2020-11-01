@@ -5,7 +5,7 @@ export type CampaignsListQuery = (
   { __typename?: 'query_root' }
   & { campaigns: Array<(
     { __typename?: 'campaigns' }
-    & Pick<Campaigns, 'id' | 'title' | 'description' | 'created_at' | 'goal'>
+    & Pick<Campaigns, 'id' | 'title' | 'description' | 'created_at' | 'goal' | 'image_url'>
     & { campaign_contributors_aggregate: (
       { __typename?: 'campaigns_contributors_aggregate' }
       & { aggregate?: Maybe<(
@@ -29,7 +29,7 @@ export type CampaignInfoQuery = (
   { __typename?: 'query_root' }
   & { campaigns_by_pk?: Maybe<(
     { __typename?: 'campaigns' }
-    & Pick<Campaigns, 'id' | 'title' | 'description' | 'created_at' | 'goal'>
+    & Pick<Campaigns, 'id' | 'title' | 'description' | 'created_at' | 'goal' | 'image_url'>
     & { campaign_contributors_aggregate: (
       { __typename?: 'campaigns_contributors_aggregate' }
       & { aggregate?: Maybe<(
