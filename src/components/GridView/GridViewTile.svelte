@@ -3,6 +3,7 @@
 
   export let title: string = undefined;
   export let meta: string = undefined;
+  export let hideDetailLine = false;
 
   export let href: string = undefined;
   export let avatarUrl =
@@ -85,7 +86,9 @@
         </div>
         {#if $$slots.details}
           <div class="details">
-            <hr />
+            {#if !hideDetailLine}
+              <hr />
+            {/if}
             <slot name="details" />
           </div>
         {/if}
