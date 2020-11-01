@@ -1,4 +1,4 @@
-const title = (str: string) =>
+const titleCase = (str: string) =>
   str?.replace(/(^|\s)\S/g, (l) => l.toLocaleUpperCase()) ?? "";
 
-export default title;
+export default titleCase;
