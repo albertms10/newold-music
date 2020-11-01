@@ -13,13 +13,16 @@
     "composers": "{n, plural, one {Komponiste} other {Komponisten}}",
     "arrangers": "{n, plural, one {Arrangeur} other {Arrangeure}}",
     "lyricists": "{n, plural, one {Texter} other {Texter}}",
-    "works": "{n, plural, one {Werk} other {Werke}}"
+    "works": "{n, plural, one {Werk} other {Werke}}",
+    "goal": "{n, plural, one {Ziel} other {Ziele}}"
   },
   "descriptions": {
     "users list": "Liste der Benutzer, die an der Kampagne teilgenommen haben"
   },
   "numerable": {
     "showing start": "Zeigt {n} von {t}",
+    "of": "von ",
+    "of items": "von {n}",
     "items": "{n, plural, =0 {Ohne Elemente} one {# Element} other {# Elemente}}",
     "campaigns": "{n, plural, =0 {Ohne Kampagnen} one {# Kampagne} other {# Kampagnen}}",
     "contributors": "{n, plural, =0 {Ohne Mitarbeiter} one {# Mitarbeiter} other {# Mitarbeiter}}",
