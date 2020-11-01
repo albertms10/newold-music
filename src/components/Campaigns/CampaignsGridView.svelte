@@ -20,11 +20,12 @@
   filteredCount={filteredItems.length}
   bind:searchValue
 >
-  {#each filteredItems as { id, title, description, goal, campaign_contributors_aggregate } (id)}
+  {#each filteredItems as { id, title, description, goal, image_url, campaign_contributors_aggregate } (id)}
     <CampaignGridViewTile
       {id}
       {title}
       {description}
+      avatarUrl={image_url}
       contributorsCount={campaign_contributors_aggregate.aggregate.count}
       progressAmount={campaign_contributors_aggregate.aggregate.sum.quantity}
       progressGoal={goal}
