@@ -19,6 +19,7 @@
   import {
     ContributorsDataTable,
     CampaignProgressBar,
+    CampaignStats,
   } from "components/Campaigns";
   import { PageHeader } from "components/Layout";
   import { WorkGridViewTile } from "components/Works";
@@ -36,8 +37,7 @@
 
 <style>
   .progress-bar {
-    margin-top: 1rem;
-    margin-bottom: 1rem;
+    margin: -2.1rem -2rem 4rem -2rem;
   }
 </style>
 
@@ -51,16 +51,17 @@
   {#if result && result.data && result.data.campaigns_by_pk}
     <PageHeader
       title={result.data.campaigns_by_pk.title}
-      description={result.data.campaigns_by_pk.description}
       goBackRoute="campaigns"
-    />
-
-    <WorkGridViewTile
-      id={result.data.campaigns_by_pk.work.id}
-      title={result.data.campaigns_by_pk.work.title}
-      composers={result.data.campaigns_by_pk.work.work_roled_composers.map(({ roled_composer }) => `${roled_composer.composer.name} ${roled_composer.composer.surname}`)}
-      duration={result.data.campaigns_by_pk.work.duration}
-    />
+      backgroundImageUrl={result.data.campaigns_by_pk.image_url}
+    >
+      <CampaignStats
+        contributorsCount={result.data.campaigns_by_pk.campaign_contributors_aggregate.aggregate.count}
+        progressAmount={result.data.campaigns_by_pk.campaign_contributors_aggregate.aggregate.sum.quantity}
+        progressGoal={result.data.campaigns_by_pk.goal}
+        large
+        light
+      />
+    </PageHeader>
 
     <div class="progress-bar">
       <CampaignProgressBar
@@ -68,6 +69,15 @@
         stops={[result.data.campaigns_by_pk.goal]}
       />
     </div>
+
+    <p>{result.data.campaigns_by_pk.description}</p>
+
+    <WorkGridViewTile
+      id={result.data.campaigns_by_pk.work.id}
+      title={result.data.campaigns_by_pk.work.title}
+      composers={result.data.campaigns_by_pk.work.work_roled_composers.map(({ roled_composer }) => `${roled_composer.composer.name} ${roled_composer.composer.surname}`)}
+      duration={result.data.campaigns_by_pk.work.duration}
+    />
 
     <ContributorsDataTable campaignId={id} />
   {/if}

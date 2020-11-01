@@ -4,6 +4,9 @@
   export let icon: typeof CarbonIcon = undefined;
   export let label: string = undefined;
   export let detail: string = undefined;
+
+  export let large = false;
+  export let light = false;
   export let isHighlighted = false;
 </script>
 
@@ -34,6 +37,19 @@
     color: #000;
   }
 
+  .large .label {
+    font-size: 2rem;
+  }
+
+  .large .detail {
+    font-size: 1.25rem;
+  }
+
+  .light .label,
+  .light .detail {
+    color: #fff;
+  }
+
   .isHighlighted {
     color: #4589ff;
     font-weight: bold;
@@ -48,7 +64,7 @@
 
 <div class="stat">
   <svelte:component this={icon} />
-  <div class="data">
+  <div class="data" class:large class:light>
     <span class="label" class:isHighlighted>{label}</span>
     {#if detail}
       <span class="detail">{detail}</span>
