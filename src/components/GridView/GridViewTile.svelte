@@ -28,22 +28,22 @@
   }
 
   .avatar {
+    overflow: hidden;
+    flex: 1;
     width: calc(100% + 2rem);
     min-height: 8rem;
     margin: -1rem -1rem 1rem;
-    overflow: hidden;
+    background-repeat: no-repeat;
     background-position: center;
     background-position-y: 30%;
-    background-repeat: no-repeat;
     background-size: cover;
-    flex: 1;
   }
 
   .content {
-    height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    height: 100%;
   }
 
   .header {
@@ -51,8 +51,8 @@
   }
 
   .details {
-    color: #777;
     flex: 0;
+    color: #777;
   }
 
   :global(.grid-view-tile .bx--tile--clickable) {
@@ -67,7 +67,7 @@
 
 <svelte:options immutable />
 
-<Column {aspectRatio} {sm} {md} {lg}>
+<Column {aspectRatio} {lg} {md} {sm}>
   <article class="grid-view-tile">
     <ClickableTile {href}>
       <div class="content">

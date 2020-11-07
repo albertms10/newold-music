@@ -16,7 +16,7 @@
   import type { ComposersListQuery } from "database/generated/operations";
   import { _ } from "svelte-i18n";
 
-  export let composersCache: ApolloQueryResult<ComposersListQuery>;
+  export let composersCache: ApolloQueryResult<ComposersListQuery> = undefined;
 </script>
 
 <svelte:head>

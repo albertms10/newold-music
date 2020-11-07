@@ -7,7 +7,7 @@
   import { GridView } from "../GridView";
   import CampaignsGridView from "./CampaignsGridView.svelte";
 
-  export let campaignsCache: ApolloQueryResult<CampaignsListQuery>;
+  export let campaignsCache: ApolloQueryResult<CampaignsListQuery> = undefined;
 
   restore(CampaignsList, { data: campaignsCache.data });
 

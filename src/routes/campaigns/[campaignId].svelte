@@ -27,8 +27,8 @@
   import { query, restore } from "svelte-apollo";
   import { _ } from "svelte-i18n";
 
-  export let campaignCache: ApolloQueryResult<CampaignInfoQuery>;
-  export let id: number;
+  export let campaignCache: ApolloQueryResult<CampaignInfoQuery> = undefined;
+  export let id: number = undefined;
 
   restore(CampaignInfo, { data: campaignCache.data });
 

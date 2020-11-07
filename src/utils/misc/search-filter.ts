@@ -1,6 +1,5 @@
 import dayjs from "dayjs";
-import initials from "../strings/initials";
-import stripAccents from "../strings/strip-accents";
+import { initials, stripAccents } from "../strings";
 
 export interface SearchFilters {
   texts?: (string | undefined)[];

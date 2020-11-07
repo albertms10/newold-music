@@ -7,7 +7,7 @@
   import { GridView } from "../GridView";
   import WorksGridView from "./WorksGridView.svelte";
 
-  export let worksCache: ApolloQueryResult<WorksListQuery>;
+  export let worksCache: ApolloQueryResult<WorksListQuery> = undefined;
 
   restore(WorksList, { data: worksCache.data });
 

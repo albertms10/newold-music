@@ -1,5 +1,4 @@
 <script lang="ts">
-  import { _ } from "svelte-i18n";
   import { truncateString } from "utils/strings";
   import { GridViewTile } from "../GridView";
   import CampaignProgressBar from "./CampaignProgressBar.svelte";
@@ -24,15 +23,15 @@
 </style>
 
 <GridViewTile
-  {title}
-  {avatarUrl}
-  meta={truncateString(description, 82)}
-  href="campaigns/{id}"
   aspectRatio="16x9"
-  sm={4}
-  md={8}
-  lg={8}
+  {avatarUrl}
   hideDetailLine
+  href="campaigns/{id}"
+  lg={8}
+  md={8}
+  meta={truncateString(description, 82)}
+  sm={4}
+  {title}
 >
   <div slot="details">
     <div class="stats">

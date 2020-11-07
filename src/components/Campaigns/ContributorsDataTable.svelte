@@ -5,19 +5,19 @@
   import dayjs from "dayjs";
   import relativeTime from "dayjs/plugin/relativeTime";
   import { query } from "svelte-apollo";
-  import { number, _ } from "svelte-i18n";
+  import { _, number } from "svelte-i18n";
   import { titleCase } from "utils/strings";
 
   dayjs.extend(relativeTime);
 
-  export let campaignId: number;
+  export let campaignId: number = undefined;
 
   const contributors = query<CampaignContributorsListQuery>(
     CampaignContributorsList,
     {
       variables: { id: campaignId },
       pollInterval: 10000,
-    }
+    },
   );
 
   const headersList = ["name", "contribution", "date"] as const;
@@ -44,7 +44,7 @@
     },
   ];
 
-  const headers = headersList.map((header: string, index): Header<string | number> => ({
+  const headers = headersList.map((header: string, index): Header<string | number> => ({
     key: header,
     value: $_(`fields.${header}`),
     ...headersMethods[index],

@@ -10,15 +10,15 @@
   let searchValue: string = "";
 
   $: filteredItems = items.filter((item) =>
-    searchFilter(searchValue, { texts: [item.title] })
+    searchFilter(searchValue, { texts: [item.title] }),
   );
 </script>
 
 <GridView
-  {numerableName}
+  bind:searchValue
   count={items.length}
   filteredCount={filteredItems.length}
-  bind:searchValue
+  {numerableName}
 >
   {#each filteredItems as { id, title, description, goal, image_url, campaign_contributors_aggregate } (id)}
     <CampaignGridViewTile

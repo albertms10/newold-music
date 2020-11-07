@@ -12,15 +12,15 @@
 
 <style>
   .page-header {
-    margin: -2rem -2rem 2rem -2rem;
-    padding: 2rem;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    margin: -2rem -2rem 2rem -2rem;
+    padding: 2rem;
+    border-bottom: 1px solid #eee;
     background-color: #fff;
     background-position: center;
     background-size: cover;
-    border-bottom: 1px solid #eee;
   }
 
   .page-header.light {
@@ -32,10 +32,10 @@
   }
 
   .header {
-    margin-top: 1rem;
-    margin-bottom: 1rem;
     display: flex;
     flex-wrap: wrap;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
   }
 
   .header h1 {
@@ -59,8 +59,8 @@
 
 <div
   class="page-header"
-  class:light={backgroundImageUrl}
   class:large={backgroundImageUrl}
+  class:light={backgroundImageUrl}
   style={backgroundImageUrl ? `background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.7)), url(${backgroundImageUrl})` : ""}
 >
   {#if goBackRoute}

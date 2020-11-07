@@ -7,7 +7,7 @@
   import { GridView } from "../GridView";
   import ComposersGridView from "./ComposersGridView.svelte";
 
-  export let composersCache: ApolloQueryResult<ComposersListQuery>;
+  export let composersCache: ApolloQueryResult<ComposersListQuery> = undefined;
 
   restore(ComposersList, { data: composersCache.data });
 

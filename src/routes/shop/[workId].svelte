@@ -22,7 +22,7 @@
   import { _ } from "svelte-i18n";
   import { timeDuration } from "utils/datetime";
 
-  export let workCache: ApolloQueryResult<WorkInfoQuery>;
+  export let workCache: ApolloQueryResult<WorkInfoQuery> = undefined;
 
   restore(WorkInfo, { data: workCache.data });
 

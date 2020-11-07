@@ -10,15 +10,15 @@
   let searchValue: string = "";
 
   $: filteredItems = items.filter((item) =>
-    searchFilter(searchValue, { texts: [`${item.name} ${item.surname}`] })
+    searchFilter(searchValue, { texts: [`${item.name} ${item.surname}`] }),
   );
 </script>
 
 <GridView
-  {numerableName}
+  bind:searchValue
   count={items.length}
   filteredCount={filteredItems.length}
-  bind:searchValue
+  {numerableName}
 >
   {#each filteredItems as { id, name, surname, roled_composers } (id)}
     <ComposerGridViewTile

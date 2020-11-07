@@ -6,8 +6,8 @@
 
 <style>
   .empty {
-    text-align: center;
     width: 100%;
+    text-align: center;
     color: #777;
   }
 </style>

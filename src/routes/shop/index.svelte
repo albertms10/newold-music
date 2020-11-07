@@ -16,7 +16,7 @@
   import type { WorksListQuery } from "database/generated/operations";
   import { _ } from "svelte-i18n";
 
-  export let worksCache: ApolloQueryResult<WorksListQuery>;
+  export let worksCache: ApolloQueryResult<WorksListQuery> = undefined;
 </script>
 
 <svelte:head>

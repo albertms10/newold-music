@@ -30,4 +30,4 @@
   }
 </script>
 
-<Dropdown items={langs} bind:selectedIndex size="sm" />
+<Dropdown bind:selectedIndex items={langs} size="sm" />

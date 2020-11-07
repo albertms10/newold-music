@@ -19,7 +19,7 @@
   import type { CampaignsListQuery } from "database/generated/operations";
   import { _ } from "svelte-i18n";
 
-  export let campaignsCache: ApolloQueryResult<CampaignsListQuery>;
+  export let campaignsCache: ApolloQueryResult<CampaignsListQuery> = undefined;
 </script>
 
 <svelte:head>

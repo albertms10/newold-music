@@ -11,11 +11,11 @@
   <div class="bx--tooltip__footer">
     <Link href="mission#how-campaigns-work">Llegeix-ne més</Link>
     <Button
-      size="small"
       on:click={() => {
         tooltipOpen = false;
         modalOpen = true;
       }}
+      size="small"
     >
       Enviar proposta
     </Button>

@@ -1,7 +1,7 @@
 <script lang="ts">
   import Analytics20 from "carbon-icons-svelte/lib/Analytics20";
   import Collaborate20 from "carbon-icons-svelte/lib/Collaborate20";
-  import { number, _ } from "svelte-i18n"
+  import { _, number } from "svelte-i18n";
   import { GridViewTileStat, GridViewTileStats } from "../GridView";
 
   export let contributorsCount: number = undefined;
@@ -28,7 +28,7 @@
   />
   <GridViewTileStat
     label={$number(progressAmount, { format: "EUR-int" })}
-    detail="{$_('numerable.of', { values: { n: Math.floor(progressAmount) } })}{$number(progressGoal, { format: "EUR-int" })}"
+    detail="{$_('numerable.of', { values: { n: Math.floor(progressAmount) } })}{$number(progressGoal, { format: 'EUR-int' })}"
     {large}
     {light}
     isHighlighted

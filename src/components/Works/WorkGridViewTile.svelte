@@ -1,6 +1,6 @@
 <script lang="ts">
   import Timer20 from "carbon-icons-svelte/lib/Timer20";
-  import { _ } from 'svelte-i18n';
+  import { _ } from "svelte-i18n";
   import { timeDuration } from "utils/datetime";
   import { GridViewTile, GridViewTileDetail } from "../GridView";
 
@@ -11,13 +11,13 @@
 </script>
 
 <GridViewTile
-  {title}
-  meta={composers.join(', ')}
-  href="shop/{id}"
   aspectRatio="3x4"
-  sm={2}
-  md={2}
+  href="shop/{id}"
   lg={3}
+  md={2}
+  meta={composers.join(', ')}
+  sm={2}
+  {title}
 >
   <div slot="details">
     <GridViewTileDetail

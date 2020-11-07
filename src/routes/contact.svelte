@@ -1,18 +1,24 @@
 <script lang="ts">
-  import {
-    Button,
-    Form,
-    FormGroup,
-    TextArea,
-    TextInput,
-  } from "carbon-components-svelte";
+  import { Button, Form, FormGroup, TextArea, TextInput } from "carbon-components-svelte";
   import { PageHeader } from "components/Layout";
   import { _ } from "svelte-i18n";
-  import { getFormData } from "utils/misc";
+  import { writable } from "svelte/store";
 
-  const handleSubmit = (e: Event) => {
-    const data = getFormData(e.target as HTMLFormElement);
-  };
+  interface Message {
+    name: string;
+    email: string;
+    message: string;
+  }
+
+  const message = writable<Message>({
+    name: undefined,
+    email: undefined,
+    message: undefined,
+  });
+
+  const handleSubmit = () => {
+    console.log($message);
+  }
 </script>
 
 <svelte:head>
@@ -23,18 +29,18 @@
 
 <Form on:submit={handleSubmit}>
   <FormGroup>
-    <TextInput name="name" labelText={$_('fields.name')} required />
+    <TextInput labelText={$_('fields.name')} name="name" required />
   </FormGroup>
   <FormGroup>
     <TextInput
-      name="email"
-      type="email"
       labelText={$_('fields.email')}
+      name="email"
       required
+      type="email"
     />
   </FormGroup>
   <FormGroup>
-    <TextArea name="message" rows={3} labelText={$_('fields.message')} />
+    <TextArea labelText={$_('fields.message')} name="message" rows={3} />
   </FormGroup>
   <Button type="submit">{$_('actions.send')}</Button>
 </Form>

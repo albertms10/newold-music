@@ -21,14 +21,14 @@
   import { query, restore } from "svelte-apollo";
   import { _ } from "svelte-i18n";
 
-  export let composerCache: ApolloQueryResult<ComposerInfoQuery>;
+  export let composerCache: ApolloQueryResult<ComposerInfoQuery> = undefined;
 
   restore(ComposerInfo, { data: composerCache.data });
 
   const composer = query<ComposerInfoQuery>(ComposerInfo);
 
   const getComposerRoledWorks = (
-    roled_composers: ComposerInfoQuery["composers_by_pk"]["roled_composers"]
+    roled_composers: ComposerInfoQuery["composers_by_pk"]["roled_composers"],
   ) => {
     const works = [];
 
@@ -37,7 +37,7 @@
         ...roled_composer.work_roled_composers.map((work_roled_composer) => ({
           ...roled_composer,
           ...work_roled_composer,
-        }))
+        })),
       );
     });
 

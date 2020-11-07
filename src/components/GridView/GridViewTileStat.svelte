@@ -14,22 +14,22 @@
   .stat {
     display: flex;
     align-items: center;
-    min-width: 9rem;
     justify-content: center;
+    min-width: 9rem;
   }
 
   @media (max-width: 425px) {
     .stat {
-      margin-bottom: 1rem;
       justify-content: left;
       width: 100%;
+      margin-bottom: 1rem;
     }
   }
 
   .stat .data {
-    margin-left: 0.5rem;
     display: flex;
     flex-direction: column;
+    margin-left: 0.5rem;
   }
 
   .label {
@@ -51,8 +51,8 @@
   }
 
   .isHighlighted {
-    color: #4589ff;
     font-weight: bold;
+    color: #4589ff;
   }
 
   :global(.stat .bx--tooltip__trigger.bx--tooltip__trigger--definition) {

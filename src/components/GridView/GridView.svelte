@@ -1,6 +1,5 @@
 <script lang="ts">
   import { Grid, Row } from "carbon-components-svelte";
-  import { _ } from "svelte-i18n";
   import { Empty } from "../Layout";
   import { Searchable } from "../Searchable";
 
@@ -20,12 +19,12 @@
 
 <section>
   <Searchable
-    {numerableName}
+    bind:value={searchValue}
     {count}
     {filteredCount}
-    bind:value={searchValue}
     hideInput={count === 0}
     let:countText
+    {numerableName}
   >
     <Grid>
       <Row>

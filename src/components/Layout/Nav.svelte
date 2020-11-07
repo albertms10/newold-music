@@ -18,14 +18,14 @@
 
   $: getAriaCurrent = (route?: string) =>
     getPathnames($page.path)[0] === route ? "page" : undefined;
-    
+
   let winWidth = undefined;
   let isSideNavOpen: boolean;
 
   const BREAKPOINTS = {
     xs: 378,
-    md: 1056
-  }
+    md: 1056,
+  };
 
   const routes = ["campaigns", "mission", "composers", "shop", "contact"];
 </script>
@@ -33,8 +33,8 @@
 <style>
   .platform {
     display: flex;
-    height: 100%;
     align-items: center;
+    height: 100%;
   }
 
   .platform img {
@@ -43,12 +43,12 @@
   }
 
   .actions {
-    width: 100%;
-    padding-right: 1rem;
     display: flex;
-    justify-content: flex-end;
     align-items: center;
     flex: 1;
+    justify-content: flex-end;
+    width: 100%;
+    padding-right: 1rem;
   }
 
   .social {
@@ -87,16 +87,16 @@
 <svelte:window bind:innerWidth={winWidth} />
 
 <Header
+  bind:isSideNavOpen
+  expandedByDefault={false}
   href="."
   uiShellAriaLabel="Main"
-  expandedByDefault={false}
-  bind:isSideNavOpen
 >
   <div slot="skip-to-content">
     <SkipToContent />
   </div>
   <div class="platform" slot="platform">
-    <img src="logo-dark-192.png" alt="Logo" />
+    <img alt="Logo" src="logo-dark-192.png" />
 
     {#if winWidth > BREAKPOINTS.xs}
       <div>Newold Music</div>

@@ -19,21 +19,21 @@
   }
 
   .avatar {
+    overflow: hidden;
+    flex: 1;
     width: calc(100% + 2rem);
     margin: -0.5rem 1rem -0.5rem -0.5rem;
-    overflow: hidden;
+    background-repeat: no-repeat;
     background-position: center;
     background-position-y: 30%;
-    background-repeat: no-repeat;
     background-size: cover;
-    flex: 1;
   }
 
   .content {
-    height: 100%;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    height: 100%;
   }
 
   .header {
@@ -56,7 +56,7 @@
 
 <svelte:options immutable />
 
-<Column {sm} {md} {lg}>
+<Column {lg} {md} {sm}>
   <article class="tag-view-tile">
     <ClickableTile {href}>
       <div class="content">

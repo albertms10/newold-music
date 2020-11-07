@@ -48,12 +48,18 @@
     { value: "2", label: "Solo + Piano" },
     { value: "3", label: "Duo" },
   ];
+
+  const handleSubmit = () => {
+    console.log($proposal);
+
+    notificationShown = true;
+    open = false;
+  };
 </script>
 
 <style>
   .notification {
     --notification-margin: 2rem;
-
     position: absolute;
     top: var(--notification-margin);
     right: var(--notification-margin);
@@ -103,23 +109,18 @@
 
 <Modal
   bind:open
-  modalLabel="Campaigns"
+  hasForm
+  hasScrollingContent
   modalAriaLabel="Campaigns"
   modalHeading="Proposta de campanya"
+  modalLabel="Campaigns"
+  on:click:button--secondary={() => (open = false)}
+  on:close
+  on:open
+  on:submit={handleSubmit}
   primaryButtonText="Enviar"
   secondaryButtonText="Tancar"
   shouldSubmitOnEnter={false}
-  hasScrollingContent
-  hasForm
-  on:click:button--secondary={() => (open = false)}
-  on:open
-  on:close
-  on:submit={() => {
-    console.log($proposal);
-
-    notificationShown = true;
-    open = false;
-  }}
 >
   <Form>
     <hr />
@@ -128,17 +129,17 @@
         <Row>
           <Column>
             <TextInput
-              name="name"
-              labelText="Name"
               bind:value={$proposal.user.name}
+              labelText="Name"
+              name="name"
               required
             />
           </Column>
           <Column>
             <TextInput
-              name="email"
-              labelText="Email"
               bind:value={$proposal.user.email}
+              labelText="Email"
+              name="email"
               required
             />
           </Column>
@@ -149,24 +150,24 @@
     <hr />
     <FormGroup legendText="Campaign">
       <TextInput
-        name="title"
-        labelText="Title"
         bind:value={$proposal.title}
+        labelText="Title"
+        name="title"
         required
       />
     </FormGroup>
     <FormGroup>
       <TextArea
-        name="description"
-        labelText="Description"
         bind:value={$proposal.description}
+        labelText="Description"
+        name="description"
       />
     </FormGroup>
 
     <div class="inline-radio">
       <TileGroup
-        legend="Instrumentation"
         bind:selected={$proposal.instrumentation}
+        legend="Instrumentation"
       >
         {#each instrumentationOptions as { value, label }}
           <RadioTile {value}>{label}</RadioTile>

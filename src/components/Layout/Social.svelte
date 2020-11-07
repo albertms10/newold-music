@@ -39,14 +39,14 @@
 <style>
   .buttons {
     display: flex;
-    justify-content: center;
     flex-wrap: wrap;
+    justify-content: center;
   }
 
   .content {
     display: flex;
-    flex-direction: column;
     align-items: center;
+    flex-direction: column;
   }
 
   .content p {

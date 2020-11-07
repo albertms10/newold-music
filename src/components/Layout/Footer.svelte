@@ -6,8 +6,8 @@
   footer {
     margin-top: 7rem;
     padding: 2rem;
-    border-top: 1px solid #e5e5e5;
     color: #777;
+    border-top: 1px solid #e5e5e5;
   }
 
   h4 {

@@ -5,15 +5,15 @@
   import { tweened } from "svelte/motion";
   import { gcd } from "utils/math";
 
-  export let amount: number;
-  export let stops: number[];
+  export let amount: number = undefined;
+  export let stops: number[] = [];
   export let isSmall = false;
 
   const maxStop = stops[stops.length - 1];
   const progress = amount / maxStop;
 
   const weights = stops.map((stop, index) =>
-    index > 0 ? stop - stops[index - 1] : stop
+    index > 0 ? stop - stops[index - 1] : stop,
   );
 
   const weightsGCD = gcd(...weights);
@@ -36,21 +36,21 @@
   }
 
   .stops div {
+    margin-left: -0.5rem;
+    padding-right: 0.5rem;
     text-align: right;
     border-right: 1px solid #c5c5c5;
-    padding-right: 0.5rem;
-    margin-left: -0.5rem;
   }
 
   .progress-bar {
     height: 1rem;
-    background-color: #eee;
     margin-top: 0.5rem;
+    background-color: #eee;
   }
 
   .progress-bar .bar {
-    height: 1rem;
     width: 100%;
+    height: 1rem;
     background-color: #4589ff;
   }
 
@@ -82,8 +82,8 @@
   <div
     class="progress-bar"
     class:isSmall
-    style="--progress-width: {$width * 100}%"
     on:click|preventDefault
+    style="--progress-width: {$width * 100}%"
   >
     <TooltipDefinition
       direction="top"
