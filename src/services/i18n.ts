@@ -7,7 +7,7 @@ import {
   register,
 } from "svelte-i18n";
 import type { ConfigureOptions } from "svelte-i18n/types/runtime/types";
-import { getCookie, setCookie } from "../modules/cookie.js";
+import { getCookie, setCookie } from "modules/cookie";
 
 const INIT_OPTIONS: ConfigureOptions = {
   fallbackLocale: "en",
@@ -70,9 +70,9 @@ export const i18nMiddleware = () => {
       } else {
         locale = INIT_OPTIONS.initialLocale || INIT_OPTIONS.fallbackLocale;
       }
-    } else if (locale !== currentLocale) {
-      $locale.set(locale);
     }
+
+    if (locale !== currentLocale) $locale.set(locale);
 
     next();
   };
