@@ -1,6 +1,6 @@
 <script lang="ts">
   import { Button, Form, FormGroup, TextArea, TextInput } from "carbon-components-svelte";
-  import { PageHeader } from "components/Layout";
+  import { PageHeader } from "src/components/Layout";
   import { _ } from "svelte-i18n";
   import { writable } from "svelte/store";
 
