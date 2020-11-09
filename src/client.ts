@@ -1,9 +1,9 @@
 import * as sapper from "@sapper/app";
 import "carbon-components-svelte/css/g10.css";
-import { startClient } from "./services/i18n.js";
+import { startI18nClient } from "services/i18n";
 
-startClient();
+startI18nClient();
 
 sapper.start({
-  target: document.getElementById("sapper"),
+  target: document.getElementById("sapper")
 });

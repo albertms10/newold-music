@@ -11,7 +11,6 @@ import { getCookie, setCookie } from "modules/cookie";
 
 const INIT_OPTIONS: ConfigureOptions = {
   fallbackLocale: "en",
-  initialLocale: null,
   loadingDelay: 200,
   formats: {
     number: {
@@ -43,7 +42,7 @@ $locale.subscribe((locale: string) => {
   if (typeof window !== "undefined") setCookie("locale", locale);
 });
 
-export const startClient = () => {
+export const startI18nClient = () => {
   init({
     ...INIT_OPTIONS,
     initialLocale: getCookie("locale") || getLocaleFromNavigator(),
