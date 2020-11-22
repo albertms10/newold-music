@@ -1,4 +1,4 @@
-name: Build Sapper and deploy to GitHub Pages
+name: Build Sapper
 
 on: [push]
 
