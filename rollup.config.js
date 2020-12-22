@@ -47,10 +47,12 @@ export default {
         "process.env.NODE_ENV": JSON.stringify(mode),
       }),
       svelte({
-        hydratable: true,
         emitCss: true,
         preprocess: autoPreprocess(),
-        dev,
+        compilerOptions: {
+          hydratable: true,
+          dev,
+        },
       }),
       aliases,
       resolve({
@@ -104,10 +106,12 @@ export default {
         "process.env.NODE_ENV": JSON.stringify(mode),
       }),
       svelte({
-        generate: "ssr",
-        hydratable: true,
         preprocess: autoPreprocess(),
-        dev,
+        compilerOptions: {
+          generate: "ssr",
+          hydratable: true,
+          dev,
+        },
       }),
       aliases,
       resolve({
