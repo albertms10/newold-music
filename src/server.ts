@@ -6,6 +6,7 @@ import { i18nMiddleware } from "./services/i18n";
 
 const { PORT, NODE_ENV } = process.env;
 
+// @ts-ignore
 polka()
   .use(
     "/",

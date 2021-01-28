@@ -1,5 +1,5 @@
-import type { ServerResponse } from "http";
-import type { Next, Request } from "polka";
+import { getCookie, setCookie } from "modules/cookie";
+import type { RequestHandler } from "sirv";
 import {
   getLocaleFromNavigator,
   init,
@@ -7,7 +7,6 @@ import {
   register,
 } from "svelte-i18n";
 import type { ConfigureOptions } from "svelte-i18n/types/runtime/types";
-import { getCookie, setCookie } from "modules/cookie";
 
 const INIT_OPTIONS: ConfigureOptions = {
   fallbackLocale: "en",
@@ -49,13 +48,13 @@ export const startI18nClient = () => {
   });
 };
 
-export const i18nMiddleware = () => {
+export const i18nMiddleware = (): RequestHandler => {
   const DOCUMENT_REGEX = /^([^.?#@]+)?([?#](.+)?)?$/;
 
   init(INIT_OPTIONS);
 
-  return (req: Request, res: ServerResponse, next: Next) => {
-    const isDocument = DOCUMENT_REGEX.test(req.originalUrl);
+  return (req, res, next?) => {
+    const isDocument = DOCUMENT_REGEX.test(req.url);
 
     if (!isDocument) return next();
 
