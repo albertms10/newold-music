@@ -12,9 +12,11 @@
   {#each items as { roled_composer } (roled_composer.composer.id)}
     <TagViewTile
       title="{roled_composer.composer.name} {roled_composer.composer.surname}"
-      meta={titleCase($_(`terms.${roled_composer.composer_role.role}s`, {
+      meta={titleCase(
+        $_(`terms.${roled_composer.composer_role.role}s`, {
           values: { n: 1 },
-        }))}
+        })
+      )}
       href="composers/{roled_composer.composer.id}"
     />
   {/each}

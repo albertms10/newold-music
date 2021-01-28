@@ -18,7 +18,7 @@
         work.duration,
         timeDuration(work.duration, { defaultText: $_("fields.no duration") }),
       ],
-    }),
+    })
   );
 </script>
 

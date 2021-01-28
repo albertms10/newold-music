@@ -16,9 +16,7 @@
         modalOpen = true;
       }}
       size="small"
-    >
-      Enviar proposta
-    </Button>
+    >Enviar proposta</Button>
   </div>
 </Tooltip>
 

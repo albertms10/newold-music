@@ -28,7 +28,7 @@
   const composer = query<ComposerInfoQuery>(ComposerInfo);
 
   const getComposerRoledWorks = (
-    roled_composers: ComposerInfoQuery["composers_by_pk"]["roled_composers"],
+    roled_composers: ComposerInfoQuery["composers_by_pk"]["roled_composers"]
   ) => {
     const works = [];
 
@@ -37,7 +37,7 @@
         ...roled_composer.work_roled_composers.map((work_roled_composer) => ({
           ...roled_composer,
           ...work_roled_composer,
-        })),
+        }))
       );
     });
 
@@ -46,7 +46,7 @@
 </script>
 
 <svelte:head>
-  <title>{$_('routes.composers')} — Newold Music</title>
+  <title>{$_("routes.composers")} — Newold Music</title>
 </svelte:head>
 
 {#await $composer}
@@ -54,7 +54,8 @@
 {:then result}
   {#if result && result.data && result.data.composers_by_pk}
     <PageHeader
-      title="{result.data.composers_by_pk.name} {result.data.composers_by_pk.surname}"
+      title="{result.data.composers_by_pk.name} {result.data.composers_by_pk
+        .surname}"
       goBackRoute="composers"
     />
 

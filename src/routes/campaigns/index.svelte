@@ -23,10 +23,10 @@
 </script>
 
 <svelte:head>
-  <title>{$_('routes.campaigns')} — Newold Music</title>
+  <title>{$_("routes.campaigns")} — Newold Music</title>
 </svelte:head>
 
-<PageHeader title={$_('routes.campaigns')}>
+<PageHeader title={$_("routes.campaigns")}>
   <div slot="description">
     <CampaignFeedbackTooltip />
   </div>

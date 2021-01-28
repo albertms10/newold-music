@@ -9,12 +9,6 @@
   const dev = process.env.NODE_ENV === "development";
 </script>
 
-<style>
-  .details {
-    margin-bottom: 1rem;
-  }
-</style>
-
 <svelte:head>
   <title>{status} — Newold Music</title>
 </svelte:head>
@@ -29,4 +23,10 @@
   {/if}
 </div>
 
-<Button href={baseUrl}>{$_('actions.go back home')}</Button>
+<Button href={baseUrl}>{$_("actions.go back home")}</Button>
+
+<style>
+  .details {
+    margin-bottom: 1rem;
+  }
+</style>

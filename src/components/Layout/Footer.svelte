@@ -2,6 +2,11 @@
   import Social from "./Social.svelte";
 </script>
 
+<footer>
+  <h4>Newold Music</h4>
+  <Social />
+</footer>
+
 <style>
   footer {
     margin-top: 7rem;
@@ -14,8 +19,3 @@
     margin-bottom: 1rem;
   }
 </style>
-
-<footer>
-  <h4>Newold Music</h4>
-  <Social />
-</footer>

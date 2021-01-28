@@ -10,7 +10,7 @@
   let searchValue: string = "";
 
   $: filteredItems = items.filter((item) =>
-    searchFilter(searchValue, { texts: [`${item.name} ${item.surname}`] }),
+    searchFilter(searchValue, { texts: [`${item.name} ${item.surname}`] })
   );
 </script>
 
@@ -24,7 +24,11 @@
     <ComposerGridViewTile
       {id}
       composer="{name} {surname}"
-      worksCount={roled_composers.reduce((prev, curr) => prev + curr.work_roled_composers_aggregate.aggregate.count, 0)}
+      worksCount={roled_composers.reduce(
+        (prev, curr) =>
+          prev + curr.work_roled_composers_aggregate.aggregate.count,
+        0
+      )}
     />
   {/each}
 </GridView>

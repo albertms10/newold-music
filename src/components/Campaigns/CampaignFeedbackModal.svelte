@@ -20,7 +20,7 @@
   let notificationShown = false;
 
   $: if (notificationShown) {
-    setTimeout(() => notificationShown = false, 4000);
+    setTimeout(() => (notificationShown = false), 4000);
   }
 
   interface Proposal {
@@ -56,45 +56,6 @@
     open = false;
   };
 </script>
-
-<style>
-  .notification {
-    --notification-margin: 2rem;
-    position: absolute;
-    top: var(--notification-margin);
-    right: var(--notification-margin);
-    max-width: calc(100vw - (calc(var(--notification-margin) * 2)));
-  }
-
-  @media (max-width: 425px) {
-    .notification {
-      --notification-margin: 1rem;
-    }
-  }
-
-  :global(.notification .bx--toast-notification) {
-    max-width: 16rem;
-  }
-
-  :global(.bx--tile-group) {
-    position: relative;
-  }
-
-  :global(.inline-radio .bx--tile-group div) {
-    display: flex;
-    flex-wrap: wrap;
-  }
-
-  :global(.inline-radio .bx--tile-group div label) {
-    flex: 1;
-  }
-
-  :global(.bx--modal-container) {
-    position: relative;
-    top: calc(-4rem / 2);
-    height: calc(90% - 4rem);
-  }
-</style>
 
 {#if notificationShown}
   <div class="notification" in:fly={{ x: 200, duration: 500 }} out:fly>
@@ -176,3 +137,42 @@
     </div>
   </Form>
 </Modal>
+
+<style>
+  .notification {
+    --notification-margin: 2rem;
+    position: absolute;
+    top: var(--notification-margin);
+    right: var(--notification-margin);
+    max-width: calc(100vw - (calc(var(--notification-margin) * 2)));
+  }
+
+  @media (max-width: 425px) {
+    .notification {
+      --notification-margin: 1rem;
+    }
+  }
+
+  :global(.notification .bx--toast-notification) {
+    max-width: 16rem;
+  }
+
+  :global(.bx--tile-group) {
+    position: relative;
+  }
+
+  :global(.inline-radio .bx--tile-group div) {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  :global(.inline-radio .bx--tile-group div label) {
+    flex: 1;
+  }
+
+  :global(.bx--modal-container) {
+    position: relative;
+    top: calc(-4rem / 2);
+    height: calc(90% - 4rem);
+  }
+</style>

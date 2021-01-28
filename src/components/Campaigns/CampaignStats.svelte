@@ -16,7 +16,7 @@
   <GridViewTileStat
     icon={Collaborate20}
     label={contributorsCount.toString()}
-    detail={$_('terms.contributors', { values: { n: contributorsCount } })}
+    detail={$_("terms.contributors", { values: { n: contributorsCount } })}
     {large}
     {light}
   />
@@ -28,7 +28,9 @@
   />
   <GridViewTileStat
     label={$number(progressAmount, { format: "EUR-int" })}
-    detail="{$_('numerable.of', { values: { n: Math.floor(progressAmount) } })}{$number(progressGoal, { format: 'EUR-int' })}"
+    detail="{$_('numerable.of', {
+      values: { n: Math.floor(progressAmount) },
+    })}{$number(progressGoal, { format: 'EUR-int' })}"
     {large}
     {light}
     isHighlighted

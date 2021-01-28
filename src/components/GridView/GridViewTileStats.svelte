@@ -1,3 +1,7 @@
+<div>
+  <slot />
+</div>
+
 <style>
   div {
     display: flex;
@@ -6,7 +10,3 @@
     justify-content: space-around;
   }
 </style>
-
-<div>
-  <slot />
-</div>

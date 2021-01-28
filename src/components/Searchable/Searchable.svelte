@@ -32,22 +32,9 @@
   };
 </script>
 
-<style>
-  hr {
-    margin-bottom: 2rem;
-  }
-
-  .count {
-    margin-top: 0.5rem;
-    margin-bottom: 0.5rem;
-    text-align: right;
-    color: #777;
-  }
-</style>
-
 {#if !hideInput}
   <Search
-    placeholder={$_('actions.search')}
+    placeholder={$_("actions.search")}
     size="lg"
     light
     autofocus
@@ -67,3 +54,16 @@
 {/if}
 
 <slot {countText} />
+
+<style>
+  hr {
+    margin-bottom: 2rem;
+  }
+
+  .count {
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    text-align: right;
+    color: #777;
+  }
+</style>

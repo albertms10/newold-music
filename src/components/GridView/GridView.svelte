@@ -10,13 +10,6 @@
   export let searchValue: string = undefined;
 </script>
 
-<style>
-  section {
-    margin-top: 1rem;
-    margin-bottom: 1rem;
-  }
-</style>
-
 <section>
   <Searchable
     bind:value={searchValue}
@@ -37,3 +30,10 @@
     </Grid>
   </Searchable>
 </section>
+
+<style>
+  section {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+</style>

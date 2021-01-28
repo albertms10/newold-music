@@ -17,7 +17,7 @@
     {
       variables: { id: campaignId },
       pollInterval: 10000,
-    },
+    }
   );
 
   const headersList = ["name", "contribution", "date"] as const;
@@ -33,7 +33,11 @@
     [P in typeof headersList[number] | "id"]: string;
   };
 
-  const headersMethods: [Partial<Header<string>>, Partial<Header<number>>, Partial<Header<string>>] = [
+  const headersMethods: [
+    Partial<Header<string>>,
+    Partial<Header<number>>,
+    Partial<Header<string>>
+  ] = [
     {},
     {
       display: (quantity) => $number(quantity, { format: "EUR" }),
@@ -44,18 +48,15 @@
     },
   ];
 
-  const headers = headersList.map((header: string, index): Header<string | number> => ({
-    key: header,
-    value: $_(`fields.${header}`),
-    ...headersMethods[index],
-  }));
+  const headers = headersList.map(
+    (header: string, index): Header<string | number> => ({
+      key: header,
+      value: $_(`fields.${header}`),
+      ...headersMethods[index],
+    })
+  );
 
-  $: mapContributorRow = ({
-    id,
-    user,
-    quantity,
-    created_at,
-  }): Row => ({
+  $: mapContributorRow = ({ id, user, quantity, created_at }): Row => ({
     id,
     name: `${user.name} ${user.surname}`,
     contribution: quantity,
@@ -67,10 +68,12 @@
   <DataTableSkeleton headers={[...headersList]} zebra />
 {:then result}
   <DataTable
-    title={titleCase($_('terms.contributors', { values: { n: 0 } }))}
-    description={$_('descriptions.users list')}
+    title={titleCase($_("terms.contributors", { values: { n: 0 } }))}
+    description={$_("descriptions.users list")}
     {headers}
-    rows={result.data ? result.data.campaigns_contributors.map(mapContributorRow) : []}
+    rows={result.data
+      ? result.data.campaigns_contributors.map(mapContributorRow)
+      : []}
     sortable
     stickyHeader
     zebra

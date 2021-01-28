@@ -44,6 +44,20 @@
   });
 </script>
 
+{#if $isLoadingLocale || ($preloading && $delayedPreloading)}
+  <Loading small />
+{/if}
+
+<div class="content">
+  <Nav />
+
+  <Content>
+    <slot />
+  </Content>
+
+  <Footer />
+</div>
+
 <style>
   .content {
     display: flex;
@@ -61,17 +75,3 @@
     border-top: 1px solid rgba(0, 0, 0, 0.1);
   }
 </style>
-
-{#if $isLoadingLocale || ($preloading && $delayedPreloading)}
-  <Loading small />
-{/if}
-
-<div class="content">
-  <Nav />
-
-  <Content>
-    <slot />
-  </Content>
-
-  <Footer />
-</div>

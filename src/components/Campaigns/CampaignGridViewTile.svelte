@@ -15,13 +15,6 @@
   export let progressGoal: number = undefined;
 </script>
 
-<style>
-  .stats {
-    margin-top: 1rem;
-    margin-bottom: 1rem;
-  }
-</style>
-
 <GridViewTile
   aspectRatio="16x9"
   {avatarUrl}
@@ -41,3 +34,10 @@
     <CampaignProgressBar amount={progressAmount} stops={[progressGoal]} />
   </div>
 </GridViewTile>
+
+<style>
+  .stats {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+</style>

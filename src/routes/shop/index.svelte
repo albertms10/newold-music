@@ -20,9 +20,9 @@
 </script>
 
 <svelte:head>
-  <title>{$_('routes.shop')} — Newold Music</title>
+  <title>{$_("routes.shop")} — Newold Music</title>
 </svelte:head>
 
-<PageHeader title={$_('routes.shop')} />
+<PageHeader title={$_("routes.shop")} />
 
 <LoadWorksGridView bind:worksCache />

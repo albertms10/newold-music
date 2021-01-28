@@ -35,14 +35,8 @@
   const campaign = query<CampaignInfoQuery>(CampaignInfo);
 </script>
 
-<style>
-  .progress-bar {
-    margin: -2.1rem -2rem 4rem -2rem;
-  }
-</style>
-
 <svelte:head>
-  <title>{$_('routes.campaigns')} — Newold Music</title>
+  <title>{$_("routes.campaigns")} — Newold Music</title>
 </svelte:head>
 
 {#await $campaign}
@@ -55,8 +49,10 @@
       backgroundImageUrl={result.data.campaigns_by_pk.image_url}
     >
       <CampaignStats
-        contributorsCount={result.data.campaigns_by_pk.campaign_contributors_aggregate.aggregate.count}
-        progressAmount={result.data.campaigns_by_pk.campaign_contributors_aggregate.aggregate.sum.quantity}
+        contributorsCount={result.data.campaigns_by_pk
+          .campaign_contributors_aggregate.aggregate.count}
+        progressAmount={result.data.campaigns_by_pk
+          .campaign_contributors_aggregate.aggregate.sum.quantity}
         progressGoal={result.data.campaigns_by_pk.goal}
         large
         light
@@ -65,7 +61,8 @@
 
     <div class="progress-bar">
       <CampaignProgressBar
-        amount={result.data.campaigns_by_pk.campaign_contributors_aggregate.aggregate.sum.quantity}
+        amount={result.data.campaigns_by_pk.campaign_contributors_aggregate
+          .aggregate.sum.quantity}
         stops={[result.data.campaigns_by_pk.goal]}
       />
     </div>
@@ -75,10 +72,19 @@
     <WorkGridViewTile
       id={result.data.campaigns_by_pk.work.id}
       title={result.data.campaigns_by_pk.work.title}
-      composers={result.data.campaigns_by_pk.work.work_roled_composers.map(({ roled_composer }) => `${roled_composer.composer.name} ${roled_composer.composer.surname}`)}
+      composers={result.data.campaigns_by_pk.work.work_roled_composers.map(
+        ({ roled_composer }) =>
+          `${roled_composer.composer.name} ${roled_composer.composer.surname}`
+      )}
       duration={result.data.campaigns_by_pk.work.duration}
     />
 
     <ContributorsDataTable campaignId={id} />
   {/if}
 {/await}
+
+<style>
+  .progress-bar {
+    margin: -2.1rem -2rem 4rem -2rem;
+  }
+</style>

@@ -20,9 +20,9 @@
 </script>
 
 <svelte:head>
-  <title>{$_('routes.composers')} — Newold Music</title>
+  <title>{$_("routes.composers")} — Newold Music</title>
 </svelte:head>
 
-<PageHeader title={$_('routes.composers')} />
+<PageHeader title={$_("routes.composers")} />
 
 <LoadComposersGridView bind:composersCache />

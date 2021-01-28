@@ -13,7 +13,7 @@
   const progress = amount / maxStop;
 
   const weights = stops.map((stop, index) =>
-    index > 0 ? stop - stops[index - 1] : stop,
+    index > 0 ? stop - stops[index - 1] : stop
   );
 
   const weightsGCD = gcd(...weights);
@@ -25,6 +25,31 @@
 
   width.set(progress);
 </script>
+
+<div class="progress">
+  {#if stops.length > 1}
+    <div class="stops">
+      {#each stops as stop, index}
+        <div style="flex: {weights[index] / weightsGCD}">
+          {$number(stop, { format: "EUR-int" })}
+        </div>
+      {/each}
+    </div>
+  {/if}
+  <div
+    class="progress-bar"
+    class:isSmall
+    on:click|preventDefault
+    style="--progress-width: {$width * 100}%"
+  >
+    <TooltipDefinition
+      direction="top"
+      tooltipText={$number(amount, { format: "EUR-int" })}
+    >
+      <div class="bar" class:isSmall />
+    </TooltipDefinition>
+  </div>
+</div>
 
 <style>
   .progress {
@@ -68,28 +93,3 @@
     border-bottom: none;
   }
 </style>
-
-<div class="progress">
-  {#if stops.length > 1}
-    <div class="stops">
-      {#each stops as stop, index}
-        <div style="flex: {weights[index] / weightsGCD}">
-          {$number(stop, { format: 'EUR-int' })}
-        </div>
-      {/each}
-    </div>
-  {/if}
-  <div
-    class="progress-bar"
-    class:isSmall
-    on:click|preventDefault
-    style="--progress-width: {$width * 100}%"
-  >
-    <TooltipDefinition
-      direction="top"
-      tooltipText={$number(amount, { format: 'EUR-int' })}
-    >
-      <div class="bar" class:isSmall />
-    </TooltipDefinition>
-  </div>
-</div>

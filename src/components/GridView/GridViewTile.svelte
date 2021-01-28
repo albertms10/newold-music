@@ -1,3 +1,5 @@
+<svelte:options immutable />
+
 <script lang="ts">
   import { ClickableTile, Column } from "carbon-components-svelte";
 
@@ -21,6 +23,36 @@
   export let md = 4;
   export let lg = 4;
 </script>
+
+<Column {aspectRatio} {lg} {md} {sm}>
+  <article class="grid-view-tile">
+    <ClickableTile {href}>
+      <div class="content">
+        <div class="avatar" style="background-image: url({avatarUrl})" />
+        <div class="header">
+          {#if title || $$slots.title}
+            <h3>
+              <slot name="title">{title}</slot>
+            </h3>
+          {/if}
+          {#if meta || $$slots.meta}
+            <p>
+              <slot name="meta">{meta}</slot>
+            </p>
+          {/if}
+        </div>
+        {#if $$slots.details}
+          <div class="details">
+            {#if !hideDetailLine}
+              <hr />
+            {/if}
+            <slot name="details" />
+          </div>
+        {/if}
+      </div>
+    </ClickableTile>
+  </article>
+</Column>
 
 <style>
   article {
@@ -64,35 +96,3 @@
     margin-bottom: 1rem;
   }
 </style>
-
-<svelte:options immutable />
-
-<Column {aspectRatio} {lg} {md} {sm}>
-  <article class="grid-view-tile">
-    <ClickableTile {href}>
-      <div class="content">
-        <div class="avatar" style="background-image: url({avatarUrl})" />
-        <div class="header">
-          {#if title || $$slots.title}
-            <h3>
-              <slot name="title">{title}</slot>
-            </h3>
-          {/if}
-          {#if meta || $$slots.meta}
-            <p>
-              <slot name="meta">{meta}</slot>
-            </p>
-          {/if}
-        </div>
-        {#if $$slots.details}
-          <div class="details">
-            {#if !hideDetailLine}
-              <hr />
-            {/if}
-            <slot name="details" />
-          </div>
-        {/if}
-      </div>
-    </ClickableTile>
-  </article>
-</Column>

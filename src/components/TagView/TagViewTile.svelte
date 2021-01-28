@@ -1,3 +1,5 @@
+<svelte:options immutable />
+
 <script lang="ts">
   import { ClickableTile, Column } from "carbon-components-svelte";
 
@@ -12,6 +14,28 @@
   export let md = 4;
   export let lg = 4;
 </script>
+
+<Column {lg} {md} {sm}>
+  <article class="tag-view-tile">
+    <ClickableTile {href}>
+      <div class="content">
+        <div class="avatar" style="background-image: url({avatarUrl})" />
+        <div class="header">
+          {#if title || $$slots.title}
+            <h4>
+              <slot name="title">{title}</slot>
+            </h4>
+          {/if}
+          {#if meta || $$slots.meta}
+            <p>
+              <slot name="meta">{meta}</slot>
+            </p>
+          {/if}
+        </div>
+      </div>
+    </ClickableTile>
+  </article>
+</Column>
 
 <style>
   article {
@@ -53,27 +77,3 @@
     margin-bottom: 1rem;
   }
 </style>
-
-<svelte:options immutable />
-
-<Column {lg} {md} {sm}>
-  <article class="tag-view-tile">
-    <ClickableTile {href}>
-      <div class="content">
-        <div class="avatar" style="background-image: url({avatarUrl})" />
-        <div class="header">
-          {#if title || $$slots.title}
-            <h4>
-              <slot name="title">{title}</slot>
-            </h4>
-          {/if}
-          {#if meta || $$slots.meta}
-            <p>
-              <slot name="meta">{meta}</slot>
-            </p>
-          {/if}
-        </div>
-      </div>
-    </ClickableTile>
-  </article>
-</Column>

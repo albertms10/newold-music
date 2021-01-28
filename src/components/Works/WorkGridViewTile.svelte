@@ -15,14 +15,14 @@
   href="shop/{id}"
   lg={3}
   md={2}
-  meta={composers.join(', ')}
+  meta={composers.join(", ")}
   sm={2}
   {title}
 >
   <div slot="details">
     <GridViewTileDetail
       icon={Timer20}
-      label={timeDuration(duration, { defaultText: $_('fields.no duration')})}
+      label={timeDuration(duration, { defaultText: $_("fields.no duration") })}
     />
   </div>
 </GridViewTile>

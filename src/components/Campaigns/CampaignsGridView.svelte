@@ -10,7 +10,7 @@
   let searchValue: string = "";
 
   $: filteredItems = items.filter((item) =>
-    searchFilter(searchValue, { texts: [item.title] }),
+    searchFilter(searchValue, { texts: [item.title] })
   );
 </script>
 

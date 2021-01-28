@@ -36,6 +36,50 @@
   ];
 </script>
 
+{#if isSmall}
+  <div>
+    {#each buttons as { icon, iconDescription, href }}
+      <Button
+        kind="secondary"
+        size="small"
+        tooltipPosition="bottom"
+        {icon}
+        {iconDescription}
+        {href}
+      />
+    {/each}
+  </div>
+{:else}
+  <div class="buttons">
+    {#each buttons as { icon, iconDescription, color, href }}
+      <ClickableTile {href} light>
+        <div class="content">
+          {#if iconDescription === "Instagram"}
+            <svg width="0" height="0">
+              <radialGradient id="ig" r="150%" cx="30%" cy="107%">
+                <stop stop-color="#fdf497" offset="0" />
+                <stop stop-color="#fdf497" offset="0.05" />
+                <stop stop-color="#fd5949" offset="0.45" />
+                <stop stop-color="#d6249f" offset="0.6" />
+                <stop stop-color="#285aeb" offset="0.9" />
+              </radialGradient>
+            </svg>
+          {/if}
+          <div class="icon" class:instagram={iconDescription === "Instagram"}>
+            <svelte:component
+              this={icon}
+              style={iconDescription !== "Instagram"
+                ? `color: ${color}`
+                : undefined}
+            />
+          </div>
+          <p>{iconDescription}</p>
+        </div>
+      </ClickableTile>
+    {/each}
+  </div>
+{/if}
+
 <style>
   .buttons {
     display: flex;
@@ -57,46 +101,3 @@
     fill: url(#ig);
   }
 </style>
-
-{#if isSmall}
-  <div>
-    {#each buttons as { icon, iconDescription, href }}
-      <Button
-        kind="secondary"
-        size="small"
-        tooltipPosition="bottom"
-        hasIconOnly
-        {icon}
-        {iconDescription}
-        {href}
-      />
-    {/each}
-  </div>
-{:else}
-  <div class="buttons">
-    {#each buttons as { icon, iconDescription, color, href }}
-      <ClickableTile {href} light>
-        <div class="content">
-          {#if iconDescription === 'Instagram'}
-            <svg width="0" height="0">
-              <radialGradient id="ig" r="150%" cx="30%" cy="107%">
-                <stop stop-color="#fdf497" offset="0" />
-                <stop stop-color="#fdf497" offset="0.05" />
-                <stop stop-color="#fd5949" offset="0.45" />
-                <stop stop-color="#d6249f" offset="0.6" />
-                <stop stop-color="#285aeb" offset="0.9" />
-              </radialGradient>
-            </svg>
-          {/if}
-          <div class="icon" class:instagram={iconDescription === 'Instagram'}>
-            <svelte:component
-              this={icon}
-              style={iconDescription !== 'Instagram' ? `color: ${color}` : undefined}
-            />
-          </div>
-          <p>{iconDescription}</p>
-        </div>
-      </ClickableTile>
-    {/each}
-  </div>
-{/if}

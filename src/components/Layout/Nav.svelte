@@ -30,60 +30,6 @@
   const routes = ["campaigns", "mission", "composers", "shop", "contact"];
 </script>
 
-<style>
-  .platform {
-    display: flex;
-    align-items: center;
-    height: 100%;
-  }
-
-  .platform img {
-    height: 71%;
-    margin-right: 0.5rem;
-  }
-
-  .actions {
-    display: flex;
-    align-items: center;
-    flex: 1;
-    justify-content: flex-end;
-    width: 100%;
-    padding-right: 1rem;
-  }
-
-  .social {
-    margin-right: 1rem;
-  }
-
-  .locale-switcher.nav {
-    width: 8rem;
-  }
-
-  .locale-switcher.side {
-    padding: 1rem;
-  }
-
-  :global(.bx--header) {
-    height: 4rem !important;
-  }
-
-  :global(.bx--header ~ .bx--content) {
-    margin-top: 4rem !important;
-  }
-
-  :global(.bx--side-nav__overlay) {
-    top: 4rem !important;
-  }
-
-  :global(.bx--header__action) {
-    height: 4rem !important;
-  }
-
-  :global(.bx--side-nav--ux) {
-    top: 4rem !important;
-  }
-</style>
-
 <svelte:window bind:innerWidth={winWidth} />
 
 <Header
@@ -144,3 +90,57 @@
     {/if}
   </div>
 </Header>
+
+<style>
+  .platform {
+    display: flex;
+    align-items: center;
+    height: 100%;
+  }
+
+  .platform img {
+    height: 71%;
+    margin-right: 0.5rem;
+  }
+
+  .actions {
+    display: flex;
+    align-items: center;
+    flex: 1;
+    justify-content: flex-end;
+    width: 100%;
+    padding-right: 1rem;
+  }
+
+  .social {
+    margin-right: 1rem;
+  }
+
+  .locale-switcher.nav {
+    width: 8rem;
+  }
+
+  .locale-switcher.side {
+    padding: 1rem;
+  }
+
+  :global(.bx--header) {
+    height: 4rem !important;
+  }
+
+  :global(.bx--header ~ .bx--content) {
+    margin-top: 4rem !important;
+  }
+
+  :global(.bx--side-nav__overlay) {
+    top: 4rem !important;
+  }
+
+  :global(.bx--header__action) {
+    height: 4rem !important;
+  }
+
+  :global(.bx--side-nav--ux) {
+    top: 4rem !important;
+  }
+</style>

@@ -10,6 +10,49 @@
   export let backgroundImageUrl: string = undefined;
 </script>
 
+<div
+  class="page-header"
+  class:large={backgroundImageUrl}
+  class:light={backgroundImageUrl}
+  style={backgroundImageUrl
+    ? `background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.7)), url(${backgroundImageUrl})`
+    : ""}
+>
+  {#if goBackRoute}
+    <div class="back-button">
+      <Button
+        kind={backgroundImageUrl ? "secondary" : "ghost"}
+        size="small"
+        href={goBackRoute}
+      >
+        <svelte:component this={ChevronLeft16} />
+        <p class="label">{$_(`routes.${goBackRoute}`)}</p>
+      </Button>
+    </div>
+  {/if}
+
+  <div>
+    <div class="header">
+      <slot name="title">
+        {#if title}
+          <h1>{title}</h1>
+        {/if}
+      </slot>
+      <div class="action">
+        <slot name="action" />
+      </div>
+    </div>
+
+    <slot name="description">
+      {#if description}
+        <p>{description}</p>
+      {/if}
+    </slot>
+  </div>
+
+  <slot />
+</div>
+
 <style>
   .page-header {
     display: flex;
@@ -56,44 +99,3 @@
     margin-left: -0.5rem;
   }
 </style>
-
-<div
-  class="page-header"
-  class:large={backgroundImageUrl}
-  class:light={backgroundImageUrl}
-  style={backgroundImageUrl ? `background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.7)), url(${backgroundImageUrl})` : ""}
->
-  {#if goBackRoute}
-    <div class="back-button">
-      <Button
-        kind={backgroundImageUrl ? "secondary" : "ghost"}
-        size="small"
-        href={goBackRoute}
-      >
-        <svelte:component this={ChevronLeft16} />
-        <p class="label">{$_(`routes.${goBackRoute}`)}</p>
-      </Button>
-    </div>
-  {/if}
-
-  <div>
-    <div class="header">
-      <slot name="title">
-        {#if title}
-          <h1>{title}</h1>
-        {/if}
-      </slot>
-      <div class="action">
-        <slot name="action" />
-      </div>
-    </div>
-
-    <slot name="description">
-      {#if description}
-        <p>{description}</p>
-      {/if}
-    </slot>
-  </div>
-
-  <slot />
-</div>

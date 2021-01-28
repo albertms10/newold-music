@@ -1,3 +1,5 @@
+<svelte:options immutable />
+
 <script lang="ts">
   import type { CarbonIcon } from "carbon-icons-svelte";
 
@@ -9,6 +11,16 @@
   export let light = false;
   export let isHighlighted = false;
 </script>
+
+<div class="stat">
+  <svelte:component this={icon} />
+  <div class="data" class:large class:light>
+    <span class="label" class:isHighlighted>{label}</span>
+    {#if detail}
+      <span class="detail">{detail}</span>
+    {/if}
+  </div>
+</div>
 
 <style>
   .stat {
@@ -59,15 +71,3 @@
     border-bottom: none;
   }
 </style>
-
-<svelte:options immutable />
-
-<div class="stat">
-  <svelte:component this={icon} />
-  <div class="data" class:large class:light>
-    <span class="label" class:isHighlighted>{label}</span>
-    {#if detail}
-      <span class="detail">{detail}</span>
-    {/if}
-  </div>
-</div>

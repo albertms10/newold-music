@@ -5,17 +5,11 @@
   import { faqs } from "./_faqs.json";
 </script>
 
-<style>
-  h2 {
-    margin-bottom: 2rem;
-  }
-</style>
-
 <svelte:head>
-  <title>{$_('routes.mission')} — Newold Music</title>
+  <title>{$_("routes.mission")} — Newold Music</title>
 </svelte:head>
 
-<PageHeader title={$_('routes.mission')} />
+<PageHeader title={$_("routes.mission")} />
 
 <h2 id="faq">Preguntes freqüents</h2>
 
@@ -24,3 +18,9 @@
     <AccordionItem title={q}>{a}</AccordionItem>
   {/each}
 </Accordion>
+
+<style>
+  h2 {
+    margin-bottom: 2rem;
+  }
+</style>

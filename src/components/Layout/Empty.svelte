@@ -4,6 +4,11 @@
   export let text: string = undefined;
 </script>
 
+<div class="empty">
+  <DataTable32 />
+  <h5>{text}</h5>
+</div>
+
 <style>
   .empty {
     width: 100%;
@@ -11,8 +16,3 @@
     color: #777;
   }
 </style>
-
-<div class="empty">
-  <DataTable32 />
-  <h5>{text}</h5>
-</div>

@@ -22,7 +22,7 @@
         timeDuration(item.duration, { defaultText: $_("fields.no duration") }),
         ...item.work_roled_composers.map(getRoledComposer),
       ],
-    }),
+    })
   );
 </script>
 

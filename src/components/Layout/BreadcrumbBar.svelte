@@ -6,15 +6,15 @@
   export let page: string = undefined;
 </script>
 
-<style>
-  .bar {
-    margin-bottom: 2rem;
-  }
-</style>
-
 <div class="bar">
   <Breadcrumb noTrailingSlash>
     <BreadcrumbItem href={route}>{$_(`routes.${route}`)}</BreadcrumbItem>
     <BreadcrumbItem aria-current="page">{page}</BreadcrumbItem>
   </Breadcrumb>
 </div>
+
+<style>
+  .bar {
+    margin-bottom: 2rem;
+  }
+</style>
