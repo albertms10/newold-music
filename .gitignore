@@ -6,3 +6,4 @@ yarn-error.log
 /__sapper__/
 /.idea/
 /.rpt2_cache/
+/.vscode/
