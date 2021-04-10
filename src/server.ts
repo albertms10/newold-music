@@ -15,6 +15,7 @@ polka()
     i18nMiddleware(),
     sapper.middleware()
   )
+  // @ts-ignore
   .listen(PORT, (err: Error) => {
     if (err) console.log("error", err);
   });
